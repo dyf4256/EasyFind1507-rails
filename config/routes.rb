@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root to: "categories#index"
 
   get "up" => "rails/health#show", as: :rails_health_check
-
-  resources :categories, only: %i[index show]
+  
   resources :recommendations, only: %i[index show update]
 end
