@@ -18,9 +18,9 @@ Restaurant.destroy_all
 Movie.destroy_all
 
 puts "Seed Users..."
-User.create!(email: 'yuefei@hakers.com', password: 'password', first_name: 'Yuefei', last_name: 'Dong')
-User.create!(email: 'declan@hakers.com', password: 'password', first_name: 'Declan', last_name: 'Schindler')
-User.create!(email: 'laurent@hakers.com', password: 'password', first_name: 'Laurent', last_name: 'Lefebvre')
+User.create!(email: 'yuefei@hackers.com', password: 'password', first_name: 'Yuefei', last_name: 'Dong')
+User.create!(email: 'declan@hackers.com', password: 'password', first_name: 'Declan', last_name: 'Schindler')
+User.create!(email: 'laurent@hackers.com', password: 'password', first_name: 'Laurent', last_name: 'Lefebvre')
 puts "Users seed successed!"
 
 puts "Seed Restaurants..."
