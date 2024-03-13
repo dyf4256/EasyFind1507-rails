@@ -17,27 +17,31 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new
     @recommendation.user = current_user
     case params[:type]
-    when 'attraction'
+    when 'Attraction'
       @recommendation.activity = Attraction.order("RANDOM()").first
-      @type = 'attraction'
-    when 'event'
+    when 'Event'
       @recommendation.activity = Event.order("RANDOM()").first
-      @type = 'event'
-    when 'restaurant'
+    when 'Restaurant'
       @recommendation.activity = Restaurant.order("RANDOM()").first
-      @type = 'restaurant'
-    when 'movie'
+    when 'Movie'
       @recommendation.activity = Movie.order("RANDOM()").first
     end
 
     if @recommendation.save
       redirect_to recommendation_path(@recommendation)
     else
-      render :create, status: :unprocessable_entity
+      render root_path, status: :unprocessable_entity
     end
   end
 
   def update
+    @recommendation = Recommendation.find(params[:id])
+    @recommendation.status = params[:status]
+    if @recommendation.save
+      create
+    else
+      render root_path, status: :unprocessable_entity
+    end
   end
 
   private

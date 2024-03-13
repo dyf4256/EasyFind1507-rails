@@ -6,19 +6,19 @@
 
   <div id='landing-page-title' class="">
     <div class='restaurants bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Restaurants', recommendations_path, {method: :post, params: {type: 'restaurant'},form_class: 'home-form' }%>
+      <%= button_to 'Restaurants', recommendations_path, {method: :post, params: {type: 'Restaurant'},form_class: 'home-form' }%>
     </div>
 
     <div class='attractions bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Attractions', recommendations_path, method: :post, params: {type: 'attraction'} %>
+      <%= button_to 'Attractions', recommendations_path, method: :post, params: {type: 'Attraction'} %>
     </div>
 
     <div class='events bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Events', recommendations_path, method: :post, params: {type: 'event'} %>
+      <%= button_to 'Events', recommendations_path, method: :post, params: {type: 'Event'} %>
     </div>
 
     <div class='movies bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Movies', recommendations_path, method: :post, params: {type: 'movie'} %>
+      <%= button_to 'Movies', recommendations_path, method: :post, params: {type: 'Movie'} %>
     </div>
   </div>
 </div>
