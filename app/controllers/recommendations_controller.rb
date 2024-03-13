@@ -3,7 +3,19 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations
   def index
-    @attraction = Attraction.order("RANDOM()").first
+    case params[:type]
+    when 'attraction'
+      @recommendation = Attraction.order("RANDOM()").first
+      @type = 'attraction'
+    when 'event'
+      @recommendation = Event.order("RANDOM()").first
+      @type = 'event'
+    when 'restaurant'
+      @recommendation = Restaurant.order("RANDOM()").first
+      @type = 'restaurant'
+    else
+      @recommendation = nil
+    end
   end
 
   def new

@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :recommendations, only: %i[show new create update]
+  resources :recommendations, only: %i[index show new create update]
 
 end
