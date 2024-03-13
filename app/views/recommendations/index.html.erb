@@ -1,0 +1,11 @@
+<% if @attraction.present? %>
+  <h1>Random Attraction Recommendation</h1>
+  <div>
+    <h2><%= @attraction.name %></h2>
+    <p><%= @attraction.address %></p>
+    <p><img src="<%= @attraction.img %>" alt="<%= @attraction.name %> Image" /></p>
+    <p>Website: <%= link_to @attraction.website, @attraction.website, target: '_blank' %></p>
+  </div>
+<% else %>
+  <p>No attractions available.</p>
+<% end %>
