@@ -2,8 +2,6 @@ class RecommendationsController < ApplicationController
 
   def new
     @recommendation = Recommendation.new
-    @restaurant = Restaurant.first
-    @recommendation.activity = @restaurant
   end
 
   def show
@@ -12,7 +10,15 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    @recommendation = Recommendation.new(recommendation_params)
+    @recommendation = Recommendation.new
+    @activity = Restaurant.all.sample
+    @recommendation.activity = @activity
+    @recommendation.user = current_user
+    if @recommendation.save
+      redirect_to recommendation_path(@recommendation)
+    else
+      raise
+    end
   end
 
   def update
