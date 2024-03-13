@@ -1,0 +1,50 @@
+<div class='container'>
+  <div id='landing-page-header'>
+    <h1 class="border my-3 text-center">EasyFind</h1>
+    <h3 class='text-center my-3 border'>How about this <%= @recommendation.activity.class %></h3>
+  </div>
+
+  <% case @recommendation.activity.class.to_s %>
+    <% when 'Restaurant' %>
+      <div class='recommendation-card'>
+        <p>Name: <%= @recommendation.activity.name %></p>
+        <p>Address: <%= @recommendation.activity.address %></p>
+        <p>Rating: <%= @recommendation.activity.rating %></p>
+        <p>Type: <%= @recommendation.activity.cuisine %></p>
+        <p>Price Level: <%= @recommendation.activity.price_level %></p>
+        <p>Website: <%= @recommendation.activity.website %></p>
+        <p>Open hours: <%= @recommendation.activity.hours %></p>
+      </div>
+      <%= button_to 'Another',recommendations_path, method: :post, params: {type: 'restaurant'} %>
+    <% when 'Event' %>
+      <div class='recommendation-card'>
+        <p>Name: <%= @recommendation.activity.name %></p>
+        <p>Address: <%= @recommendation.activity.address %></p>
+        <p>Rating: <%= @recommendation.activity.date %></p>
+        <p>Type: <%= @recommendation.activity.description %></p>
+        <p>Website: <%= @recommendation.activity.website %></p>
+      </div>
+      <%= button_to 'Another',recommendations_path, method: :post, params: {type: 'event'} %>
+    <% when 'Attraction' %>
+      <div class='recommendation-card'>
+        <p>Name: <%= @recommendation.activity.name %></p>
+        <p>Address: <%= @recommendation.activity.address %></p>
+        <p>Rating: <%= @recommendation.activity.img %></p>
+        <p>Website: <%= @recommendation.activity.website %></p>
+      </div>
+      <%= button_to 'Another',recommendations_path, method: :post, params: {type: 'attraction'} %>
+    <% when 'Movie' %>
+      <div class='recommendation-card'>
+        <p>Name: <%= @recommendation.activity.title %></p>
+        <p>Address: <%= @recommendation.activity.theater_address %></p>
+        <p>Rating: <%= @recommendation.activity.screen_time %></p>
+        <p>Type: <%= @recommendation.activity.poster %></p>
+        <p>Price Level: <%= @recommendation.activity.description %></p>
+        <p>Website: <%= @recommendation.activity.rating %></p>
+        <p>Open hours: <%= @recommendation.activity.genre %></p>
+      </div>
+      <%= button_to 'Another',recommendations_path, method: :post, params: {type: 'movie'} %>
+    <% else %>
+  <% end %>
+  <%= link_to 'Back', root_path, class:'btn btn-primary' %>
+</div>

@@ -1,2 +1,24 @@
-<h1 class="border my-3 text-center">EasyFind</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class='container'>
+  <div id='landing-page-header'>
+    <h1 class="border my-3 text-center">EasyFind</h1>
+    <h3 class='text-center my-3 border'>Click what you want.</h3>
+  </div>
+
+  <div id='landing-page-title' class="">
+    <div class='restaurants bg-secondary border m-2 home-category-card'>
+      <%= button_to 'Restaurants', recommendations_path, {method: :post, params: {type: 'restaurant'},form_class: 'home-form' }%>
+    </div>
+
+    <div class='attractions bg-secondary border m-2 home-category-card'>
+      <%= button_to 'Attractions', recommendations_path, method: :post, params: {type: 'attraction'} %>
+    </div>
+
+    <div class='events bg-secondary border m-2 home-category-card'>
+      <%= button_to 'Events', recommendations_path, method: :post, params: {type: 'event'} %>
+    </div>
+
+    <div class='movies bg-secondary border m-2 home-category-card'>
+      <%= button_to 'Movies', recommendations_path, method: :post, params: {type: 'movie'} %>
+    </div>
+  </div>
+</div>
