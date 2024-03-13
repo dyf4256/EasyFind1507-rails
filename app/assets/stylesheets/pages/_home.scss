@@ -1,1 +1,13 @@
 // Specific CSS for your home-page
+#landing-page-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home-category-card {
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
