@@ -2,6 +2,8 @@ class RecommendationsController < ApplicationController
 
   def new
     @recommendation = Recommendation.new
+    @restaurant = Restaurant.first
+    @recommendation.activity = @restaurant
   end
 
   def show
