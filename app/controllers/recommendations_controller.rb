@@ -33,7 +33,7 @@ class RecommendationsController < ApplicationController
     if @recommendation.save
       redirect_to recommendation_path(@recommendation)
     else
-      raise
+      render :create, status: :unprocessable_entity
     end
   end
 
