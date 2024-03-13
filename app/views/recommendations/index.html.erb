@@ -1,0 +1,29 @@
+<h1>Random Recommendation</h1>
+
+<% if @recommendation.present? %>
+  <% case @type %>
+  <% when 'attraction' %>
+    <h2>Attraction: <%= @recommendation.name %></h2>
+    <p><%= @recommendation.address %></p>
+    <p><img src="<%= @recommendation.img %>" alt="<%= @recommendation.name %> Image" style="max-width: 200px;" /></p>
+    <p>Website: <%= link_to @recommendation.website, @recommendation.website, target: '_blank' %></p>
+
+  <% when 'event' %>
+    <h2>Event: <%= @recommendation.name %></h2>
+    <p><%= @recommendation.address %></p>
+    <p>Date: <%= @recommendation.date %></p>
+    <p>Description: <%= @recommendation.description %></p>
+    <p>Website: <%= link_to @recommendation.website, @recommendation.website, target: '_blank' %></p>
+
+  <% when 'restaurant' %>
+    <h2>Restaurant: <%= @recommendation.name %></h2>
+    <p><%= @recommendation.address %></p>
+    <p>Cuisine: <%= @recommendation.cuisine %></p>
+    <p>Rating: <%= @recommendation.rating %></p>
+    <p>Price Level: <%= @recommendation.price_level %></p>
+    <p>Website: <%= link_to @recommendation.website, @recommendation.website, target: '_blank' %></p>
+
+  <% end %>
+<% else %>
+  <p>No recommendation available. Please choose a category.</p>
+<% end %>

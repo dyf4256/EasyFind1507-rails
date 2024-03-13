@@ -1,4 +1,22 @@
 class RecommendationsController < ApplicationController
+  before_action :set_attraction, only: %i[show]
+
+  # GET /recommendations
+  def index
+    case params[:type]
+    when 'attraction'
+      @recommendation = Attraction.order("RANDOM()").first
+      @type = 'attraction'
+    when 'event'
+      @recommendation = Event.order("RANDOM()").first
+      @type = 'event'
+    when 'restaurant'
+      @recommendation = Restaurant.order("RANDOM()").first
+      @type = 'restaurant'
+    else
+      @recommendation = nil
+    end
+  end
 
   def new
     @recommendation = Recommendation.new
@@ -22,10 +40,13 @@ class RecommendationsController < ApplicationController
   end
 
   def update
-
   end
 
   private
+
+  def set_attraction
+    @attraction = Attraction.find(params[:id])
+  end
 
   def recommendation_params
     params.require(:recommendation).permit(:status)
