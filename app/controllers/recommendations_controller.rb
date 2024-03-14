@@ -13,6 +13,10 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.find(params[:id])
   end
 
+  def details
+    @recommendation = Recommendation.find(params[:id])
+  end
+
   def create
     @recommendation = Recommendation.new
     @recommendation.user = current_user
@@ -38,7 +42,11 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.find(params[:id])
     @recommendation.status = params[:status]
     if @recommendation.save
-      create
+      if @recommendation.rejected?
+        create
+      else
+        redirect_to details_path(@recommendation)
+      end
     else
       render root_path, status: :unprocessable_entity
     end
