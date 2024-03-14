@@ -2,7 +2,8 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations
   def index
-
+    @recommendations = Recommendation.where(status: 'accepted')
+    @recommendations = @recommendations.where(user: current_user)
   end
 
   def new

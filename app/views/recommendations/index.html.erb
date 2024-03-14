@@ -1,29 +1,15 @@
-<h1>Random Recommendation</h1>
+<div class='profile-buttons d-flex flex-row justify-content-around mt-5 border-bottom pb-3'>
+  <%= link_to 'Favourited', '#', class: 'btn btn-outline-secondary col-4'%>
+  <%= link_to 'Selected', '#', class: 'btn btn-outline-success col-4'%>
+  <%= link_to 'Saved', '#', class: 'btn btn-outline-secondary col-4'%>
+</div>
 
-<% if @recommendation.present? %>
-  <% case @type %>
-  <% when 'attraction' %>
-    <h2>Attraction: <%= @recommendation.name %></h2>
-    <p><%= @recommendation.address %></p>
-    <p><img src="<%= @recommendation.img %>" alt="<%= @recommendation.name %> Image" style="max-width: 200px;" /></p>
-    <p>Website: <%= link_to @recommendation.website, @recommendation.website, target: '_blank' %></p>
-
-  <% when 'event' %>
-    <h2>Event: <%= @recommendation.name %></h2>
-    <p><%= @recommendation.address %></p>
-    <p>Date: <%= @recommendation.date %></p>
-    <p>Description: <%= @recommendation.description %></p>
-    <p>Website: <%= link_to @recommendation.website, @recommendation.website, target: '_blank' %></p>
-
-  <% when 'restaurant' %>
-    <h2>Restaurant: <%= @recommendation.name %></h2>
-    <p><%= @recommendation.address %></p>
-    <p>Cuisine: <%= @recommendation.cuisine %></p>
-    <p>Rating: <%= @recommendation.rating %></p>
-    <p>Price Level: <%= @recommendation.price_level %></p>
-    <p>Website: <%= link_to @recommendation.website, @recommendation.website, target: '_blank' %></p>
-
+<!-- -->
+<div class='selected-history-container'>
+  <% @recommendations.each do |recommendation| %>
+    <div class='selected-card border border-warning m-3 d-flex flex-column text-center'>
+      <%= image_tag 'selected1.png', height:100 %>
+      <%= recommendation.activity_type == 'Movie' ? recommendation.activity.title : recommendation.activity.name %>
+    </div>
   <% end %>
-<% else %>
-  <p>No recommendation available. Please choose a category.</p>
-<% end %>
+</div>
