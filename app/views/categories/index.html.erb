@@ -1,24 +1,30 @@
 <div class='container'>
-  <div id='landing-page-header'>
-    <h1 class="border my-3 text-center">EasyFind</h1>
-    <h3 class='text-center my-3 border'>Click what you want.</h3>
+  <div id='landing-page-header' class=''>
+    <h1 class="mt-3 mb-0 mainText">Find something</h1>
+    <div class="secondText">
+    <h1 class=" mainText">in</h1>
+      <select id="city">
+        <option value="Montreal">Montreal</option>
+        <option value="Coming Soon...">Coming Soon...</option>
+      </select>
+    </div>
   </div>
 
   <div id='landing-page-title' class="">
-    <div class='restaurants bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Restaurants', recommendations_path, {method: :post, params: {type: 'Restaurant'},form_class: 'home-form' }%>
+    <div class='restaurants border home-category-card'>
+      <%= button_to 'Restaurants', recommendations_path, method: :post, params: {type: 'Restaurant'},class: 'home-button' %>
     </div>
 
-    <div class='attractions bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Attractions', recommendations_path, method: :post, params: {type: 'Attraction'} %>
+    <div class='attractions  border home-category-card'>
+      <%= button_to 'Attractions', recommendations_path, method: :post, params: {type: 'Attraction'},class: "home-button" %>
     </div>
 
-    <div class='events bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Events', recommendations_path, method: :post, params: {type: 'Event'} %>
+    <div class='events  border home-category-card'>
+      <%= button_to 'Events', recommendations_path, method: :post, params: {type: 'Event'},class: "home-button" %>
     </div>
 
-    <div class='movies bg-secondary border m-2 home-category-card'>
-      <%= button_to 'Movies', recommendations_path, method: :post, params: {type: 'Movie'} %>
+    <div class='movies  border home-category-card'>
+      <%= button_to 'Movies', recommendations_path, method: :post, params: {type: 'Movie'},class: "home-button" %>
     </div>
   </div>
 </div>

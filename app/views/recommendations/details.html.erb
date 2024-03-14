@@ -1,0 +1,28 @@
+<div class='container'>
+  <div id='landing-page-header'>
+    <h1 class="border my-3 text-center">EasyFind</h1>
+    <%= link_to 'Back to Categories', categories_path, class:'btn btn-primary mx-1 my-2' %>
+  </div>
+    <h3 class='text-center my-3 border'><%= @recommendation.activity.class %></h3>
+
+  <div class='recommendation-container' data-controller='activity'>
+    <% case @recommendation.activity.class.to_s %>
+      <% when 'Restaurant' %>
+        <%= render 'recommendations/details/restaurant', recommendation: @recommendation %>
+      <% when 'Event' %>
+        <%= render 'recommendations/details/event', recommendation: @recommendation %>
+      <% when 'Attraction' %>
+        <%= render 'recommendations/details/attraction', recommendation: @recommendation %>
+      <% when 'Movie' %>
+        <%= render 'recommendations/details/movie', recommendation: @recommendation %>
+      <% else %>
+    <% end %>
+    <% if !@recommendation.accepted?%>
+      <div data-activity-target='details_buttons' class='d-flex flex-row'>
+        <%= button_to 'Go Back', recommendation_path(@recommendation), method: :get, class: 'btn btn-warning mx-1' %>
+        <%= render 'button_another', recommendation: @recommendation%>
+        <%= button_to 'Accept', recommendation_path(@recommendation), method: :patch, params: {type: @recommendation.activity.class, status: 'accepted'}, class: 'btn btn-success mx-1'%>
+      </div>
+    <% end %>
+  </div>
+</div>
