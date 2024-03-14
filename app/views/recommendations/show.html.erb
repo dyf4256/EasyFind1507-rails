@@ -8,49 +8,13 @@
   <div class='recommendation-container' data-controller='activity'>
     <% case @recommendation.activity.class.to_s %>
       <% when 'Restaurant' %>
-        <div class='recommendation-card'>
-          <p>Name: <%= @recommendation.activity.name %></p>
-          <p>Photo: <%= @recommendation.activity.photo %></p>
-          <p>Rating: <%= @recommendation.activity.rating %></p>
-          <p>Price Level: <%= @recommendation.activity.price_level %></p>
-          <p>Type: <%= @recommendation.activity.cuisine %></p>
-          <div class='d-none'>
-            <p>Website: <%= @recommendation.activity.website %></p>
-            <p>Address: <%= @recommendation.activity.address %></p>
-            <p>Open hours: <%= @recommendation.activity.hours %></p>
-          </div>
-        </div>
+        <%= render 'recommendations/basic/restaurant', recommendation: @recommendation %>
       <% when 'Event' %>
-        <div class='recommendation-card'>
-          <p>Name: <%= @recommendation.activity.name %></p>
-          <p>Date: <%= @recommendation.activity.date %></p>
-          <p>Description: <%= @recommendation.activity.description %></p>
-          <div class='d-none'>
-            <p>Address: <%= @recommendation.activity.address %></p>
-            <p>Website: <%= @recommendation.activity.website %></p>
-          </div>
-        </div>
+        <%= render 'recommendations/basic/event', recommendation: @recommendation %>
       <% when 'Attraction' %>
-        <div class='recommendation-card'>
-          <p>Name: <%= @recommendation.activity.name %></p>
-          <p>Address: <%= @recommendation.activity.address %></p>
-          <p>Photo: <%= @recommendation.activity.img %></p>
-          <div class='d-none'>
-            <p>Website: <%= @recommendation.activity.website %></p>
-          </div>
-        </div>
+        <%= render 'recommendations/basic/attraction', recommendation: @recommendation %>
       <% when 'Movie' %>
-        <div class='recommendation-card'>
-          <p>Name: <%= @recommendation.activity.title %></p>
-          <p>Poster: <%= @recommendation.activity.poster %></p>
-          <p>Description: <%= @recommendation.activity.description %></p>
-          <div class='d-none'>
-            <p>Screen_time: <%= @recommendation.activity.screen_time %></p>
-            <p>Therter: <%= @recommendation.activity.theater_address %></p>
-            <p>Rating: <%= @recommendation.activity.rating %></p>
-            <p>Genre: <%= @recommendation.activity.genre %></p>
-          </div>
-        </div>
+        <%= render 'recommendations/basic/movie', recommendation: @recommendation %>
       <% else %>
     <% end %>
     <div class='d-flex flex-row'>
