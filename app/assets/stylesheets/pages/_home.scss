@@ -11,3 +11,33 @@
   flex-wrap: wrap;
   align-content: center;
 }
+
+.under-margin-less {
+  margin-bottom: 30px;
+}
+
+.under-margin {
+  margin-bottom: 70px;
+}
+
+.under-margin-more {
+  margin-bottom: 80px;
+}
+
+.button-yellow {
+  text-decoration: none;
+  background-color: #FFD76B;
+  color: black;
+  // font-weight: bold;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 25px;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.size-32 {
+  font-size: 32px;
+}
