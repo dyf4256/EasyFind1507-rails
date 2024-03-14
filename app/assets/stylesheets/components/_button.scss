@@ -4,3 +4,43 @@
   border: 1px;
   background-color: transparent;
 }
+
+
+.hover-button {
+  display: flex;
+  background-color: rgba($color: #D9D9D9, $alpha: 1.0);
+  align-items: center;
+  height: 65px;
+  border-radius: 50px;
+}
+
+
+#reject {
+  border-radius: 50px;
+  background-color: white;
+  color: #F24C65;
+  height: 58px;
+  padding: 19px;
+  margin-right: 0px;
+  font-size: x-large;
+}
+
+#accept {
+  border-radius: 50px;
+  background-color: white;
+  color: #3CDBA7;
+  height: 58px;
+  padding: 18px;
+  margin-left: 10px;
+  font-size: x-large;
+  margin-left: 0px;
+}
+
+#more {
+  border-radius: 50px;
+  background-color: white;
+  color: #FFD76B;
+  height: 43px;
+  padding: 12px;
+  font-size: larger;
+}
