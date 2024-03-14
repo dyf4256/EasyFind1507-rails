@@ -1,48 +1,12 @@
-/* Custom SCSS adjustments for dropdown positioning and alignment */
-
 .navbar-lewagon {
   justify-content: space-between;
-  background: #FFD76B;
-  padding: 10px 20px;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  height: 40px;
-}
-
-.avatar {
   width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid white;
-  transition: transform 0.2s ease-in-out;
-}
-
-.avatar:hover {
-  transform: scale(1.1);
-}
-
-.dropdown-menu {
-  border-radius: 0.25rem;
-  margin-top: 0px; // Reset or adjust based on your layout
-  margin-right: 25px;
-  transform: translate(0, -10px); // Increase upward translation for closer positioning
-  right: 0; // Ensure it aligns to the right edge of its container
-}
-
-.dropdown-item {
-  color: #333;
-  &:hover {
-    background-color: #f8f9fa;
-  }
-}
-
-.dropdown-toggle::after {
-  display: none;
-}
-
-.nav-item.dropdown {
-  align-items: center;
-  display: flex;
-  position: relative; // Ensure dropdown aligns within the nav item context
 }
