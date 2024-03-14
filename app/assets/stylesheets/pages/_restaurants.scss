@@ -1,0 +1,12 @@
+.activity-photo {
+  border-radius: 15px; /* Rounded corners */
+  max-height: 250px; /* Maximum height */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the area, may crop */
+  margin-bottom: 15px; /* Add some space below the image */
+}
+.review-stars .star {
+  width: 20px; /* Adjust based on your star image size */
+  height: auto;
+  display: inline-block;
+}
