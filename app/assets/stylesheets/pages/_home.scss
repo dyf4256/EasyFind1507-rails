@@ -51,6 +51,60 @@
   font-size: 32px;
 }
 
+
+// .carousel-image-container {
+//   position: relative;
+//   width: 100%; /* Adjust to the width of the container or desired width */
+//   height: 200px; /* Adjust based on your SVG size, ensure it's tall enough */
+//   display: flex; /* Using flex to center the content */
+//   justify-content: center; /* Center horizontally */
+//   align-items: center; /* Center vertically */
+//   overflow: hidden; /* Prevents any overflow from being visible */
+// }
+
+// .carousel-image {
+//   transition: opacity 2s ease-in-out;
+//   position: absolute;
+//   opacity: 0;
+//   max-width: 100%; /* Ensures the image is responsive and fits its container */
+//   max-height: 100%; /* Adjusts the image's height to fit within the container */
+//   display: block; /* Treats the image as a block-level element, enabling better control of spacing */
+// }
+
+// /* Ensure the first image is visible on load */
+// .carousel-image:first-child {
+//   opacity: 1;
+// }
+
+// .carousel-image-container {
+//   position: relative;
+//   width: 100%; /* Adjust based on the desired width of your carousel */
+//   height: 200px; /* Adjust based on the height of your SVGs */
+//   overflow: hidden;
+// }
+
+// .carousel-image {
+//   position: absolute;
+//   top: 0;
+//   left: 100%; /* Start off-screen to the right */
+//   transition: left 1s ease-out;
+// }
+.carousel-image-container {
+  position: relative;
+  height: 100px; /* Adjust based on the height of your SVGs */
+  overflow: hidden;
+  /* Set a specific width if your SVGs have a consistent size */
+  width: 100px; /* Example: Adjust this to match your SVG width */
+  margin-left: 30px;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0; /* Align to the top of the container */
+  /* Remove the left: 100%; property if not needed based on JS positioning logic */
+  transition: left 1s ease-out;
+}
+
 .mainText {
   font-size: xxx-large;
   font-weight: 900;
@@ -61,4 +115,5 @@
 .secondText {
   display: flex;
   align-items: center;
+
 }
