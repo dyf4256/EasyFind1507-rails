@@ -40,9 +40,9 @@
         <%= render 'recommendations/basic/movie', recommendation: @recommendation %>
       <% else %>
     <% end %>
-    <div class='d-flex flex-row'>
-      <%= render 'button_another', recommendation: @recommendation%>
-      <%= link_to 'More info', details_path(@recommendation), class: 'btn btn-warning mx-1 ' %>
+    <div class='d-flex flex-row justify-content-center'>
+      <%= render 'buttons', recommendation: @recommendation%>
+
     </div>
   </div>
 </div>
