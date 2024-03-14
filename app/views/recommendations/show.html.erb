@@ -13,10 +13,10 @@
           <p>Photo: <%= @recommendation.activity.photo %></p>
           <p>Rating: <%= @recommendation.activity.rating %></p>
           <p>Price Level: <%= @recommendation.activity.price_level %></p>
-          <p>Website: <%= @recommendation.activity.website %></p>
+          <p>Type: <%= @recommendation.activity.cuisine %></p>
           <div class='d-none'>
+            <p>Website: <%= @recommendation.activity.website %></p>
             <p>Address: <%= @recommendation.activity.address %></p>
-            <p>Type: <%= @recommendation.activity.cuisine %></p>
             <p>Open hours: <%= @recommendation.activity.hours %></p>
           </div>
         </div>
@@ -58,5 +58,5 @@
       <%= link_to 'More info', details_path(@recommendation), class: 'btn btn-warning mx-1 ' %>
     </div>
   </div>
-  <%= link_to 'Back', root_path, class:'btn btn-primary mx-1 my-2' %>
+  <%= link_to 'Back to Home', categories_path, class:'btn btn-primary mx-1 my-2' %>
 </div>
