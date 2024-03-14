@@ -6,10 +6,15 @@
 
 <!-- -->
 <div class='selected-history-container'>
-  <% @recommendations.each do |recommendation| %>
-    <div class='selected-card border border-warning m-3 d-flex flex-column text-center'>
-      <%= image_tag 'selected1.png', height:100 %>
-      <%= recommendation.activity_type == 'Movie' ? recommendation.activity.title : recommendation.activity.name %>
-    </div>
+  <% if @recommendations.length > 0 %>
+    <% @recommendations.each do |recommendation| %>
+      <div class='selected-card border border-warning m-3 d-flex flex-column text-center'>
+        <%= image_tag 'selected1.png', height:100 %>
+        <%= recommendation.activity_type == 'Movie' ? recommendation.activity.title : recommendation.activity.name %>
+      </div>
+    <% end %>
+  <% else %>
+    <h3>No recommendations selected. Go to find some?</h3>
+    <%= link_to 'Find it!', categories_path, class:'btn btn-primary mx-1 my-2' %>
   <% end %>
 </div>
