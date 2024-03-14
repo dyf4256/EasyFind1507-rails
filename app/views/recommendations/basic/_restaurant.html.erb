@@ -1,5 +1,13 @@
 <div class='recommendation-card'>
-  <p>Name: <%= recommendation.activity.name %></p>
+  <%# <div class="mb-5 mt-4"> %>
+    <%# <div class="d-flex"> %>
+      <%# <%= image_tag "back.png", alt: "Back" %>
+      <%# <h5 class="before-margin">Restaurants</h5> %>
+    <%# </div> %>
+    <%# <hr class="custom-hr"> %>
+  <%# </div> %>
+  <div class="d-flex flex-column justify-content-center align-items-center w-100">
+  <h1 style="font-weight: bold;"><%= recommendation.activity.name %></h1>
   <p>Photo: <%= recommendation.activity.photo %></p>
   <p>Rating: <%= recommendation.activity.rating %></p>
   <p>Price Level: <%= recommendation.activity.price_level %></p>
@@ -8,5 +16,6 @@
     <p>Website: <%= recommendation.activity.website %></p>
     <p>Address: <%= recommendation.activity.address %></p>
     <p>Open hours: <%= recommendation.activity.hours %></p>
+  </div>
   </div>
 </div>

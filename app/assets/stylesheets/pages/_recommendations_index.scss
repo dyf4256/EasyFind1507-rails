@@ -2,3 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.before-margin {
+  margin-left: 90px;
+}
+
+.custom-hr {
+  position: absolute; /* or 'fixed' depending on the use case */
+  width: 200%;
+  z-index: 1000000000000; /* a trillion */
+  left: -50%; /* to center it if width is 200% */
+}
