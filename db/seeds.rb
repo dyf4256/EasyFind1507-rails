@@ -27,6 +27,13 @@ puts "Seed Restaurants..."
 Restaurant.create!(name: 'Buger de Ville', address: '5282 St Laurent Blvd, Montreal, Quebec H2T 1S5', rating: 4.3, cuisine: 'Burger', price_level: '$' * rand(3), website: 'Soon...', hours: '7-11', photo: 'restaurants_burger.jpg')
 Restaurant.create!(name: 'In Gamba', address: '71 St Viateur St. E, Montreal, Quebec H2T 1A7', rating: 4.6, cuisine: 'Cafe', price_level: '$$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_coffe.jpg')
 Restaurant.create!(name: 'Chez Claudette', address: '351 Laurier Ave E, Montreal, Quebec H2T 1G7', rating: 4.4, cuisine: 'poutine', price_level: '$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_fries.jpg')
+Restaurant.create!(name: 'Mile End Grill', address: '100 Rue Saint-Viateur O, Montréal, QC H2T 2L1', rating: 4.3, cuisine: 'Portuguese', price_level: '$$', website: 'http://www.mileendgrill.com/', hours: '7-11', photo: 'res4.jpg')
+Restaurant.create!(name: 'Restaurant Salonica', address: '5261 Saint Denis St, Montreal, Quebec H2J 2L8', rating: 3.2, cuisine: 'Pizza', price_level: '$', website: 'http://www.restaurantsalonica.com/', hours: '7-11', photo: 'res5.jpg')
+Restaurant.create!(name: 'Restaurant Mont-Royal Hot Dog', address: '1001 Mont-Royal Ave E, Montreal, Quebec H2J 1X7', rating: 3.8, cuisine: 'Fast food', price_level: '$', website: 'http://mont-royalhotdog.com/', hours: '7-11', photo: 'res6.jpg')
+Restaurant.create!(name: 'Le Bay Cà Phê', address: '5263 St Laurent Blvd, Montreal, Quebec H2T 1S4', rating: 4.5, cuisine: 'Vietnamese', price_level: '$$', website: 'https://www.lebaycaphe.com/', hours: '7-11', photo: 'res7.jpg')
+Restaurant.create!(name: 'Drogheria Fine', address: '68 Av. Fairmount O, Montréal, QC H2T 2M2', rating: 4.5, cuisine: 'Italian', price_level: '$$', website: 'http://www.lasalsadellanonna.com/', hours: '7-11', photo: 'res8.jpg')
+Restaurant.create!(name: 'Restaurant Boustan', address: '5151 Park Ave, Montreal, Quebec H2V 4G3', rating: 4.4, cuisine: 'Lebanese', price_level: '$', website: 'https://boustan.ca/', hours: '7-11', photo: 'res9.jpg')
+Restaurant.create!(name: 'Falafel Yoni', address: '54 Rue Saint-Viateur O, Montréal, QC H2T 2K8', rating: 4.7, cuisine: 'Falafel', price_level: '$', website: 'https://www.falafelyoni.com/', hours: '7-11', photo: 'res10.jpg')
 puts "Restaurants seed successed!"
 
 puts "Seed Attractions..."
