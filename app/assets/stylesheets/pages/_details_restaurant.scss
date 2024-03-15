@@ -1,0 +1,28 @@
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: xxx-large;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: xx-large;
+
+  li {
+    font-weight: normal;
+    font-size: large;
+    list-style-type: none;
+  }
+}
+
+.address {
+  padding-right: 90px;
+
+  h2 {
+    margin-bottom: 2px;
+  }
+
+  p {
+    padding-left: 32px;
+  }
+}
