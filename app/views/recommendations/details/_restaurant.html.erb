@@ -1,10 +1,35 @@
 <div class='recommendation-card'>
-  <p>Name: <%= recommendation.activity.name %></p>
-  <p>Photo: <%= recommendation.activity.photo %></p>
+  <h1 class="title mt-2"><%= recommendation.activity.name %></h1>
+
+  <div class="d-flex pt-4">
+    <p><%= recommendation.activity.photo %></p>
+    <h2 class="">Cuisine
+      <ul>
+        <li class="py-2">
+          <%= recommendation.activity.cuisine %>
+        </li>
+      </ul>
+    </h2>
+  </div>
+
+  <h2>Price Level: <%= recommendation.activity.price_level %></h2>
+
   <p>Rating: <%= recommendation.activity.rating %></p>
-  <p>Price Level: <%= recommendation.activity.price_level %></p>
-  <p>Type: <%= recommendation.activity.cuisine %></p>
-  <p>Website: <%= recommendation.activity.website %></p>
-  <p>Address: <%= recommendation.activity.address %></p>
-  <p>Open hours: <%= recommendation.activity.hours %></p>
+
+  <h2>Hours Open
+    <ul>
+      <li class="">
+        <%= recommendation.activity.hours %>
+      </li>
+    </ul>
+  </h2>
+
+
+  <p><%= recommendation.activity.website %></p>
+
+  <div class="address">
+    <h2>Address</h2>
+    <p><%= recommendation.activity.address %></p>
+  </div>
+
 </div>
