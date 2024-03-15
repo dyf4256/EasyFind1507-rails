@@ -3,8 +3,8 @@
   <div class='history-by-category'>
     <% events.each do |event| %>
       <%= link_to details_path(event) do %>
-        <div class='selected-card m-2 d-flex flex-column text-center'>
-          <%= image_tag 'selected1.png', height:100 %>
+        <div class='selected-card'>
+          <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
           <%= event.activity.name %>
         </div>
       <% end %>
