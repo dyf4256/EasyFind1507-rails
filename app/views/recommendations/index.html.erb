@@ -1,19 +1,25 @@
 <div data-controller='profile'>
-  <div class='profile-buttons d-flex flex-row justify-content-around mt-5 border-bottom pb-3'>
+  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
     <%= link_to 'Favourited', '#', class: 'btn btn-outline-secondary col-4', data: {action:'click->profile#clear'}%>
     <%= link_to 'Selected', recommendations_path, class: 'btn btn-success col-4', data: {profile_target: 'selected'}%>
     <%= link_to 'Saved', '#', class: 'btn btn-outline-secondary col-4', data: {action:'click->profile#clear'}%>
   </div>
 
+  <select class='history-filter ms-3'>
+    <option value="all">All</option>
+    <option value="restaurants">Restaurants</option>
+    <option value="movies">Movies</option>
+    <option value="attractions">Attractions</option>
+    <option value="events">Events</option>
+  </select>
+
   <!-- -->
-  <div class='selected-history-container' data-profile-target='history'>
+  <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>
     <% if @recommendations.length > 0 %>
-      <% @recommendations.each do |recommendation| %>
-        <div class='selected-card border border-warning m-3 d-flex flex-column text-center'>
-          <%= image_tag 'selected1.png', height:100 %>
-          <%= recommendation.activity_type == 'Movie' ? recommendation.activity.title : recommendation.activity.name %>
-        </div>
-      <% end %>
+      <%= render 'recommendations/profile/restaurants', restaurants: @restaurants %>
+      <%= render 'recommendations/profile/movies', movies: @movies %>
+      <%= render 'recommendations/profile/attractions', attractions: @attractions %>
+      <%= render 'recommendations/profile/events', events: @events %>
     <% else %>
       <h3>No recommendations selected. Go to find some?</h3>
       <%= link_to 'Find it!', categories_path, class:'btn btn-primary mx-1 my-2' %>

@@ -4,6 +4,10 @@ class RecommendationsController < ApplicationController
   def index
     @recommendations = Recommendation.where(status: 'accepted')
     @recommendations = @recommendations.where(user: current_user)
+    @movies = @recommendations.where(activity_type: 'Movie')
+    @restaurants = @recommendations.where(activity_type: 'Restaurant')
+    @events = @recommendations.where(activity_type: 'Event')
+    @attractions = @recommendations.where(activity_type: 'Attraction')
   end
 
   def new

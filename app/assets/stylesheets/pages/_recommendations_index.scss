@@ -1,6 +1,15 @@
 .selected-history-container {
+  overflow: scroll;
+  height: 600px;
+}
+
+.history-by-category {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.selected-card {
+  box-shadow: 2px 2px 5px rgb(200, 200, 200);
 }
 
 .before-margin {
@@ -10,6 +19,6 @@
 .custom-hr {
   position: absolute; /* or 'fixed' depending on the use case */
   width: 200%;
-  z-index: 1000000000000; /* a trillion */
+  z-index: 2; /* a trillion */
   left: -50%; /* to center it if width is 200% */
 }
