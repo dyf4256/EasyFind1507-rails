@@ -1,18 +1,24 @@
-<%# <div class='recommendation-card mb-5' style="text-align: center; max-width: 400px; margin: auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"> %>
-<div class='mb-5' style="margin: auto; ">
-  <h1 class="d-flex flex-column justify-content-center align-items-center w-100 mb-4" style="font-weight: bold;"><%= recommendation.activity.name %></h1>
-  <!-- Utilize image_tag helper with class for styling -->
-  <% if recommendation.activity.photo.present? %>
-    <%= image_tag recommendation.activity.photo, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
-  <% else %>
-    <%= image_tag "thai.png", alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
-    <%# <p>No Photo</p> %>
-  <% end %>
-  <div class="mx-2">
+<div class='container mb-5' style="margin: auto;">
+  <div style="position: relative; text-align: center; max-width: 400px; margin: auto;">
+    <h1 class="d-flex flex-column justify-content-center align-items-center w-100 mb-4" style="font-weight: bold;"><%= @recommendation.activity.name %></h1>
+
+    <% if @recommendation.activity.photo.present? %>
+      <%= image_tag @recommendation.activity.photo, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+    <% else %>
+      <%= image_tag "thai.png", alt: "Default Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+    <% end %>
+
+    <div style="position: absolute; bottom: 18px; right: 14px;">
+      <%= link_to 'More info', details_path(@recommendation), class: 'beautyorange', style: 'border-radius: 20px;' %>
+    </div>
+  </div>
+
+  <!-- Details Section -->
+  <div class="mx-2" style="text-align: center; max-width: 400px; margin: auto; margin-top: 20px;">
     <div class="capsule-container mb-5 mt-3">
       <div class='review-stars'>
-        <% full_stars = recommendation.activity.rating.floor %>
-        <% half_star = (recommendation.activity.rating % 1 >= 0.5) ? 1 : 0 %>
+        <% full_stars = @recommendation.activity.rating.floor %>
+        <% half_star = (@recommendation.activity.rating % 1 >= 0.5) ? 1 : 0 %>
         <% empty_stars = 5 - full_stars - half_star %>
 
         <% full_stars.times do %>
@@ -28,9 +34,7 @@
         <% end %>
       </div>
     </div>
-    <p style="font-weight: 400; font-size: 25px;">Price Range: <%= recommendation.activity.price_level %></p>
+    <p style="font-weight: 400; font-size: 25px;">Price Range: <%= @recommendation.activity.price_level %></p>
     <p style="font-weight: 400; font-size: 25px;">Cuisine: <%= @recommendation.activity.cuisine.capitalize %></p>
   </div>
 </div>
-
-<%= link_to 'More info', details_path(@recommendation), class: 'btn btn-warning mx-1 ' %>
