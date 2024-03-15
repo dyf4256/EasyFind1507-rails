@@ -20,6 +20,7 @@
       <%= render 'recommendations/profile/movies', movies: @movies %>
       <%= render 'recommendations/profile/attractions', attractions: @attractions %>
       <%= render 'recommendations/profile/events', events: @events %>
+      <div class='mt-1'></div>
     <% else %>
       <h3>No recommendations selected. Go to find some?</h3>
       <%= link_to 'Find it!', categories_path, class:'btn btn-primary mx-1 my-2' %>
