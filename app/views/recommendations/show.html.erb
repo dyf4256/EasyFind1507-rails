@@ -1,10 +1,10 @@
-<div class='custom-container'>
+<div class='show-custom-container'>
   <div class="container mb-5 mt-4">
     <div class="d-flex">
       <%= link_to categories_path do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
-      <h5 class="before-margin">
+      <h5 class="show-before-margin">
         <% activity_type = @recommendation.activity.class.to_s %>
         <%= case activity_type
             when 'Restaurant'
@@ -20,10 +20,10 @@
             end %>
       </h5>
     </div>
-    <hr class="custom-hr">
+    <hr class="show-custom-hr">
   </div>
 
-  <div class='recommendation-container' data-controller='activity'>
+  <div class='show-recommendation-container' data-controller='activity'>
     <% case @recommendation.activity.class.to_s %>
       <% when 'Restaurant' %>
         <%= render 'recommendations/basic/restaurant', recommendation: @recommendation %>

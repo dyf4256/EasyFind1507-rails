@@ -1,0 +1,37 @@
+.show-custom-container {
+  position: relative; /* Context for positioning children */
+  width: 100%; /* Full width of the container */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.show-custom-hr {
+  position: absolute; /* or 'fixed' depending on the use case */
+  width: 200%;
+  z-index: 2; /* a trillion */
+  left: -50%; /* to center it if width is 200% */
+}
+
+.show-content-wrapper {
+  margin: 0 auto; /* Center the content */
+  max-width: 1200px; /* Maximum width of the content area */
+  padding: 0 20px; /* Padding to prevent content from touching the edges */
+}
+
+/* Keep your other styles as they are */
+.show-selected-history-container {
+  overflow: auto;
+  max-height: 600px;
+}
+
+.show-history-by-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.show-selected-card {
+  box-shadow: 2px 2px 5px rgb(200, 200, 200);
+}
+
+.show-before-margin {
+  margin-left: 90px;
+}
