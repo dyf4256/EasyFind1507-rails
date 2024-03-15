@@ -1,6 +1,15 @@
 .selected-history-container {
+  overflow: scroll;
+  height: 600px;
+}
+
+.history-by-category {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.selected-card {
+  box-shadow: 2px 2px 5px rgb(200, 200, 200);
 }
 
 .before-margin {
