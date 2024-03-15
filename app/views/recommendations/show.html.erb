@@ -1,10 +1,5 @@
-<div class='container'>
-  <%# <div id='landing-page-header'> %>
-    <%# <h1 class="border my-3 text-center">EasyFind</h1> %>
-    <%# <%= link_to 'Back to Categories', categories_path, class:'btn btn-primary mx-1 my-2' %>
-    <%# <h3 class='text-center my-3 border'>How about this <%= @recommendation.activity.class</h3> %>
-  <%# </div> %>
-  <div class="mb-5 mt-4">
+<div class='custom-container'>
+  <div class="container mb-5 mt-4">
     <div class="d-flex">
       <%= link_to categories_path do %>
         <%= image_tag "back.png", alt: "Back" %>
@@ -39,10 +34,10 @@
       <% when 'Movie' %>
         <%= render 'recommendations/basic/movie', recommendation: @recommendation %>
       <% else %>
+        <!-- Handle other types or default case here -->
     <% end %>
     <div class='d-flex flex-row justify-content-center'>
-      <%= render 'buttons', recommendation: @recommendation%>
-
+      <%= render 'buttons', recommendation: @recommendation %>
     </div>
   </div>
 </div>

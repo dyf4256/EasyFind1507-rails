@@ -1,6 +1,35 @@
+.custom-container {
+  position: relative; /* Context for positioning children */
+  width: 100%; /* Full width of the container */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+// .custom-hr {
+//   position: absolute;
+//   left: 0; /* Align to the far left */
+//   width: 100vw; /* Full viewport width */
+//   height: 1px; /* Desired thickness */
+//   background-color: #000; /* Color */
+//   border: none;
+// }
+
+.custom-hr {
+  position: absolute; /* or 'fixed' depending on the use case */
+  width: 200%;
+  z-index: 2; /* a trillion */
+  left: -50%; /* to center it if width is 200% */
+}
+
+.content-wrapper {
+  margin: 0 auto; /* Center the content */
+  max-width: 1200px; /* Maximum width of the content area */
+  padding: 0 20px; /* Padding to prevent content from touching the edges */
+}
+
+/* Keep your other styles as they are */
 .selected-history-container {
-  overflow: scroll;
-  height: 600px;
+  overflow: auto;
+  max-height: 600px;
 }
 
 .history-by-category {
@@ -14,11 +43,4 @@
 
 .before-margin {
   margin-left: 90px;
-}
-
-.custom-hr {
-  position: absolute; /* or 'fixed' depending on the use case */
-  width: 200%;
-  z-index: 2; /* a trillion */
-  left: -50%; /* to center it if width is 200% */
 }
