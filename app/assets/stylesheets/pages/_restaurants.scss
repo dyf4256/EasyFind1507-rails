@@ -5,8 +5,26 @@
   object-fit: cover; /* Ensure the image covers the area, may crop */
   margin-bottom: 15px; /* Add some space below the image */
 }
+
+/* Style for the capsule background */
+.capsule-container {
+  background-color: white; /* White background */
+  border-radius: 50px; /* Rounded capsule shape */
+  padding: 10px 20px; /* Padding around the content */
+  display: inline-block; /* Only as wide as its content */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Slight shadow for depth */
+  margin-bottom: 15px; /* Space below the capsule */
+}
+
+/* Updated styles for the stars */
 .review-stars .star {
-  width: 20px; /* Adjust based on your star image size */
-  height: auto;
+  width: 32px; /* Increased size for slightly larger stars */
+  height: auto; /* Maintain aspect ratio */
   display: inline-block;
+  margin-right: 0px; /* Adjusted space between stars for larger size */
+}
+
+/* Remove margin for the last star */
+.review-stars .star:last-child {
+  margin-right: 0;
 }
