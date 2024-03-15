@@ -1,10 +1,55 @@
-<div class='recommendation-card'>
-  <p>Name: <%= recommendation.activity.name %></p>
-  <p>Photo: <%= recommendation.activity.photo %></p>
-  <p>Rating: <%= recommendation.activity.rating %></p>
-  <p>Price Level: <%= recommendation.activity.price_level %></p>
-  <p>Type: <%= recommendation.activity.cuisine %></p>
-  <p>Website: <%= recommendation.activity.website %></p>
-  <p>Address: <%= recommendation.activity.address %></p>
-  <p>Open hours: <%= recommendation.activity.hours %></p>
+<div class='detail-card'>
+  <h1 class="title mt-2"><%= recommendation.activity.name %></h1>
+
+  <div class="d-flex pt-4 img-food">
+    <h2 class="">Cuisine
+      <ul>
+        <li class="py-2">
+          <%= recommendation.activity.cuisine %>
+        </li>
+      </ul>
+    </h2>
+    <%= image_tag(recommendation.activity.photo) %>
+  </div>
+
+  <h2>Price Level: <%= recommendation.activity.price_level %></h2>
+
+  <%# <p>Rating: <%= recommendation.activity.rating %>
+
+  <div class="capsule-container mb-5 mt-3">
+    <div class='review-stars'>
+      <% full_stars = recommendation.activity.rating.floor %>
+      <% half_star = (recommendation.activity.rating % 1 >= 0.5) ? 1 : 0 %>
+      <% empty_stars = 5 - full_stars - half_star %>
+
+      <% full_stars.times do %>
+        <%= image_tag "star_full.png", alt: "Full Star", class: "star" %>
+      <% end %>
+
+      <% if half_star > 0 %>
+        <%= image_tag "star_half.png", alt: "Half Star", class: "star" %>
+      <% end %>
+
+      <% empty_stars.times do %>
+        <%= image_tag "star_empty.png", alt: "Empty Star", class: "star" %>
+      <% end %>
+    </div>
+  </div>
+
+  <h2>Hours Open
+    <ul>
+      <li class="">
+        <%= recommendation.activity.hours %>
+      </li>
+    </ul>
+  </h2>
+
+
+  <%# <p><%= recommendation.activity.website %>
+
+  <div class="address">
+    <h2>Address</h2>
+    <p><%= recommendation.activity.address %></p>
+  </div>
+
 </div>

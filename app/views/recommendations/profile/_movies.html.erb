@@ -2,10 +2,12 @@
   <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Movies</p>
   <div class='history-by-category'>
     <% movies.each do |movie| %>
-      <div class='selected-card m-2 d-flex flex-column text-center'>
-        <%= image_tag 'selected1.png', height:100 %>
-        <%= movie.activity.title %>
-      </div>
+      <%= link_to details_path(movie) do %>
+        <div class='selected-card'>
+          <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
+          <%= movie.activity.title %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
