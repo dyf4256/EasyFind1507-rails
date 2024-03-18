@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  has_many :recommendations, as: :activity
+  include Activities
 end
