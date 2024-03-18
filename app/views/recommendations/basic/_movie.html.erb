@@ -1,7 +1,4 @@
 <div class='recommendation-card'>
-  <p>Name: <%= recommendation.activity.title %></p>
-  <p>Poster: <%= recommendation.activity.poster %></p>
-  <p>Description: <%= recommendation.activity.description %></p>
   <div class='d-none'>
     <p>Screen_time: <%= recommendation.activity.screen_time %></p>
     <p>Therter: <%= recommendation.activity.theater_address %></p>
@@ -10,4 +7,30 @@
   </div>
 </div>
 
-<%= link_to 'More info', details_path(@recommendation), class: 'btn btn-warning mx-1 ' %>
+
+
+<div class='container mb-5 mt-3' style="margin: auto;">
+  <div style="position: relative; text-align: center; max-width: 400px; margin: auto;">
+    <h1 class="d-flex flex-column justify-content-center align-items-center w-100 mb-4" style="font-weight: bold;"><%= @recommendation.activity.title %></h1>
+
+    <% if @recommendation.activity.poster.present? %>
+      <%= image_tag @recommendation.activity.poster, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+    <% else %>
+      <%= image_tag "thai.png", alt: "Default Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+    <% end %>
+
+    <div style="position: absolute; bottom: 18px; right: 14px;">
+      <%= link_to 'More info', details_path(@recommendation), class: 'beautyorange', style: 'border-radius: 20px;' %>
+    </div>
+  </div>
+
+  <!-- Details Section -->
+  <div class="mx-2" style="text-align: center; max-width: 400px; margin: auto; margin-top: 20px;">
+    <p><%= recommendation.activity.description %></p>
+
+    <div class="mt-4">
+      <p style="font-weight: 400; font-size: 25px; text-align: start; margin-bottom: 0px;">Genre: <br> <p style="font-weight: 400; font-size: 20px; text-align: start;"><%= @recommendation.activity.genre%></p></p>
+    </div>
+
+  </div>
+</div>

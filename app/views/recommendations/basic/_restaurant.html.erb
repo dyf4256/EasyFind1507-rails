@@ -1,4 +1,4 @@
-<div class='container mb-5' style="margin: auto;">
+<div class='container mb-5 mt-3' style="margin: auto;">
   <div style="position: relative; text-align: center; max-width: 400px; margin: auto;">
     <h1 class="d-flex flex-column justify-content-center align-items-center w-100 mb-4" style="font-weight: bold;"><%= @recommendation.activity.name %></h1>
 
@@ -14,8 +14,8 @@
   </div>
 
   <!-- Details Section -->
-  <div class="mx-2" style="text-align: center; max-width: 400px; margin: auto; margin-top: 20px;">
-    <div class="capsule-container mb-5 mt-3">
+  <div class="mx-3" style="text-align: start; max-width: 400px; margin: auto; margin-top: 20px;">
+    <div class="capsule-container mb-4" style="margin-left: 40px;">
       <div class='review-stars'>
         <% full_stars = @recommendation.activity.rating.floor %>
         <% half_star = (@recommendation.activity.rating % 1 >= 0.5) ? 1 : 0 %>
@@ -34,7 +34,15 @@
         <% end %>
       </div>
     </div>
-    <p style="font-weight: 400; font-size: 25px;">Price Range: <%= @recommendation.activity.price_level %></p>
-    <p style="font-weight: 400; font-size: 25px;">Cuisine: <%= @recommendation.activity.cuisine.capitalize %></p>
+
+    <h2 class="my-3" >Price Level: <%= recommendation.activity.price_level %></h2>
+
+    <h2 class="my-4">Cuisine
+      <ul>
+        <li class="py-2">
+          <%= recommendation.activity.cuisine %>
+        </li>
+      </ul>
+    </h2>
   </div>
 </div>

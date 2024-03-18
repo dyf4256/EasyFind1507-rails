@@ -6,6 +6,13 @@ GIT
       actionpack (>= 5.2)
       activemodel (>= 5.2)
 
+GIT
+  remote: https://github.com/jonhue/acts_as_favoritor.git
+  revision: 191292021597252a97f3fa067649f6fa5119bf4a
+  specs:
+    acts_as_favoritor (6.0.1)
+      activerecord (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,7 +96,7 @@ GEM
       execjs (~> 2)
     base64 (0.2.0)
     bcrypt (3.1.20)
-    bigdecimal (3.1.6)
+    bigdecimal (3.1.7)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -156,7 +163,7 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    minitest (5.22.2)
+    minitest (5.22.3)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.10)
@@ -169,17 +176,17 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.16.2-aarch64-linux)
+    nokogiri (1.16.3-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.16.2-arm-linux)
+    nokogiri (1.16.3-arm-linux)
       racc (~> 1.4)
-    nokogiri (1.16.2-arm64-darwin)
+    nokogiri (1.16.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86-linux)
+    nokogiri (1.16.3-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-darwin)
+    nokogiri (1.16.3-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-linux)
+    nokogiri (1.16.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.6)
@@ -295,6 +302,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_favoritor!
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)
