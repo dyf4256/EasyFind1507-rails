@@ -1,11 +1,31 @@
 /* Custom SCSS adjustments for dropdown positioning and alignment */
 
 .navbar-lewagon {
+  position: fixed;
+  top: 0;
+  width: 100%;
   justify-content: space-between;
-  background: #FFD76B;
+  background: #FFD76B; /* Your navbar background color */
   padding: 10px 20px;
-  box-shadow: 0px 4px 13px gray;
-  // z-index: 3;
+  // box-shadow: 0px 4px 13px gray;
+  z-index: 1030; /* Higher than the default to ensure it's on top; adjust as needed */
+}
+
+.navbar-lewagon::before {
+  content: '';
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -env(safe-area-inset-top);
+  height: env(safe-area-inset-top);
+  background-color: #FFD76B; /* Match the navbar background color */
+  z-index: -1;
+}
+
+/* Extend the background color into the safe area */
+body {
+  padding-top: calc(env(safe-area-inset-top) + 70px); /* Adjust the value based on your navbar's height */
 }
 
 .navbar-lewagon .navbar-brand img {
