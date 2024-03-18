@@ -8,39 +8,61 @@
 
 .hover-button {
   display: flex;
-  background-color: rgba($color: #D9D9D9, $alpha: 1.0);
-  align-items: center;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  background-color: #D9D9D9;
   height: 65px;
   border-radius: 50px;
+  padding: 35px; /* Adjusted padding */
+  position: fixed; /* Fix the position relative to the viewport */
+  bottom: 5vh; /* Align to the bottom of the viewport */
+  left: 50%; /* Center container */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  max-width: 80%; /* Adjust max width as per your requirement */
+  z-index: 1000; /* Ensure it's above other content */
 }
 
+#reject, #accept, #more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  color: inherit; /* Ensures icon color inherits from the button's color */
+  font-size: x-large;
+  text-align: center;
+  border: none; /* Remove default borders */
+  cursor: pointer;
+  height: 58px; /* Ensure consistent height */
+  padding: 0 18px; /* Adjust padding to control button width */
+  margin: 0 10px; /* Space between buttons */
+  font-weight: bold; /* Make text/icon bolder */
+}
 
 #reject {
-  border-radius: 50px;
-  background-color: white;
   color: #F24C65;
-  height: 58px;
-  padding: 19px;
-  margin-right: 0px;
-  font-size: x-large;
+  border: 2px solid #F24C65; /* Red border for reject button */
 }
 
 #accept {
-  border-radius: 50px;
-  background-color: white;
   color: #3CDBA7;
-  height: 58px;
-  padding: 18px;
-  margin-left: 10px;
-  font-size: x-large;
-  margin-left: 0px;
+  border: 2px solid #3CDBA7; /* Green border for accept button */
 }
 
 #more {
-  border-radius: 50px;
-  background-color: white;
   color: #FFD76B;
-  height: 43px;
-  padding: 12px;
-  font-size: larger;
+  height: 48px; /* Make the button smaller */
+  padding: 0 14px; /* Adjust padding for smaller width */
+  font-size: large; /* Adjust if needed for the size of the icon */
+  border: 2px solid #FFD76B; /* Yellow border for more button */
+}
+
+#reject i {
+  text-shadow: 0px 0px 2px #F24C65; /* Adjust color and spread as needed */
+}
+#accept i {
+  text-shadow: 0px 0px 2px #3CDBA7; /* Adjust color and spread as needed */
+}
+#more i {
+  text-shadow: 0px 0px 2px #FFD76B; /* Adjust color and spread as needed */
 }
