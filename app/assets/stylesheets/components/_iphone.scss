@@ -1,29 +1,29 @@
-a, button {
-  -webkit-tap-highlight-color: transparent;
-}
+// a, button {
+//   -webkit-tap-highlight-color: black;
+// }
 
-button {
-  -webkit-appearance: none;
-}
+// button {
+//   -webkit-appearance: none;
+// }
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+// html {
+//   -webkit-text-size-adjust: 100%;
+// }
 
-input, textarea {
-  -webkit-appearance: none;
-  border-radius: 0; /* Optional: removes the default border radius for a more consistent look */
-}
+// input, textarea {
+//   -webkit-appearance: none;
+//   border-radius: 0; /* Optional: removes the default border radius for a more consistent look */
+// }
 
-a, button {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+// a, button {
+//   -webkit-tap-highlight-color: rgba(0,0,0,0);
+// }
 
-// CSS for .scrollable could be something like this:
-.scrollable {
-  overflow-y: auto; /* Enable vertical scrolling */
-  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
-}
+// // CSS for .scrollable could be something like this:
+// .scrollable {
+//   overflow-y: auto; /* Enable vertical scrolling */
+//   -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+// }
 
 // html, body {
 //   width: 100%;
@@ -31,15 +31,17 @@ a, button {
 //   overflow: hidden; /* Prevent scrolling outside the main content */
 // }
 
-// .main-content {
-//   overflow-y: auto; /* Enable vertical scrolling within the main content */
-//   -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
-//   height: 100vh; /* Full viewport height */
-//   padding-top: 70px; /* Adjust based on the navbar's height to ensure content isn't hidden behind it */
+.main-content {
+  background-color: white;
+}
+
+// .scrollable-content {
+//   height: calc(100vh - [Your Navbar Height]);
+//   overflow-y: scroll;
+//   -webkit-overflow-scrolling: touch;
 // }
 
-.scrollable-content {
-  height: calc(100vh - [Your Navbar Height]);
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+select {
+  // color: black; /* Or any color you prefer */
+  -webkit-text-fill-color: black; /* For iOS Safari */
 }

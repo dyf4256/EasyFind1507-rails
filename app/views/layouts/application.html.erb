@@ -2,17 +2,20 @@
 <html>
   <head>
     <title>EasyFind1507Rails</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%# <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
 
     <%= render "shared/navbar" %>
+    <%# <div class="rectangle"></div> %>
     <%= render "shared/flashes" %>
     <div class="main-content">
       <%= yield %>
