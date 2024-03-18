@@ -3,6 +3,8 @@
   font-weight: bold;
   border: 1px;
   background-color: transparent;
+  -webkit-text-fill-color: black;
+  color: black;
 }
 
 
@@ -65,4 +67,18 @@
 }
 #more i {
   text-shadow: 0px 0px 2px #FFD76B; /* Adjust color and spread as needed */
+}
+
+//sing in and login
+.button-yellow-init {
+  text-decoration: none;
+  background-color: #FFD76B;
+  color: black;
+  padding: 7px 12px; /* Adjust padding to control the capsule size */
+  border-radius: 15px;
+  font-size: 25px;
+  display: inline-block; /* Makes the button only as wide as its content + padding */
+  border: none; /* Assuming you don't want a border, but adjust as needed */
+  margin-top: 10px;
+  margin-bottom: 30px;
 }

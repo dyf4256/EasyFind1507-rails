@@ -1,32 +1,32 @@
-/* Custom SCSS adjustments for dropdown positioning and alignment */
 
 .navbar-lewagon {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top); /* Align the top edge of the navbar with the bottom edge of the safe area */
   width: 100%;
-  justify-content: space-between;
   background: #FFD76B; /* Your navbar background color */
-  padding: 10px 20px;
-  // box-shadow: 0px 4px 13px gray;
-  z-index: 1030; /* Higher than the default to ensure it's on top; adjust as needed */
+  z-index: 1030; /* Above the safe-area-filler */
+  /* Other styling properties */
+  // height: 140px;
 }
-
-.navbar-lewagon::before {
-  content: '';
-  display: block;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: -env(safe-area-inset-top);
-  height: env(safe-area-inset-top);
-  background-color: #FFD76B; /* Match the navbar background color */
-  z-index: -1;
-}
-
 /* Extend the background color into the safe area */
 body {
   padding-top: calc(env(safe-area-inset-top) + 70px); /* Adjust the value based on your navbar's height */
+  background-color: #FFD76B;
 }
+// body {
+//   border-top: env(safe-area-inset-top) solid red;
+//   border-left: env(safe-area-inset-left) solid green;
+//   border-right: env(safe-area-inset-right) solid blue;
+//   border-bottom: env(safe-area-inset-bottom) solid yellow;
+// }
+// .rectangle {
+//   position: fixed;
+//   top: calc(env(safe-area-inset-top) - 0px); /* Adjust as needed */
+//   left: 100px; /* Adjust as needed */
+//   width: 200px; /* Your rectangle's width */
+//   height: 100px; /* Your rectangle's height */
+//   background-color: #FFD76B; /* Your rectangle's color */
+// }
 
 .navbar-lewagon .navbar-brand img {
   height: 40px;
