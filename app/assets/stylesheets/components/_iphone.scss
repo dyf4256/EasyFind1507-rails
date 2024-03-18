@@ -1,0 +1,20 @@
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-appearance: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  border-radius: 0; /* Optional: removes the default border radius for a more consistent look */
+}
+
+a, button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

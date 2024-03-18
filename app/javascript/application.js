@@ -47,3 +47,9 @@ document.addEventListener('turbo:load', function() {
     setInterval(slideImages, 3000); // Change images every 3 seconds
   }
 });
+
+document.addEventListener('touchmove', function(event) {
+  if (document.body.scrollTop === 0) {
+    event.preventDefault();
+  }
+}, { passive: false });
