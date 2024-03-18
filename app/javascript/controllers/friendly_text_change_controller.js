@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     const friendly_text = document.getElementById("friendly-text")
 
-    const dialogChoice = ["How about you give this a try?", "Why not?", "Look at this cool one!", "You feeling this?", "Like the look of this?"]
+    const dialogChoice = ["How about you give this a try?", "Why not try?", "Look at this cool one!", "You feeling this?", "Like the look of this?"]
     const random = Math.floor(Math.random() * dialogChoice.length);
 
     if (friendly_text.innerHTML === dialogChoice[random]) {
