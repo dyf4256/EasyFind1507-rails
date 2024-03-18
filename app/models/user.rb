@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   acts_as_favoritor
+
   has_many :recommendations
   has_many :accepted_recommendations, -> { where status: 2 }, class_name: 'Recommendation', foreign_key: :user_id
   has_many :favourited_recommendations, -> { where status: 3 }, class_name: 'Recommendation', foreign_key: :user_id

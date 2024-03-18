@@ -5,6 +5,6 @@ class Recommendation < ApplicationRecord
     pending: 0,
     rejected: 1,
     accepted: 2,
-    favourited: 3
+    bookmarked: 3
   }
 end
