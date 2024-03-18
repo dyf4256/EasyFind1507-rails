@@ -12,19 +12,19 @@
 
   <div id='landing-page-title' class="">
     <div class='restaurants border home-category-card'>
-      <%= button_to 'Restaurants', recommendations_path, method: :post, params: {type: 'Restaurant'},class: 'home-button' %>
+      <%= button_to 'Restaurants', session_index_path, method: :post, params: {type: 'Restaurant'},class: 'home-button' %>
     </div>
 
     <div class='attractions  border home-category-card'>
-      <%= button_to 'Attractions', recommendations_path, method: :post, params: {type: 'Attraction'},class: "home-button" %>
+      <%= button_to 'Attractions', session_index_path, method: :post, params: {type: 'Attraction'},class: "home-button" %>
     </div>
 
     <div class='events  border home-category-card'>
-      <%= button_to 'Events', recommendations_path, method: :post, params: {type: 'Event'},class: "home-button" %>
+      <%= button_to 'Events', session_index_path, method: :post, params: {type: 'Event'},class: "home-button" %>
     </div>
 
     <div class='movies  border home-category-card'>
-      <%= button_to 'Movies', recommendations_path, method: :post, params: {type: 'Movie'},class: "home-button" %>
+      <%= button_to 'Movies', session_index_path, method: :post, params: {type: 'Movie'},class: "home-button" %>
     </div>
   </div>
 </div>

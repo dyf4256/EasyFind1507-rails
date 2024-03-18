@@ -25,7 +25,7 @@
     <% end %>
     <% if !@recommendation.accepted?%>
       <div data-activity-target='details_buttons' class='d-flex justify-content-center'>
-       <%= render 'buttons', recommendation: @recommendation%>
+       <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session%>
       </div>
     <% end %>
   </div>
