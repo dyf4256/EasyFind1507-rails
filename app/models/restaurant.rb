@@ -1,4 +1,4 @@
 class Restaurant < ApplicationRecord
-  has_many :recommendations, as: :activity
+  include Activities
   has_many :restaurant_reviews
 end

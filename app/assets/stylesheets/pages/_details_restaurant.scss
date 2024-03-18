@@ -1,17 +1,22 @@
 .title {
   text-align: center;
   font-weight: bold;
-  font-size: xxx-large;
+
 }
 
 h2 {
   font-weight: bold;
   font-size: xx-large;
 
+  ul {
+    padding-left: 10px;
+  }
+
   li {
     font-weight: normal;
     font-size: large;
     list-style-type: none;
+    padding-left: 0px;
   }
 }
 
@@ -23,7 +28,7 @@ h2 {
   }
 
   p {
-    padding-left: 32px;
+    padding-left: 10px;
   }
 }
 
