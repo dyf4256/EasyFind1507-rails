@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_150157) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,14 +65,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_150157) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.bigint "user_id"
     t.integer "status", default: 0, null: false
     t.string "activity_type"
     t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "session_id"
     t.index ["activity_type", "activity_id"], name: "index_recommendations_on_activity"
-    t.index ["user_id"], name: "index_recommendations_on_user_id"
+    t.index ["session_id"], name: "index_recommendations_on_session_id"
   end
 
   create_table "restaurant_reviews", force: :cascade do |t|
@@ -99,6 +99,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_150157) do
     t.string "photo"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -113,6 +121,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_150157) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "recommendations", "users"
+  add_foreign_key "recommendations", "sessions"
   add_foreign_key "restaurant_reviews", "restaurants"
+  add_foreign_key "sessions", "users"
 end
