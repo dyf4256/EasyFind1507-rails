@@ -1,10 +1,31 @@
 <div class='recommendation-card'>
-  <p>Name: <%= recommendation.activity.name %></p>
-  <p>Date: <%= recommendation.activity.date %></p>
-  <p>Description: <%= recommendation.activity.description %></p>
   <div class='d-none'>
+    <p>Date: <%= recommendation.activity.date %></p>
+    <p>Description: <%= recommendation.activity.description %></p>
     <p>Address: <%= recommendation.activity.address %></p>
     <p>Website: <%= recommendation.activity.website %></p>
   </div>
 </div>
-<%= link_to 'More info', details_path(@recommendation), class: 'btn btn-warning mx-1 ' %>
+
+<div class='container mb-5 mt-3' style="margin: auto;">
+  <div style="position: relative; text-align: center; max-width: 400px; margin: auto;">
+    <h1 class="d-flex flex-column justify-content-center align-items-center w-100 mb-4" style="font-weight: bold;"><%= @recommendation.activity.name %></h1>
+
+    <% if @recommendation.activity.img.present? %>
+      <%= image_tag @recommendation.activity.img, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+    <% else %>
+      <%= image_tag "thai.png", alt: "Default Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+    <% end %>
+
+    <div style="position: absolute; bottom: 18px; right: 14px;">
+      <%= link_to 'More info', details_path(@recommendation), class: 'beautyorange', style: 'border-radius: 20px;' %>
+    </div>
+  </div>
+
+  <h2 class="my-3" style="margin-right: 40px;"> Event Day <br>
+    <p style="font-size: large;">
+      <%= recommendation.activity.date %></h2>
+    </p>
+  <p><%= recommendation.activity.description %></p>
+
+</div>
