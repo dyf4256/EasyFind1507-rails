@@ -84,11 +84,11 @@ document.addEventListener('turbo:load', function() {
 //   }
 // }, { passive: false });
 
-if (window.safeAreaInsets) {
-  console.log("Safe area inset top:", window.safeAreaInsets.top);
-  console.log("Safe area inset left:", window.safeAreaInsets.left);
-  console.log("Safe area inset right:", window.safeAreaInsets.right);
-  console.log("Safe area inset bottom:", window.safeAreaInsets.bottom);
-} else {
-  console.log("Safe area insets not available.");
-}
+// if (window.safeAreaInsets) {
+//   console.log("Safe area inset top:", window.safeAreaInsets.top);
+//   console.log("Safe area inset left:", window.safeAreaInsets.left);
+//   console.log("Safe area inset right:", window.safeAreaInsets.right);
+//   console.log("Safe area inset bottom:", window.safeAreaInsets.bottom);
+// } else {
+//   console.log("Safe area insets not available.");
+// }
