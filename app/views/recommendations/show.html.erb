@@ -1,27 +1,16 @@
 <div class='show-custom-container'>
-  <div class="container mb-5 mt-4">
-    <div class="d-flex">
-      <%= link_to categories_path do %>
+  <div id='details-page-header'>
+  <div class="mb-1 mt-2">
+    <div class="d-flex align-items-center header-box">
+      <%= link_to recommendation_path(@recommendation) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
-      <h5 class="show-before-margin">
-        <% activity_type = @recommendation.activity.class.to_s %>
-        <%= case activity_type
-            when 'Restaurant'
-              "Restaurants"
-            when 'Event'
-              "Events"
-            when 'Attraction'
-              "Attractions"
-            when 'Movie'
-              "Movies"
-            else
-              "Recommendation"
-            end %>
-      </h5>
+  <h3 class='my-1 header-text'><%= @recommendation.activity.class %></h3>
     </div>
-    <hr class="show-custom-hr">
   </div>
+</div>
+
+  <h2 class="container mt-2 " id="friendly-text" data-controller="friendly-text-change">How about you give this a try?</h2>
 
   <div class='show-recommendation-container' data-controller='activity'>
     <% case @recommendation.activity.class.to_s %>
