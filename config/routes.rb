@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :categories, only: %i[index]
   resources :recommendations, only: %i[index show new create update]
+  resources :session, only: %i[create]
   get 'recommendations/:id/details', to: 'recommendations#details', as: :details
 
 end

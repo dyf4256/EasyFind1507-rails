@@ -102,6 +102,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
   create_table "sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.boolean "active", default: true, null: false
+    t.string "activity_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"

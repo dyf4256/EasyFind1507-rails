@@ -1,9 +1,8 @@
 class RecommendationsController < ApplicationController
-
-  # GET /recommendations
+  include PrepareRecommendation
+  before_action :set_recommendation, only: %i[show details update]
   def index
-    @recommendations = Recommendation.where(status: 'accepted')
-    @recommendations = @recommendations.where(user: current_user)
+    @recommendations = current_user.accepted_recommendations
     @movies = @recommendations.where(activity_type: 'Movie')
     @restaurants = @recommendations.where(activity_type: 'Restaurant')
     @events = @recommendations.where(activity_type: 'Event')
@@ -15,26 +14,14 @@ class RecommendationsController < ApplicationController
   end
 
   def show
-    @recommendation = Recommendation.find(params[:id])
+    redirect_to categories_path, alert: 'Session is expired!' if @recommendation.session.inactive?
   end
 
   def details
-    @recommendation = Recommendation.find(params[:id])
   end
 
   def create
-    @recommendation = Recommendation.new
-    @recommendation.user = current_user
-    case params[:type]
-    when 'Attraction'
-      @recommendation.activity = Attraction.order("RANDOM()").first
-    when 'Event'
-      @recommendation.activity = Event.order("RANDOM()").first
-    when 'Restaurant'
-      @recommendation.activity = Restaurant.order("RANDOM()").first
-    when 'Movie'
-      @recommendation.activity = Movie.order("RANDOM()").first
-    end
+    prepare_recommendation(Session.find(params[:session_id]))
 
     if @recommendation.save
       redirect_to recommendation_path(@recommendation)
@@ -44,13 +31,13 @@ class RecommendationsController < ApplicationController
   end
 
   def update
-    @recommendation = Recommendation.find(params[:id])
     @recommendation.status = params[:status]
     if @recommendation.save
-      if @recommendation.rejected?
-        create
-      else
+      if @recommendation.accepted?
+        @recommendation.session.end!
         redirect_to details_path(@recommendation)
+      else
+        create
       end
     else
       render root_path, status: :unprocessable_entity
@@ -59,7 +46,7 @@ class RecommendationsController < ApplicationController
 
   private
 
-  def recommendation_params
-    params.require(:recommendation).permit(:status)
+  def set_recommendation
+    @recommendation = Recommendation.find(params[:id])
   end
 end
