@@ -1,12 +1,17 @@
  <% movie = recommendation %>
 <div class='selected-card'>
   <%= link_to details_path(movie) do %>
-    <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
+    <div class="card-photo">
+            <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
+          </div>
     <div class="styling-purpose">
       <%= render 'shared/activity_cards/like_button', recommendation: movie , type: type %>
       <div class="styling-purpose">
-        <%= movie.activity.title %>
-        <i class="fa-solid fa-film"></i>
+         <div class="card-info">
+            <%= image_tag "movie_grey.png", alt: "Fareswheel", class: "icon"%>
+            <%= movie.activity.title%>
+
+          </div>
       </div>
     </div>
   <% end %>

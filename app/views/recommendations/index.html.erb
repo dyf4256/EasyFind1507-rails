@@ -2,38 +2,45 @@
   <% selected_button_class = 'btn-warning disabled full-opacity' %>
   <% non_selected_button_class = 'btn-outline-warning' %>
 
-  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
-    <%= link_to 'Favourited', profile_path(:favorited), class: "btn col-4 #{@type == 'favorited'? selected_button_class : non_selected_button_class}"%>
-
-    <%= link_to 'Selected', profile_path(:accepted), class: "btn col-4 #{@type == 'accepted'? selected_button_class : non_selected_button_class}"%>
-
-    <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
+  <div class="profile-id">
+    <%= image_tag "yuefei.jpg", class: "avatar-profile", alt: "User Photo" %>
+    <h1>Name</h1>
   </div>
+
+  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
+    <%= link_to 'Favourited', profile_path(:favorited), class: "btn sections col-4 #{@type == 'favorited'? selected_button_class : non_selected_button_class}"%>
+
+    <%= link_to 'Selected', profile_path(:accepted), class: "btn sections col-4 #{@type == 'accepted'? selected_button_class : non_selected_button_class}"%>
+
+    <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn sections col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
+  </div>
+
 
   <div class="d-flex justify-content-around">
     <label>
       <%= radio_button_tag 'categories', 'all', true, class: "radio" %>
-      <i class="fa-solid fa-house px-4"></i>
+      <%= image_tag "check.png", alt: "Firework" %>
     </label>
 
     <label>
       <%= radio_button_tag 'categories', 'restaurants', class: "radio" %>
-      <i class="fa-solid fa-utensils px-4"></i>
+      <%= image_tag "knife_grey.png", alt: "Firework" %>
     </label>
 
     <label >
       <%= radio_button_tag 'categories', 'events', class: "radio" %>
-      <i class="fa-solid fa-calendar-days px-4"></i>
+      <%= image_tag "event_grey.png", alt: "Firework" %>
     </label>
 
     <label >
       <%= radio_button_tag 'categories', 'attractions', class: "radio" %>
-      <i class="fa-solid fa-map-pin px-4"></i>
+      <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
+
     </label>
 
     <label >
       <%= radio_button_tag 'categories', 'movies', class: "radio" %>
-      <i class="fa-solid fa-film px-4"></i>
+      <%= image_tag "movie_grey.png", alt: "Firework" %>
     </label>
   </div>
 
