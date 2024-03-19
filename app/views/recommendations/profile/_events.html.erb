@@ -1,11 +1,19 @@
-<div class='text-primary'>
+<div class='border-top mt-2'>
   <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Events</p>
+  <%if events.empty? %>
+    <p class='mb-0 mt-2 ms-2 fs-6'>No event selected, go back to get one?</p>
+  <% end %>
   <div class='history-by-category'>
     <% events.each do |event| %>
       <%= link_to details_path(event) do %>
         <div class='selected-card'>
           <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
-          <%= event.activity.name %>
+          <div class="card-info">
+            <%= event.activity.name %>
+            <i class="fa-solid fa-calendar-days"></i>
+
+          </div>
+
         </div>
       <% end %>
     <% end %>

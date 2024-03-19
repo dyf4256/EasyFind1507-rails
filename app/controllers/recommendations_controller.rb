@@ -2,7 +2,12 @@ class RecommendationsController < ApplicationController
   include PrepareRecommendation
   before_action :set_recommendation, only: %i[show details update]
   def index
-    @recommendations = current_user.accepted_recommendations
+    case params[:status]
+    when 'accepted'
+      @recommendations = current_user.accepted_recommendations
+    when 'bookmarked'
+      @recommendations = current_user.bookmarked_recommendations
+    end
     @movies = @recommendations.where(activity_type: 'Movie')
     @restaurants = @recommendations.where(activity_type: 'Restaurant')
     @events = @recommendations.where(activity_type: 'Event')

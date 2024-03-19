@@ -1,11 +1,18 @@
-<div class=''>
+<div class='border-top mt-2'>
   <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Movies</p>
+  <%if movies.empty? %>
+    <p class='mb-0 mt-2 ms-2 fs-6'>No movie selected, go back to get one?</p>
+  <% end %>
   <div class='history-by-category'>
     <% movies.each do |movie| %>
       <%= link_to details_path(movie) do %>
         <div class='selected-card'>
           <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
-          <%= movie.activity.title %>
+          <div class="card-info">
+            <%= movie.activity.name %>
+            <i class="fa-solid fa-film"></i>
+          </div>
+
         </div>
       <% end %>
     <% end %>

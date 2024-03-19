@@ -1,11 +1,14 @@
 <div class='show-custom-container'>
   <div id='details-page-header'>
   <div class="mb-1 mt-2">
-    <div class="d-flex align-items-center header-box">
+    <div class="d-flex align-items-center header-box justify-content-space-between" >
       <%= link_to categories_path do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
-  <h3 class='my-1 header-text'><%= @recommendation.activity.class %></h3>
+    <h3 class='my-1 header-text'><%= @recommendation.activity.class %></h3>
+
+
+
     </div>
   </div>
 </div>
