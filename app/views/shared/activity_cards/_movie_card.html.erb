@@ -1,0 +1,9 @@
+ <% movie = recommendation %>
+ <%= link_to details_path(movie) do %>
+  <div class='selected-card'>
+    <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
+    <%= movie.activity.title %>
+    <i class="fa-solid fa-film"></i>
+  </div>
+  <%= render 'shared/activity_cards/like_button', recommendation: movie , type: type %>
+<% end %>
