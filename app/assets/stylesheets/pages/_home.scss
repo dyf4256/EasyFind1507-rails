@@ -1,7 +1,15 @@
 // Specific CSS for your home-page
 #landing-page-title {
-  display: grid;
-  margin-top: 50px;
+
+  margin: 70px auto;
+  width:385px;
+  height:400px;
+  background-color:#fff;
+  display:grid;
+  grid-template-columns: 180px 182px;
+
+  grid-column-gap: 12px;
+  grid-row-gap: 20px;
 }
 
 #landing-page-header {
@@ -11,14 +19,20 @@
 
 .home-category-card {
   display: flex;
-  height: 85px;
+  // height: 85px;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
   border-radius: 50px;
   background-color: #FFD76B;
-  margin: 21px;
+  // margin: 21px;
   box-shadow: 0px 6px 2px 0px gray;
+  align-items: center;
+  flex-direction: column;
+
+  .fa-solid {
+    font-size: xxx-large;
+  }
 }
 
 .under-margin-less {

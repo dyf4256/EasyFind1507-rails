@@ -5,25 +5,28 @@
     <h1 class=" mainText">in</h1>
       <select id="city">
         <option value="Montreal">Montreal</option>
-        <option value="Coming Soon...">Coming Soon...</option>
       </select>
     </div>
   </div>
 
   <div id='landing-page-title' class="">
-    <div class='restaurants border home-category-card'>
+    <div class='restaurants border home-category-card' >
+      <i class="fa-solid fa-utensils"></i>
       <%= button_to 'Restaurants', session_index_path, method: :post, params: {type: 'Restaurant'},class: 'home-button' %>
     </div>
 
     <div class='attractions  border home-category-card'>
+      <i class="fa-solid fa-map-pin"></i>
       <%= button_to 'Attractions', session_index_path, method: :post, params: {type: 'Attraction'},class: "home-button" %>
     </div>
 
     <div class='events  border home-category-card'>
+      <i class="fa-solid fa-calendar-days"></i>
       <%= button_to 'Events', session_index_path, method: :post, params: {type: 'Event'},class: "home-button" %>
     </div>
 
     <div class='movies  border home-category-card'>
+      <i class="fa-solid fa-film"></i>
       <%= button_to 'Movies', session_index_path, method: :post, params: {type: 'Movie'},class: "home-button" %>
     </div>
   </div>
