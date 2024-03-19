@@ -1,5 +1,5 @@
 <div class='border-top mt-2'>
-  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 text-warning'>Restaurants</p>
+  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Restaurants</p>
   <%if restaurants.empty? %>
     <p class='mb-0 mt-2 ms-2 fs-6'>No restaurant selected, go back to get one?</p>
   <% end %>
@@ -8,7 +8,10 @@
       <%= link_to details_path(restaurant) do %>
         <div class='selected-card'>
           <%= image_tag "#{restaurant.activity.photo}", class:'img-thumbnail'%>
-          <%= restaurant.activity.name %>
+          <div class="card-info">
+            <%= restaurant.activity.name %>
+            <i class="fa-solid fa-utensils"></i>
+          </div>
         </div>
       <% end %>
     <% end %>
