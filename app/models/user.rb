@@ -22,4 +22,12 @@ class User < ApplicationRecord
   def bookmarked_activities
     bookmarked_recommendations.includes(:activity).map(&:activity)
   end
+
+  def favorited_activities
+    all_favorited
+  end
+
+  def favorited_recommendations
+    all_favorites.includes(:favoritable)
+  end
 end

@@ -1,8 +1,8 @@
-<div data-controller='profile'>
+<div data-controller=''>
   <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
-    <%= link_to 'Favourited', '#', class: 'btn btn-outline-secondary col-4', data: {action:'click->profile#clear'}%>
-    <%= link_to 'Selected', recommendations_path(status: 'accepted'), class: 'btn btn-success col-4', data: {profile_target: 'selected'}%>
-    <%= link_to 'Bookmarked', recommendations_path(status: 'bookmarked'), class: 'btn btn-outline-secondary col-4'%>
+    <%= link_to 'Favourited', recommendations_path(status: 'favorited'), class: 'btn btn-outline-warning col-4', data: {profile_target: 'favorited'}%>
+    <%= link_to 'Selected', recommendations_path(status: 'accepted'), class: "btn #{ !params[:status].present? || params[:status] == 'accepted' ? 'btn-warning' : 'btn-outline-warning' } col-4", data: {profile_target: 'selected'}%>
+    <%= link_to 'Bookmarked', recommendations_path(status: 'bookmarked'), class: 'btn btn-outline-warning col-4', data: {profile_target: 'bookmarked'}%>
   </div>
 
   <select class='history-filter ms-3'>

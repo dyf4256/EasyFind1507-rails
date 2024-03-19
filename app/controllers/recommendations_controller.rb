@@ -2,16 +2,24 @@ class RecommendationsController < ApplicationController
   include PrepareRecommendation
   before_action :set_recommendation, only: %i[show details update]
   def index
-    case params[:status]
-    when 'accepted'
-      @recommendations = current_user.accepted_recommendations
-    when 'bookmarked'
-      @recommendations = current_user.bookmarked_recommendations
+    if params[:status] == 'favorited'
+      @recommendations = current_user.favorited_activities
+      @restaurants = @recommendations.select { |e| e.instance_of?(Restaurant) }
+      @movies = @recommendations.select { |e| e.instance_of?(Movie) }
+      @events = @recommendations.select { |e| e.instance_of?(Event) }
+      @attractions = @recommendations.select { |e| e.instance_of?(Attraction) }
+    else
+      case params[:status]
+      when 'accepted'
+        @recommendations = current_user.accepted_recommendations
+      when 'bookmarked'
+        @recommendations = current_user.bookmarked_recommendations
+      end
+      # @movies = @recommendations.where(activity_type: 'Movie')
+      # @restaurants = @recommendations.where(activity_type: 'Restaurant')
+      # @events = @recommendations.where(activity_type: 'Event')
+      # @attractions = @recommendations.where(activity_type: 'Attraction')
     end
-    @movies = @recommendations.where(activity_type: 'Movie')
-    @restaurants = @recommendations.where(activity_type: 'Restaurant')
-    @events = @recommendations.where(activity_type: 'Event')
-    @attractions = @recommendations.where(activity_type: 'Attraction')
   end
 
   def new
@@ -50,9 +58,18 @@ class RecommendationsController < ApplicationController
   end
 
   def favorite
-    @activity = Recommendation.find(params[:id]).activity
+    case params[:type]
+    when 'Restaurant'
+      @activity = Restaurant.find(params[:id])
+    when 'Movie'
+      @activity = Movie.find(params[:id])
+    when 'Event'
+      @activity = Event.find(params[:id])
+    when 'Attraction'
+      @activity = Attraction.find(params[:id])
+    end
     @activity.favorited_by?(current_user) ? current_user.unfavorite(@activity) : current_user.favorite(@activity)
-    redirect_to recommendations_path(status: 'accepted')
+    redirect_to recommendations_path(status: params[:from])
   end
 
   private

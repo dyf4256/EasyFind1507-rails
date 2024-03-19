@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :recommendations, only: %i[index show new create update]
   resources :session, only: %i[create]
   get 'recommendations/:id/details', to: 'recommendations#details', as: :details
-  get 'recommendations/:id/favorite', to: 'recommendations#favorite', as: :favorite
+  get 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
 
 end
