@@ -1,0 +1,14 @@
+<% restaurant = recommendation %>
+<div class='selected-card'>
+  <%= link_to details_path(restaurant) do %>
+    <div>
+      <%= image_tag restaurant.activity.photo, class:'img-thumbnail'%>
+    </div>
+  <% end %>
+  <%= render 'shared/activity_cards/like_button', recommendation: restaurant , type: type %>
+  <div>
+    <div>
+      <%= restaurant.activity.name %>
+    </div>
+  </div>
+</div>

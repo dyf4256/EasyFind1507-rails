@@ -1,0 +1,9 @@
+<% event = recommendation %>
+<%= link_to details_path(event) do %>
+  <div class='selected-card'>
+    <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
+    <%= event.activity.name %>
+    <%= event.activity.created_at.to_date %>
+  </div>
+  <%= render 'shared/activity_cards/like_button', recommendation: event , type: type %>
+<% end %>

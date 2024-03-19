@@ -8,7 +8,7 @@ class Favorite < ApplicationRecord
 
   alias_attribute :activity_type, :favoritable_type
   alias_attribute :activity_id, :favoritable_id
-  alias_attribute :activity, :favoritable
+  alias activity favoritable
 
   def block!
     update!(blocked: true)

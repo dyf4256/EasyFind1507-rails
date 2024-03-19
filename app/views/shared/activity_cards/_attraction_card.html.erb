@@ -1,0 +1,8 @@
+<% attraction = recommendation %>
+<%= link_to details_path(attraction) do %>
+  <div class='selected-card'>
+    <%= image_tag "#{attraction.activity.img}", class:'img-thumbnail'%>
+    <%= attraction.activity.name %>
+  </div>
+  <%= render 'shared/activity_cards/like_button', recommendation: attraction , type: type %>
+<% end %>

@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :session, only: %i[create]
   get 'recommendations/:id/details', to: 'recommendations#details', as: :details
   get 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
+  get 'profile/:type', to: 'recommendations#index', as: :profile
 
 end

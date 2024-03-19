@@ -5,12 +5,7 @@
   <% end %>
   <div class='history-by-category'>
     <% movies.each do |movie| %>
-      <%= link_to details_path(movie) do %>
-        <div class='selected-card'>
-          <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
-          <%= movie.activity.title %>
-        </div>
-      <% end %>
+
     <% end %>
   </div>
 </div>
