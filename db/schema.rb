@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_19_145350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "events", force: :cascade do |t|
@@ -32,6 +34,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "img"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -55,13 +59,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "theater_address"
+    t.string "address"
     t.date "screen_time"
     t.string "poster"
     t.string "rating"
     t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -97,6 +103,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_184327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "sessions", force: :cascade do |t|

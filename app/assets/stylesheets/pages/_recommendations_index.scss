@@ -16,6 +16,16 @@
   padding: 10px;
   text-align: center;
   justify-content: space-between;
+
+  .card-info {
+    color: black;
+    display: flex;
+    flex-direction: column;
+  }
+
+  i{
+    font-size: x-large;
+  }
 }
 
 .before-margin {
@@ -33,4 +43,26 @@ a {
 
 .disabled.full-opacity {
   opacity: 1;
+}
+
+.radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + i {
+    border-bottom: 2px solid black;
+  }
+}
+
+label {
+
+
+  i {
+    font-size: x-large;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+
+  }
 }

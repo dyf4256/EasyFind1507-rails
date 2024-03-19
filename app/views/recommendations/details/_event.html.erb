@@ -7,11 +7,7 @@
 
   </div>
 
-
-
-</div>
-
-  <p>Website: <%= recommendation.activity.website %></p>
+<p>Website: <%= recommendation.activity.website %></p>
 
 <h2 class="my-3" style="margin-right: 40px;"> Event Day <br>
     <p style="font-size: large;">
@@ -19,4 +15,8 @@
     </p>
   <p><%= recommendation.activity.description %></p>
 
-  <h2 class="my-3"><%= recommendation.activity.address %></h2>
+  <h2>Address</h2>
+  <p><%= recommendation.activity.address %></p>
+  <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
+
+</div>

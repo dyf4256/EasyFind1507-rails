@@ -1,29 +1,16 @@
 <div class='border-top mt-2'>
-  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 text-warning'>Restaurants</p>
+  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Restaurants</p>
   <%if restaurants.empty? %>
     <p class='mb-0 mt-2 ms-2 fs-6'>No restaurant selected, go back to get one?</p>
   <% end %>
   <div class='history-by-category'>
     <% restaurants.each do |restaurant| %>
-      <div class='selected-card'>
-        <%= link_to details_path(restaurant) do %>
-          <div>
-            <%= image_tag "#{params[:status] == 'favorited' ? restaurant.photo : restaurant.activity.photo}", class:'img-thumbnail'%>
-          </div>
-        <% end %>
-        <% if params[:status] == 'accepted'%>
-          <%= link_to favorite_path(restaurant.activity, type: restaurant.activity.class, from: 'accepted') do %>
-            <i class="fa-solid fa-heart <%= 'text-danger' if restaurant.activity.favorited_by?(current_user) %>"></i>
-          <% end %>
-        <% end %>
-        <% if params[:status] == 'favorited'%>
-          <%= link_to favorite_path(restaurant, type: restaurant.class, from: 'favorited') do %>
-            <i class="fa-solid fa-heart text-danger"></i>
-          <% end %>
-        <% end %>
-        <div>
-          <div>
-            <%= params[:status] == 'favorited' ? restaurant.name : restaurant.activity.name %>
+      <%= link_to details_path(restaurant) do %>
+        <div class='selected-card'>
+          <%= image_tag "#{restaurant.activity.photo}", class:'img-thumbnail'%>
+          <div class="card-info">
+            <%= restaurant.activity.name %>
+            <i class="fa-solid fa-utensils"></i>
           </div>
         </div>
       </div>

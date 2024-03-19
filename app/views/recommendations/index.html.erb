@@ -10,13 +10,40 @@
     <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
   </div>
 
-  <select class='history-filter ms-3'>
+  <%# <select class='history-filter ms-3'>
     <option value="all">All</option>
     <option value="restaurants">Restaurants</option>
     <option value="movies">Movies</option>
     <option value="attractions">Attractions</option>
     <option value="events">Events</option>
-  </select>
+  </select> %>
+
+  <div class="d-flex justify-content-around">
+    <label>
+      <%= radio_button_tag 'categories', 'all', true, class: "radio" %>
+      <i class="fa-solid fa-house px-4"></i>
+    </label>
+
+    <label>
+      <%= radio_button_tag 'categories', 'restaurants', class: "radio" %>
+      <i class="fa-solid fa-utensils px-4"></i>
+    </label>
+
+    <label >
+      <%= radio_button_tag 'categories', 'events', class: "radio" %>
+      <i class="fa-solid fa-calendar-days px-4"></i>
+    </label>
+
+    <label >
+      <%= radio_button_tag 'categories', 'attractions', class: "radio" %>
+      <i class="fa-solid fa-map-pin px-4"></i>
+    </label>
+
+    <label >
+      <%= radio_button_tag 'categories', 'movies', class: "radio" %>
+      <i class="fa-solid fa-film px-4"></i>
+    </label>
+  </div>
 
   <!-- -->
   <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>

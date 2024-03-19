@@ -1,5 +1,5 @@
 <div class='border-top mt-2'>
-  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 text-success'>Attractions</p>
+  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 '>Attractions</p>
   <%if attractions.empty? %>
     <p class='mb-0 mt-2 ms-2 fs-6'>No attraction selected, go back to get one?</p>
   <% end %>
@@ -8,7 +8,11 @@
       <%= link_to details_path(attraction) do %>
         <div class='selected-card'>
           <%= image_tag "#{attraction.activity.img}", class:'img-thumbnail'%>
-          <%= attraction.activity.name %>
+          <div class="card-info">
+            <%= attraction.activity.name %>
+            <i class="fa-solid fa-map-pin"></i>
+
+          </div>
         </div>
       <% end %>
     <% end %>

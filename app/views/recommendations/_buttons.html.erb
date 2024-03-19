@@ -1,13 +1,3 @@
-
-<%# <div class="hover-button px-5 py-2" > %>
-    <%# <%= button_to '',recommendation_path(recommendation), method: :patch, params: {type: recommendation.activity.class, status: 'rejected'}, id: "reject", :class => 'btn btn-danger fa-solid fa-x'%>
-
-    <%# <%= link_to '', "#", id: "more", :class => 'btn btn-warning mx-1 fa-solid fa-bars mx-3' %>
-
-    <%# <%= button_to '', recommendation_path(@recommendation), method: :patch, params: {type: @recommendation.activity.class, status: 'accepted'}, id: "accept", :class => 'btn btn-success mx-1 fa-solid fa-check'%>
-<%# </div> %>
-
-
 <div class="hover-button">
   <%= button_to recommendation_path(recommendation), method: :patch, params: { type: recommendation.activity.class, status: 'rejected', session_id: session.id }, id: "reject", class: 'btn' do %>
     <i class="fa-solid fa-x icon-adjust"></i>
