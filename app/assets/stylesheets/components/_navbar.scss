@@ -19,14 +19,15 @@ body {
 //   border-right: env(safe-area-inset-right) solid blue;
 //   border-bottom: env(safe-area-inset-bottom) solid yellow;
 // }
-// .rectangle {
-//   position: fixed;
-//   top: calc(env(safe-area-inset-top) - 0px); /* Adjust as needed */
-//   left: 100px; /* Adjust as needed */
-//   width: 200px; /* Your rectangle's width */
-//   height: 100px; /* Your rectangle's height */
-//   background-color: #FFD76B; /* Your rectangle's color */
-// }
+.rectangle {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) - 70px); /* Adjust as needed */
+  // left: 100px; /* Adjust as needed */
+  width: 200000px; /* Your rectangle's width */
+  height: 100000px; /* Your rectangle's height */
+  background-color: white; /* Your rectangle's color */
+  z-index: -1;
+}
 
 .navbar-lewagon .navbar-brand img {
   height: 40px;
