@@ -1,4 +1,4 @@
-<div class='detail-card mt-3'>
+<div class='detail-card mt-3 w-100'>
   <h1 class="title mt-2"><%= recommendation.activity.name %></h1>
 
   <div class="d-flex pt-4 img-food">
@@ -44,12 +44,9 @@
     </ul>
   </h2>
 
+  <h2>Address</h2>
+  <p><%= recommendation.activity.address %></p>
+  <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
 
-  <%# <p><%= recommendation.activity.website %>
-
-  <div class="address">
-    <h2>Address</h2>
-    <p><%= recommendation.activity.address %></p>
-  </div>
 
 </div>

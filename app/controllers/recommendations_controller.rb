@@ -18,6 +18,20 @@ class RecommendationsController < ApplicationController
   end
 
   def details
+    activity = @recommendation.activity
+
+    # Check if the activity is geocoded. This assumes all your geocodable models have implemented the geocoded scope.
+    if activity.class.method_defined?(:geocoded) && activity.geocoded?
+      @markers = [{
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { recommendation: @recommendation }),
+        marker_html: render_to_string(partial: "marker", locals: { recommendation: @recommendation })
+      }]
+    else
+      # Handle the case where the activity is not geocoded or does not have geocode information
+      @markers = []
+    end
   end
 
   def create

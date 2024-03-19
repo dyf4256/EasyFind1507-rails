@@ -33,9 +33,8 @@
 
 
 
-  <div class="address">
-    <h2>Address</h2>
-    <p><%= recommendation.activity.theater_address %></p>
-  </div>
+  <h2>Address</h2>
+  <p><%= recommendation.activity.address %></p>
+  <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
 
 </div>
