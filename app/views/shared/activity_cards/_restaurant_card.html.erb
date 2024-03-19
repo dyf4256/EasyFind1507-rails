@@ -1,13 +1,13 @@
 <% restaurant = recommendation %>
 <div class='selected-card'>
   <%= link_to details_path(restaurant) do %>
-    <div>
+    <div class="styling-purpose">
       <%= image_tag restaurant.activity.photo, class:'img-thumbnail'%>
     </div>
   <% end %>
-  <%= render 'shared/activity_cards/like_button', recommendation: restaurant , type: type %>
-  <div>
-    <div>
+  <div class="styling-purpose">
+    <%= render 'shared/activity_cards/like_button', recommendation: restaurant , type: type %>
+    <div class="styling-purpose">
       <%= restaurant.activity.name %>
       <i class="fa-solid fa-utensils"></i>
     </div>

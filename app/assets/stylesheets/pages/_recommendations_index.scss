@@ -26,6 +26,11 @@
   i{
     font-size: x-large;
   }
+
+  img {
+    height: 130px !important;
+    object-fit: cover;
+  }
 }
 
 .before-margin {

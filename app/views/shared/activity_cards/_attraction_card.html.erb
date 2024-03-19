@@ -1,9 +1,13 @@
 <% attraction = recommendation %>
-<%= link_to details_path(attraction) do %>
-  <div class='selected-card'>
+<div class='selected-card'>
+  <%= link_to details_path(attraction) do %>
     <%= image_tag "#{attraction.activity.img}", class:'img-thumbnail'%>
-    <%= attraction.activity.name %>
-    <i class="fa-solid fa-map-pin"></i>
-  </div>
-  <%= render 'shared/activity_cards/like_button', recommendation: attraction , type: type %>
-<% end %>
+    <div class="styling-purpose">
+      <%= render 'shared/activity_cards/like_button', recommendation: attraction , type: type %>
+      <div class="styling-purpose">
+        <%= attraction.activity.name %>
+        <i class="fa-solid fa-map-pin"></i>
+      </div>
+    </div>
+  <% end %>
+</div>
