@@ -1,8 +1,8 @@
 <div data-controller='profile'>
   <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
     <%= link_to 'Favourited', '#', class: 'btn btn-outline-secondary col-4', data: {action:'click->profile#clear'}%>
-    <%= link_to 'Selected', recommendations_path, class: 'btn btn-success col-4', data: {profile_target: 'selected'}%>
-    <%= link_to 'Saved', '#', class: 'btn btn-outline-secondary col-4', data: {action:'click->profile#clear'}%>
+    <%= link_to 'Selected', recommendations_path(status: 'accepted'), class: 'btn btn-success col-4', data: {profile_target: 'selected'}%>
+    <%= link_to 'Bookmarked', recommendations_path(status: 'bookmarked'), class: 'btn btn-outline-secondary col-4'%>
   </div>
 
   <select class='history-filter ms-3'>
@@ -22,7 +22,7 @@
       <%= render 'recommendations/profile/events', events: @events %>
       <div class='mt-1'></div>
     <% else %>
-      <h3>No recommendations selected. Go to find some?</h3>
+      <h3>No recommendation <%= params[:status] %>. Go to find some?</h3>
       <%= link_to 'Find it!', categories_path, class:'btn btn-primary mx-1 my-2' %>
     <% end %>
   </div>

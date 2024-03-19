@@ -1,5 +1,8 @@
-<div class="text-warning">
-  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Restaurants</p>
+<div class='border-top mt-2'>
+  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 text-warning'>Restaurants</p>
+  <%if restaurants.empty? %>
+    <p class='mb-0 mt-2 ms-2 fs-6'>No estaurant selected, go back to get one?</p>
+  <% end %>
   <div class='history-by-category'>
     <% restaurants.each do |restaurant| %>
       <%= link_to details_path(restaurant) do %>

@@ -1,5 +1,8 @@
-<div class='text-success'>
-  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4'>Attractions</p>
+<div class='border-top mt-2'>
+  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 text-success'>Attractions</p>
+  <%if attractions.empty? %>
+    <p class='mb-0 mt-2 ms-2 fs-6'>No attraction selected, go back to get one?</p>
+  <% end %>
   <div class='history-by-category'>
     <% attractions.each do |attraction| %>
       <%= link_to details_path(attraction) do %>
