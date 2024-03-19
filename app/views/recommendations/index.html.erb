@@ -1,19 +1,19 @@
-<div data-controller='profile'>
+<div data-controller=''>
+  <% selected_button_class = 'btn-warning disabled full-opacity' %>
+  <% non_selected_button_class = 'btn-outline-warning' %>
 
   <div class="profile-id">
     <%= image_tag "yuefei.jpg", class: "avatar-profile", alt: "User Photo" %>
     <h1>Name</h1>
   </div>
 
+  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
+    <%= link_to 'Favourited', profile_path(:favorited), class: "btn sections col-4 #{@type == 'favorited'? selected_button_class : non_selected_button_class}"%>
 
+    <%= link_to 'Selected', profile_path(:accepted), class: "btn sections col-4 #{@type == 'accepted'? selected_button_class : non_selected_button_class}"%>
 
-
-  <div class='profile-buttons d-flex flex-row justify-content-around mb-1'>
-    <%= link_to 'To Try', recommendations_path(status: 'accepted'), class: 'btn sections ml-1 col-4', data: {profile_target: 'selected'}%>
-    <%= link_to 'Bookmarks', recommendations_path(status: 'bookmarked'), class: 'btn sections col-4'%>
-    <%= link_to 'Favourites', '#', class: 'btn sections mr-1 col-4', data: {action:'click->profile#clear'}%>
+    <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn sections col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
   </div>
-
 
 
   <div class="d-flex justify-content-around">
@@ -46,15 +46,16 @@
 
   <!-- -->
   <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>
-    <% if @recommendations.length > 0 %>
-      <%= render 'recommendations/profile/restaurants', restaurants: @restaurants %>
-      <%= render 'recommendations/profile/movies', movies: @movies %>
-      <%= render 'recommendations/profile/attractions', attractions: @attractions %>
-      <%= render 'recommendations/profile/events', events: @events %>
-      <div class='mt-1'></div>
+    <% if @recommendations.empty? %>
+      <h3>No <%= @type %> activities.</h3>
+      <%= link_to 'Get Started!', categories_path, class:'btn btn-primary mx-1 my-2' %>
     <% else %>
-      <h3>No recommendation <%= params[:status] %>. Go to find some?</h3>
-      <%= link_to 'Find it!', categories_path, class:'btn btn-primary mx-1 my-2' %>
+      <div class="history-by-category">
+        <% @recommendations.each do |recommendation| %>
+          <% activity_type = recommendation.activity_type.downcase %>
+          <%= render "shared/activity_cards/#{activity_type}_card", recommendation: recommendation, type: @type %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

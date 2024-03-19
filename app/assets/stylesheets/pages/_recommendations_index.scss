@@ -39,6 +39,11 @@
   color: #FFD76B;
   padding: 12px;
   }
+
+  img {
+    height: 130px !important;
+    object-fit: cover;
+  }
 }
 
 
@@ -55,7 +60,9 @@ a {
   text-decoration: none;
 }
 
-
+.disabled.full-opacity {
+  opacity: 1;
+}
 
 .radio {
   position: absolute;
