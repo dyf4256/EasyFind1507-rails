@@ -5,12 +5,26 @@
   <% end %>
   <div class='history-by-category'>
     <% restaurants.each do |restaurant| %>
-      <%= link_to details_path(restaurant) do %>
-        <div class='selected-card'>
-          <%= image_tag "#{restaurant.activity.photo}", class:'img-thumbnail'%>
-          <%= restaurant.activity.name %>
+      <div class='selected-card'>
+        <%= link_to details_path(restaurant) do %>
+          <div>
+            <%= image_tag "#{restaurant.activity.photo}", class:'img-thumbnail'%>
+          </div>
+        <% end %>
+        <% if params[:status] == 'accepted' %>
+          <%= link_to favorite_path(restaurant) do %>
+            <i class="fa-solid fa-heart <%= 'text-danger' if restaurant.activity.favorited_by?(current_user) %>"></i>
+          <% end %>
+        <% end %>
+        <div>
+          <div>
+            <%= restaurant.activity.name %>
+          </div>
+          <div class='text-secondary'>
+            <%= restaurant.activity.created_at.to_date %>
+          </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>

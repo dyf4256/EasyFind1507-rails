@@ -9,6 +9,7 @@
         <div class='selected-card'>
           <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
           <%= event.activity.name %>
+          <%= event.activity.created_at.to_date %>
         </div>
       <% end %>
     <% end %>

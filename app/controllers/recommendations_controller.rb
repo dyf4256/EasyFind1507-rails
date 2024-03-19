@@ -7,8 +7,6 @@ class RecommendationsController < ApplicationController
       @recommendations = current_user.accepted_recommendations
     when 'bookmarked'
       @recommendations = current_user.bookmarked_recommendations
-    when 'favorited'
-      raise
     end
     @movies = @recommendations.where(activity_type: 'Movie')
     @restaurants = @recommendations.where(activity_type: 'Restaurant')
@@ -49,6 +47,12 @@ class RecommendationsController < ApplicationController
     else
       render root_path, status: :unprocessable_entity
     end
+  end
+
+  def favorite
+    @activity = Recommendation.find(params[:id]).activity
+    @activity.favorited_by?(current_user) ? current_user.unfavorite(@activity) : current_user.favorite(@activity)
+    redirect_to recommendations_path(status: 'accepted')
   end
 
   private
