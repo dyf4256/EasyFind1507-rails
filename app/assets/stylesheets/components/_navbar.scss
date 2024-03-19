@@ -69,3 +69,26 @@ body {
   display: flex;
   position: relative; // Ensure dropdown aligns within the nav item context
 }
+
+
+.profile-id {
+  text-align: center;
+  background-color: #FFD76B;
+  padding: 10px;
+  h1 {
+    font-weight: bold;
+
+  }
+}
+
+
+.avatar-profile {
+  width: 116px;
+  height: 112px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: transform 0.2s ease-in-out;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

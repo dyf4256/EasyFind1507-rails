@@ -1,16 +1,16 @@
 <div class='border-top mt-2'>
-  <p class='mb-0 mt-2 ms-2 fw-bolder fs-4 '>Attractions</p>
-  <%if attractions.empty? %>
-    <p class='mb-0 mt-2 ms-2 fs-6'>No attraction selected, go back to get one?</p>
-  <% end %>
+
   <div class='history-by-category'>
     <% attractions.each do |attraction| %>
       <%= link_to details_path(attraction) do %>
         <div class='selected-card'>
-          <%= image_tag "#{attraction.activity.img}", class:'img-thumbnail'%>
+          <div class="card-photo">
+            <%= image_tag "#{attraction.activity.img}", class:'img-thumbnail'%>
+          </div>
+
           <div class="card-info">
+            <%= image_tag "coaster_grey.png", alt: "Fareswheel", class: "icon"%>
             <%= attraction.activity.name %>
-            <i class="fa-solid fa-map-pin"></i>
 
           </div>
         </div>
