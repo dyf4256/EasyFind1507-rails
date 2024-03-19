@@ -1,9 +1,14 @@
 #city {
   height: 50px;
   border: none;
-  background-color: #FFE8AB;
+  background-color: #FFE8AB; /* Background color */
   font-weight: bold;
   margin-left: 20px;
   font-size: xx-large;
   width: 200px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="black"><polygon points="0,0 100,0 50,50"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-left: 10px;
 }

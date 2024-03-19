@@ -1,6 +1,6 @@
 class Recommendation < ApplicationRecord
   belongs_to :activity, polymorphic: true
-  belongs_to :user
+  belongs_to :session
   enum :status, {
     pending: 0,
     rejected: 1,

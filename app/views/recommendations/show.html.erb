@@ -26,7 +26,7 @@
         <!-- Handle other types or default case here -->
     <% end %>
     <div class='d-flex flex-row justify-content-center'>
-      <%= render 'buttons', recommendation: @recommendation %>
+      <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session %>
     </div>
   </div>
 </div>

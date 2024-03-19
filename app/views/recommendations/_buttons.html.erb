@@ -9,7 +9,7 @@
 
 
 <div class="hover-button">
-  <%= button_to recommendation_path(recommendation), method: :patch, params: { type: recommendation.activity.class, status: 'rejected' }, id: "reject", class: 'btn' do %>
+  <%= button_to recommendation_path(recommendation), method: :patch, params: { type: recommendation.activity.class, status: 'rejected', session_id: session.id }, id: "reject", class: 'btn' do %>
     <i class="fa-solid fa-x icon-adjust"></i>
   <% end %>
 
@@ -17,7 +17,7 @@
     <i class="fa-solid fa-bars icon-adjust"></i>
   <% end %>
 
-  <%= button_to recommendation_path(@recommendation), method: :patch, params: { type: @recommendation.activity.class, status: 'accepted' }, id: "accept", class: 'btn' do %>
+  <%= button_to recommendation_path(@recommendation), method: :patch, params: { type: @recommendation.activity.class, status: 'accepted', session_id: session.id }, id: "accept", class: 'btn' do %>
     <i class="fa-solid fa-check icon-adjust"></i>
   <% end %>
 </div>

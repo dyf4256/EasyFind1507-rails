@@ -47,3 +47,48 @@ document.addEventListener('turbo:load', function() {
     setInterval(slideImages, 3000); // Change images every 3 seconds
   }
 });
+
+// document.addEventListener('touchmove', function(event) {
+//   // Check if the target of the touchmove event is within a scrollable area
+//   let isScrollable = event.target.closest('.scrollable');
+//   if (!isScrollable) {
+//     // Prevent the touchmove event's default action if outside of scrollable areas
+//     event.preventDefault();
+//   }
+// }, { passive: false });
+
+// document.addEventListener('touchstart', function(event) {
+//   var startY = event.touches[0].pageY;
+//   var scrollableElement = document.querySelector('.scrollable'); // Your scrollable element
+
+//   scrollableElement.addEventListener('touchmove', function(event) {
+//     var moveY = event.touches[0].pageY;
+//     var isScrollingDown = moveY > startY;
+//     var scrollTop = scrollableElement.scrollTop;
+
+//     if (scrollTop === 0 && !isScrollingDown) {
+//       // Trying to scroll up when already at the top
+//       event.preventDefault();
+//     }
+//   }, { passive: false });
+// }, { passive: true });
+
+// let lastScrollTop = 0;
+// window.addEventListener("touchmove", function(evt) {
+//   var bodyScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+//   var direction = evt.touches[0].pageY > lastScrollTop ? "down" : "up";
+//   lastScrollTop = evt.touches[0].pageY <= 0 ? 0 : evt.touches[0].pageY; // For Mobile or negative scrolling
+
+//   if (bodyScrollTop === 0 && direction === "up") {
+//     evt.preventDefault(); // At the top, moving up
+//   }
+// }, { passive: false });
+
+// if (window.safeAreaInsets) {
+//   console.log("Safe area inset top:", window.safeAreaInsets.top);
+//   console.log("Safe area inset left:", window.safeAreaInsets.left);
+//   console.log("Safe area inset right:", window.safeAreaInsets.right);
+//   console.log("Safe area inset bottom:", window.safeAreaInsets.bottom);
+// } else {
+//   console.log("Safe area insets not available.");
+// }
