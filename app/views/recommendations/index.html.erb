@@ -4,7 +4,7 @@
 
   <div class="profile-id">
     <%= image_tag "yuefei.jpg", class: "avatar-profile", alt: "User Photo" %>
-    <h1>Name</h1>
+    <h1><%= current_user.first_name %></h1>
   </div>
 
   <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
