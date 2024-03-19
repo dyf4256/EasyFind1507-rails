@@ -16,20 +16,22 @@
   <h2 class="container mt-2 " id="friendly-text" data-controller="friendly-text-change"></h2>
 
   <div class='show-recommendation-container' data-controller='activity'>
-    <% case @recommendation.activity.class.to_s %>
-      <% when 'Restaurant' %>
-        <%= render 'recommendations/basic/restaurant', recommendation: @recommendation %>
-      <% when 'Event' %>
-        <%= render 'recommendations/basic/event', recommendation: @recommendation %>
-      <% when 'Attraction' %>
-        <%= render 'recommendations/basic/attraction', recommendation: @recommendation %>
-      <% when 'Movie' %>
-        <%= render 'recommendations/basic/movie', recommendation: @recommendation %>
-      <% else %>
-        <!-- Handle other types or default case here -->
-    <% end %>
-    <div class='d-flex flex-row justify-content-center'>
-      <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session %>
+    <div class='<%= "bottom-spacing-for-scrollable" if @recommendation.session.active? %>' data-controller='activity'>
+      <% case @recommendation.activity.class.to_s %>
+        <% when 'Restaurant' %>
+          <%= render 'recommendations/basic/restaurant', recommendation: @recommendation %>
+        <% when 'Event' %>
+          <%= render 'recommendations/basic/event', recommendation: @recommendation %>
+        <% when 'Attraction' %>
+          <%= render 'recommendations/basic/attraction', recommendation: @recommendation %>
+        <% when 'Movie' %>
+          <%= render 'recommendations/basic/movie', recommendation: @recommendation %>
+        <% else %>
+          <!-- Handle other types or default case here -->
+      <% end %>
+      <div class='d-flex flex-row justify-content-center'>
+        <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session %>
+      </div>
     </div>
   </div>
 </div>

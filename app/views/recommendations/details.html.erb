@@ -11,22 +11,25 @@
 
 
 <div class='container'>
+
   <div class='recommendation-container' data-controller='activity'>
-    <% case @recommendation.activity.class.to_s %>
-      <% when 'Restaurant' %>
-        <%= render 'recommendations/details/restaurant', recommendation: @recommendation %>
-      <% when 'Event' %>
-        <%= render 'recommendations/details/event', recommendation: @recommendation %>
-      <% when 'Attraction' %>
-        <%= render 'recommendations/details/attraction', recommendation: @recommendation %>
-      <% when 'Movie' %>
-        <%= render 'recommendations/details/movie', recommendation: @recommendation %>
-      <% else %>
-    <% end %>
-    <% if !@recommendation.accepted?%>
-      <div data-activity-target='details_buttons' class='d-flex justify-content-center'>
-       <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session%>
-      </div>
-    <% end %>
+    <div class='<%= "bottom-spacing-for-scrollable" if @recommendation.session.active? %>' data-controller='activity'>
+      <% case @recommendation.activity.class.to_s %>
+        <% when 'Restaurant' %>
+          <%= render 'recommendations/details/restaurant', recommendation: @recommendation %>
+        <% when 'Event' %>
+          <%= render 'recommendations/details/event', recommendation: @recommendation %>
+        <% when 'Attraction' %>
+          <%= render 'recommendations/details/attraction', recommendation: @recommendation %>
+        <% when 'Movie' %>
+          <%= render 'recommendations/details/movie', recommendation: @recommendation %>
+        <% else %>
+      <% end %>
+      <% if !@recommendation.accepted?%>
+        <div data-activity-target='details_buttons' class='d-flex justify-content-center'>
+        <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
