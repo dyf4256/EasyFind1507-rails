@@ -7,6 +7,8 @@ class RecommendationsController < ApplicationController
       @recommendations = current_user.accepted_recommendations
     when 'bookmarked'
       @recommendations = current_user.bookmarked_recommendations
+    when 'favorited'
+      raise
     end
     @movies = @recommendations.where(activity_type: 'Movie')
     @restaurants = @recommendations.where(activity_type: 'Restaurant')
