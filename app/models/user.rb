@@ -40,6 +40,12 @@ class User < ApplicationRecord
     fetch_active_session(type.capitalize).order(updated_at: :desc).first
   end
 
+  def last_completed_session_for(type)
+    raise ArgumentError, "Type #{type} not supported" unless Activities.supported?(type)
+
+    sessions.completed.by_type(type.capitalize).order(updated_at: :desc).first
+  end
+
   private
 
   def fetch_active_session(type)

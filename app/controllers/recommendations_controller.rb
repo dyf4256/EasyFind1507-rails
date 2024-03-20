@@ -8,7 +8,7 @@ class RecommendationsController < ApplicationController
     when 'accepted'
       @recommendations = current_user.accepted_recommendations
     when 'bookmarked'
-      @recommendations = current_user.bookmarked_recommendations
+      @recommendations = current_user.bookmarked_recommendations.uniq { |a| [a.activity_type, a.activity_id] }
     when 'favorited'
       @recommendations = current_user.favorited_recommendations
     else
@@ -21,7 +21,7 @@ class RecommendationsController < ApplicationController
   end
 
   def show
-    redirect_to categories_path, alert: 'Session is expired!' if @recommendation.session.inactive?
+    redirect_to categories_path, alert: 'Session is expired!' if @recommendation.session.completed?
   end
 
   def details

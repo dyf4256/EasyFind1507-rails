@@ -7,13 +7,14 @@ class Session < ApplicationRecord
   has_many :rejected_recommendations, -> { where status: 1 }, class_name: 'Recommendation', foreign_key: :session_id
 
   scope :active, -> { where active: true }
+  scope :completed, -> { where active: false }
   scope :by_type, ->(type) { where activity_type: type }
 
   def end!
     update(active: false)
   end
 
-  def inactive?
+  def completed?
     !active
   end
 

@@ -1,0 +1,12 @@
+<h4>Last time you were looking for <%= @previous_session.activity_type %>s, you were intersted by these: </h4>
+<ul>
+  <% @previous_session.bookmarked_recommendations.each do |recommendation| %>
+  <li>
+    <%= recommendation.activity.name %>
+  </li>
+  <% end %>
+</ul>
+<h4>Shall we keep them?</h4>
+
+<%= button_to 'Yes, keep them!', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'true'), class:'btn btn-success' %>
+<%= button_to 'No, start from scratch', session_index_path(type: @previous_session.activity_type), class:'btn btn-danger mt-2' %>

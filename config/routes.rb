@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
   get 'profile/:type', to: 'recommendations#index', as: :profile
   get 'nomore', to: 'pages#nomore', as: :nomore
+  get 'sessions/:id/past_bookmarks', to: 'session#past_bookmarks', as: :past_session_bookmarks
 
 end
