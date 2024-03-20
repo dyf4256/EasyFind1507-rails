@@ -17,13 +17,51 @@ User.create!(email: 'laurent@hackers.com', password: 'password', first_name: 'La
 puts "Users seeded successfully!"
 
 # Import businesses
+# def import_businesses_from_json(term)
+#   puts "Importing #{term} from JSON..."
+#   file_path = Rails.root.join('db', "#{term.gsub(' ', '_')}_data.json")
+#   if File.exist?(file_path)
+#     data = JSON.parse(File.read(file_path))
+#     data.each do |item|
+#       # Handle your restaurant and attraction seeding here
+#     end
+#     puts "#{term.capitalize} imported successfully."
+#   else
+#     puts "No JSON file found for #{term}."
+#   end
+# end
+
+# ['restaurants', 'attractions'].each do |term|
+#   import_businesses_from_json(term)
+# end
+
 def import_businesses_from_json(term)
-  puts "Importing #{term} from JSON..."
   file_path = Rails.root.join('db', "#{term.gsub(' ', '_')}_data.json")
   if File.exist?(file_path)
     data = JSON.parse(File.read(file_path))
     data.each do |item|
-      # Handle your restaurant and attraction seeding here
+      case term
+      when 'restaurants'
+        Restaurant.find_or_create_by(name: item['name']) do |r|
+          r.address = item['location']['address1']
+          r.rating = item['rating'].to_f
+          r.cuisine = item['categories'].map { |cat| cat['title'] }.join(', ')
+          r.price_level = item['price']
+          r.website = item['url']
+          r.hours = 'Check website for hours' # Placeholder, adjust as needed
+          r.photo = item['image_url']
+          r.latitude = item['coordinates']['latitude']
+          r.longitude = item['coordinates']['longitude']
+        end
+      when 'attractions'
+        Attraction.find_or_create_by(name: item['name']) do |a|
+          a.address = item['location']['address1']
+          a.img = item['image_url']
+          a.website = item['url']
+          a.latitude = item['coordinates']['latitude']
+          a.longitude = item['coordinates']['longitude']
+        end
+      end
     end
     puts "#{term.capitalize} imported successfully."
   else
@@ -31,6 +69,7 @@ def import_businesses_from_json(term)
   end
 end
 
+# Seed businesses
 ['restaurants', 'attractions'].each do |term|
   import_businesses_from_json(term)
 end
