@@ -77,13 +77,16 @@ a {
 }
 
 label {
-
+  text-align: center;
 
   img {
     height: 37px;
     cursor: pointer;
     border-bottom: 1px solid white;
+  }
 
+  p {
+    font-size: small;
   }
 }
 
