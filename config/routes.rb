@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get 'profile/:type', to: 'recommendations#index', as: :profile
   get 'nomore', to: 'pages#nomore', as: :nomore
   get 'sessions/:id/past_bookmarks', to: 'session#past_bookmarks', as: :past_session_bookmarks
+  post 'filter', to: 'recommendations#filter', as: :filter
 
 end

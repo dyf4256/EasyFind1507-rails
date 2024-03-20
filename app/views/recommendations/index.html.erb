@@ -16,40 +16,35 @@
   </div>
 
 
-  <div class="d-flex justify-content-around">
-    <label>
-      <%= radio_button_tag 'categories', 'all', true, class: "radio" %>
+  <div class="d-flex justify-content-around profile-filter">
+    <%= button_to filter_path, class: 'btn' do %>
       <%= image_tag "check.png", alt: "Firework" %>
       <p>All</p>
-    </label>
+    <% end %>
 
-    <label>
-      <%= radio_button_tag 'categories', 'restaurants', class: "radio" %>
+    <%= button_to filter_path, class: 'btn' do %>
       <%= image_tag "knife_grey.png", alt: "Firework" %>
       <p>Restaurants</p>
-    </label>
+    <% end %>
 
-    <label >
-      <%= radio_button_tag 'categories', 'events', class: "radio" %>
+    <%= button_to filter_path, class: 'btn' do %>
       <%= image_tag "event_grey.png", alt: "Firework" %>
       <p>Events</p>
-    </label>
+    <% end %>
 
-    <label >
-      <%= radio_button_tag 'categories', 'attractions', class: "radio" %>
+    <%= button_to filter_path, class: 'btn' do %>
       <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
       <p>Attractions</p>
-    </label>
+    <% end %>
 
-    <label >
-      <%= radio_button_tag 'categories', 'movies', class: "radio" %>
+    <%= button_to filter_path, class: 'btn' do %>
       <%= image_tag "movie_grey.png", alt: "Firework" %>
       <p>Movies</p>
-    </label>
+    <% end %>
   </div>
 
   <!-- -->
-  <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>
+  <div class='selected-history-container mt-2 border-top' data-profile-target='profile'>
     <% if @recommendations.empty? %>
       <h3>No <%= @type %> activities.</h3>
       <%= link_to 'Get Started!', categories_path, class:'btn btn-primary mx-1 my-2' %>

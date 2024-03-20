@@ -90,6 +90,10 @@ class RecommendationsController < ApplicationController
     redirect_to profile_path(params[:from])
   end
 
+  def filter
+    raise
+  end
+
   private
 
   def set_recommendation
