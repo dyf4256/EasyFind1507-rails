@@ -4,6 +4,7 @@ require 'json'
 
 class YelpService
   YELP_API_ENDPOINT = "https://api.yelp.com/v3/businesses/search".freeze
+  API_KEY = ENV['YELP_API_KEY'].freeze
   PER_PAGE = 50
 
   def self.save_businesses_to_json(term:, total: 1000, location: 'Montreal')
