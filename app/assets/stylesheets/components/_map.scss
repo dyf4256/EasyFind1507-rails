@@ -22,3 +22,9 @@
   box-shadow: none;
   background-color: transparent;
 }
+
+.rounded-yellow-border {
+  border: 3px solid #fff56b; /* Adjust the border thickness as needed */
+  border-radius: 20%; /* This makes the border rounded */
+  /* Additional styling can go here */
+}
