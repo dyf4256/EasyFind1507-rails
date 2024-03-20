@@ -14,6 +14,24 @@ class RecommendationsController < ApplicationController
     else
       raise ActionController::RoutingError.new('Not Found')
     end
+
+    if params[:query].present?
+      # activity_types = params[:query].keys
+      # activity_types.each do |activity_type|
+      #   if Activities.supported?(activity_type)
+      #     if activity_types.first == activity_type
+      #       @recommendations = @recommendations.where(activity_type: activity_type.capitalize)
+      #     else
+      #       @recommendations = @recommendations.or(@recommendations.where(activity_type: activity_type.capitalize))
+      #     end
+      #   end
+      # end
+      activity_types = []
+      params[:query].each_key do |key|
+        activity_types << key.capitalize
+      end
+      @recommendations = @recommendations.where(activity_type: activity_types)
+    end
   end
 
   def new

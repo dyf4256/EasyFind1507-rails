@@ -15,38 +15,25 @@
     <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn sections col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
   </div>
 
-
-  <div class="d-flex justify-content-around">
-    <label>
-      <%= radio_button_tag 'categories', 'all', true, class: "radio" %>
-      <%= image_tag "check.png", alt: "Firework" %>
-      <p>All</p>
-    </label>
-
-    <label>
-      <%= radio_button_tag 'categories', 'restaurants', class: "radio" %>
-      <%= image_tag "knife_grey.png", alt: "Firework" %>
-      <p>Restaurants</p>
-    </label>
-
-    <label >
-      <%= radio_button_tag 'categories', 'events', class: "radio" %>
-      <%= image_tag "event_grey.png", alt: "Firework" %>
-      <p>Events</p>
-    </label>
-
-    <label >
-      <%= radio_button_tag 'categories', 'attractions', class: "radio" %>
-      <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
-      <p>Attractions</p>
-    </label>
-
-    <label >
-      <%= radio_button_tag 'categories', 'movies', class: "radio" %>
-      <%= image_tag "movie_grey.png", alt: "Firework" %>
-      <p>Movies</p>
-    </label>
-  </div>
+  <%= form_with url: profile_path(params[:type]), method: :get, class: 'd-flex justify-content-center' do %>
+    <div>
+      <%= check_box_tag('query[restaurant]' ) %>
+      <%= label_tag(:restaurants, 'Restaurants') %>
+    </div>
+    <div>
+      <%= check_box_tag('query[event]' ) %>
+      <%= label_tag(:events, 'Events') %>
+    </div>
+    <div>
+      <%= check_box_tag('query[attraction]' ) %>
+      <%= label_tag(:attractions, 'Attractions') %>
+    </div>
+    <div>
+      <%= check_box_tag('query[movie]' ) %>
+      <%= label_tag(:movies, 'Movies') %>
+    </div>
+    <%= submit_tag 'Search', name: '', class: 'btn btn-primary btn-sm' %>
+  <% end %>
 
   <!-- -->
   <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>
