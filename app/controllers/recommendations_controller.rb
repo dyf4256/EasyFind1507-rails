@@ -14,20 +14,6 @@ class RecommendationsController < ApplicationController
     else
       raise ActionController::RoutingError.new('Not Found')
     end
-    # if params[:status] == 'favorited'
-    #   @recommendations = current_user.favorited_activities
-    #   @restaurants = @recommendations.select { |e| e.instance_of?(Restaurant) }
-    #   @movies = @recommendations.select { |e| e.instance_of?(Movie) }
-    #   @events = @recommendations.select { |e| e.instance_of?(Event) }
-    #   @attractions = @recommendations.select { |e| e.instance_of?(Attraction) }
-    # else
-    #   case params[:status]
-    #   when 'accepted'
-    #     @recommendations = current_user.accepted_recommendations
-    #   when 'bookmarked'
-    #     @recommendations = current_user.bookmarked_recommendations
-    #   end
-    # end
   end
 
   def new
