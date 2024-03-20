@@ -1,13 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 # Initial users datas
 puts "Destroy datas"
 Recommendation.destroy_all
@@ -24,24 +14,24 @@ User.create!(email: 'declan@hackers.com', password: 'password', first_name: 'Dec
 User.create!(email: 'laurent@hackers.com', password: 'password', first_name: 'Laurent', last_name: 'Lefebvre')
 puts "Users seed successed!"
 
-puts "Seed Restaurants..."
-Restaurant.create!(name: 'Buger de Ville', address: '5282 St Laurent Blvd, Montreal, Quebec H2T 1S5', rating: 4.3, cuisine: 'Burger', price_level: '$' * rand(3), website: 'Soon...', hours: '7-11', photo: 'restaurants_burger.jpg')
-Restaurant.create!(name: 'In Gamba', address: '1234 Saint-Urbain Street, Montreal, Canada', rating: 4.6, cuisine: 'Cafe', price_level: '$$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_coffe.jpg')
-Restaurant.create!(name: 'Chez Claudette', address: '351 Laurier Ave E, Montreal, Quebec H2T 1G7', rating: 4.4, cuisine: 'poutine', price_level: '$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_fries.jpg')
-Restaurant.create!(name: 'Mile End Grill', address: '100 Rue Saint-Viateur O, Montréal, QC H2T 2L1', rating: 4.3, cuisine: 'Portuguese', price_level: '$$', website: 'http://www.mileendgrill.com/', hours: '7-11', photo: 'res4.jpg')
-Restaurant.create!(name: 'Restaurant Salonica', address: '5261 Saint Denis St, Montreal, Quebec H2J 2L8', rating: 3.2, cuisine: 'Pizza', price_level: '$', website: 'http://www.restaurantsalonica.com/', hours: '7-11', photo: 'res5.jpg')
-Restaurant.create!(name: 'Restaurant Mont-Royal Hot Dog', address: '1001 Mont-Royal Ave E, Montreal, Quebec H2J 1X7', rating: 3.8, cuisine: 'Fast food', price_level: '$', website: 'http://mont-royalhotdog.com/', hours: '7-11', photo: 'res6.jpg')
-Restaurant.create!(name: 'Le Bay Cà Phê', address: '5263 St Laurent Blvd, Montreal, Quebec H2T 1S4', rating: 4.5, cuisine: 'Vietnamese', price_level: '$$', website: 'https://www.lebaycaphe.com/', hours: '7-11', photo: 'res7.jpg')
-Restaurant.create!(name: 'Drogheria Fine', address: '68 Av. Fairmount O, Montréal, QC H2T 2M2', rating: 4.5, cuisine: 'Italian', price_level: '$$', website: 'http://www.lasalsadellanonna.com/', hours: '7-11', photo: 'res8.jpg')
-Restaurant.create!(name: 'Restaurant Boustan', address: '5151 Park Ave, Montreal, Quebec H2V 4G3', rating: 4.4, cuisine: 'Lebanese', price_level: '$', website: 'https://boustan.ca/', hours: '7-11', photo: 'res9.jpg')
-Restaurant.create!(name: 'Falafel Yoni', address: '54 Rue Saint-Viateur O, Montréal, QC H2T 2K8', rating: 4.7, cuisine: 'Falafel', price_level: '$', website: 'https://www.falafelyoni.com/', hours: '7-11', photo: 'res10.jpg')
-puts "Restaurants seed successed!"
+# puts "Seed Restaurants..."
+# Restaurant.create!(name: 'Buger de Ville', address: '5282 St Laurent Blvd, Montreal, Quebec H2T 1S5', rating: 4.3, cuisine: 'Burger', price_level: '$' * rand(3), website: 'Soon...', hours: '7-11', photo: 'restaurants_burger.jpg')
+# Restaurant.create!(name: 'In Gamba', address: '1234 Saint-Urbain Street, Montreal, Canada', rating: 4.6, cuisine: 'Cafe', price_level: '$$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_coffe.jpg')
+# Restaurant.create!(name: 'Chez Claudette', address: '351 Laurier Ave E, Montreal, Quebec H2T 1G7', rating: 4.4, cuisine: 'poutine', price_level: '$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_fries.jpg')
+# Restaurant.create!(name: 'Mile End Grill', address: '100 Rue Saint-Viateur O, Montréal, QC H2T 2L1', rating: 4.3, cuisine: 'Portuguese', price_level: '$$', website: 'http://www.mileendgrill.com/', hours: '7-11', photo: 'res4.jpg')
+# Restaurant.create!(name: 'Restaurant Salonica', address: '5261 Saint Denis St, Montreal, Quebec H2J 2L8', rating: 3.2, cuisine: 'Pizza', price_level: '$', website: 'http://www.restaurantsalonica.com/', hours: '7-11', photo: 'res5.jpg')
+# Restaurant.create!(name: 'Restaurant Mont-Royal Hot Dog', address: '1001 Mont-Royal Ave E, Montreal, Quebec H2J 1X7', rating: 3.8, cuisine: 'Fast food', price_level: '$', website: 'http://mont-royalhotdog.com/', hours: '7-11', photo: 'res6.jpg')
+# Restaurant.create!(name: 'Le Bay Cà Phê', address: '5263 St Laurent Blvd, Montreal, Quebec H2T 1S4', rating: 4.5, cuisine: 'Vietnamese', price_level: '$$', website: 'https://www.lebaycaphe.com/', hours: '7-11', photo: 'res7.jpg')
+# Restaurant.create!(name: 'Drogheria Fine', address: '68 Av. Fairmount O, Montréal, QC H2T 2M2', rating: 4.5, cuisine: 'Italian', price_level: '$$', website: 'http://www.lasalsadellanonna.com/', hours: '7-11', photo: 'res8.jpg')
+# Restaurant.create!(name: 'Restaurant Boustan', address: '5151 Park Ave, Montreal, Quebec H2V 4G3', rating: 4.4, cuisine: 'Lebanese', price_level: '$', website: 'https://boustan.ca/', hours: '7-11', photo: 'res9.jpg')
+# Restaurant.create!(name: 'Falafel Yoni', address: '54 Rue Saint-Viateur O, Montréal, QC H2T 2K8', rating: 4.7, cuisine: 'Falafel', price_level: '$', website: 'https://www.falafelyoni.com/', hours: '7-11', photo: 'res10.jpg')
+# puts "Restaurants seed successed!"
 
-puts "Seed Attractions..."
-Attraction.create!(name: 'Vieux-Port de Montréal', address: '333 Rue de la Commune O, Montréal, QC H2Y 2E2', img: 'vieux_port.jpeg', website: 'http://www.vieuxportdemontreal.com/')
-Attraction.create!(name: 'Grand Staircase of Mount Royal', address: 'Le Serpentin, Montreal, Quebec H3H 1A2', img: 'grand_stairs.jpeg', website: 'Soon...')
-Attraction.create!(name: 'Notre-Dame Basilica of Montreal', address: '110 Notre-Dame St W, Montreal, Quebec H2Y 1T1', img: 'notre_dame.jpeg', website: 'https://www.basiliquenotredame.ca/')
-puts "Attractions seed successed!"
+# puts "Seed Attractions..."
+# Attraction.create!(name: 'Vieux-Port de Montréal', address: '333 Rue de la Commune O, Montréal, QC H2Y 2E2', img: 'vieux_port.jpeg', website: 'http://www.vieuxportdemontreal.com/')
+# Attraction.create!(name: 'Grand Staircase of Mount Royal', address: 'Le Serpentin, Montreal, Quebec H3H 1A2', img: 'grand_stairs.jpeg', website: 'Soon...')
+# Attraction.create!(name: 'Notre-Dame Basilica of Montreal', address: '110 Notre-Dame St W, Montreal, Quebec H2Y 1T1', img: 'notre_dame.jpeg', website: 'https://www.basiliquenotredame.ca/')
+# puts "Attractions seed successed!"
 
 puts "Seed events..."
 Event.create!(name: 'Taylor Swift Dance Party', address: 'Muzique Nightclub, 3781 Boulevard Saint-Laurent Montréal, QC H2W 1X8', date: '2024-03-16'.to_date, description: "Montreal Swifties Unite!! SWIFTIES SOCIALS is back with the Biggest Taylor Swift Dance Party in MTL! Come party with 500+ Swifties who share your love for Taylor's music. Sing along, dance like nobody's watching, and create memories that will last a lifetime.", website: 'https://www.eventbrite.ca/e/taylor-swift-dance-party-swifties-socials-montreal-march-16-tickets-826346463517?aff=ebdssbdestsearch', img: 'taylor.jpeg')
@@ -54,5 +44,42 @@ Movie.create!(title: 'Godzilla x Kong: The New Empire', address: '1234 Montreal'
 Movie.create!(title: 'Dogman', address: '4563 Montreal', screen_time: '2024-03-22'.to_date, poster: 'dogman.jpeg', description: 'A boy, bruised by life, finds his salvation through the love of his dogs.', rating: 'R', genre: 'Action, Drama, Crime')
 Movie.create!(title: 'Ghostbusters: Frozen Empire', address: '678 Montreal', screen_time: '2024-03-22'.to_date, poster: 'ghost_fe.jpeg', description: "The Spengler family returns to where it all started – the iconic New York City firehouse – to team up with the original Ghostbusters, who've developed a top-secret research lab to take busting ghosts to the next level. But when the discovery of an ancient artifact unleashes an evil force, Ghostbusters new and old must join forces to protect their home and save the world from a second Ice Age.", rating: 'PG-13', genre: 'Fantasy, Adventure, Comedy')
 puts "Movie seed successed!"
+
+# Define a general method for importing businesses from JSON
+def import_businesses_from_json
+  # Restaurants
+  puts "Importing restaurants from JSON..."
+  restaurant_data = JSON.parse(File.read(Rails.root.join('db', 'restaurants_data.json')))
+  restaurant_data.each do |item|
+    Restaurant.find_or_create_by(name: item['name']) do |restaurant|
+      restaurant.address = item['location']['display_address'].join(', ')
+      restaurant.rating = item['rating']
+      restaurant.cuisine = item['categories'].map { |cat| cat['title'] }.join(', ')
+      restaurant.price_level = item['price']
+      restaurant.website = item['url']
+      restaurant.photo = item['image_url']
+      restaurant.latitude = item['coordinates']['latitude']
+      restaurant.longitude = item['coordinates']['longitude']
+    end
+  end
+  puts "Restaurants imported."
+
+  # Attractions
+  puts "Importing attractions from JSON..."
+  attraction_data = JSON.parse(File.read(Rails.root.join('db', 'attractions_data.json')))
+  attraction_data.each do |item|
+    Attraction.find_or_create_by(name: item['name']) do |attraction|
+      attraction.address = item['location']['display_address'].join(', ')
+      attraction.img = item['image_url']
+      attraction.website = item['url']
+      attraction.latitude = item['coordinates']['latitude']
+      attraction.longitude = item['coordinates']['longitude']
+    end
+  end
+  puts "Attractions imported."
+end
+
+# Execute the import method
+import_businesses_from_json
 
 puts "Database seed accomplished!"

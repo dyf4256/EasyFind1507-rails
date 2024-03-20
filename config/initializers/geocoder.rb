@@ -1,5 +1,6 @@
 Geocoder.configure(
-  units: :km
+  units: :km,
+  timeout: 15
 )
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)

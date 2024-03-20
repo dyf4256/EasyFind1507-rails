@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :recommendations, only: %i[index show new create update]
   resources :session, only: %i[create]
   get 'recommendations/:id/details', to: 'recommendations#details', as: :details
-  get 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
+  post 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
   get 'profile/:type', to: 'recommendations#index', as: :profile
   get 'nomore', to: 'pages#nomore', as: :nomore
   get 'sessions/:previous_session_id/past_bookmarks', to: 'session#past_bookmarks', as: :past_session_bookmarks

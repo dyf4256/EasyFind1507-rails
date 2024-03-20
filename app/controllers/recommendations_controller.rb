@@ -75,18 +75,25 @@ class RecommendationsController < ApplicationController
   end
 
   def favorite
-    case params[:type]
-    when 'Restaurant'
-      @activity = Restaurant.find(params[:id])
-    when 'Movie'
-      @activity = Movie.find(params[:id])
-    when 'Event'
-      @activity = Event.find(params[:id])
-    when 'Attraction'
-      @activity = Attraction.find(params[:id])
+    # Capitalize the first letter of the type to ensure it matches the class name convention
+    activity_class = params[:type].capitalize.constantize
+
+    # Use find_by to gracefully handle nil if no record is found
+    @activity = activity_class.find_by(id: params[:id])
+
+    if @activity
+      if @activity.favorited_by?(current_user)
+        current_user.unfavorite(@activity)
+        favorited = false
+      else
+        current_user.favorite(@activity)
+        favorited = true
+      end
+      render json: { favorited: @activity.favorited_by?(current_user) }
+    else
+      render json: { error: 'Activity not found.' }, status: :not_found
     end
-    @activity.favorited_by?(current_user) ? current_user.unfavorite(@activity) : current_user.favorite(@activity)
-    redirect_to profile_path(params[:from])
+
   end
 
   private
