@@ -11,11 +11,12 @@
 # Initial users datas
 puts "Destroy datas"
 Recommendation.destroy_all
-User.destroy_all
+Session.destroy_all
 Attraction.destroy_all
 Event.destroy_all
 Restaurant.destroy_all
 Movie.destroy_all
+User.destroy_all
 
 puts "Seed Users..."
 User.create!(email: 'yuefei@hackers.com', password: 'password', first_name: 'Yuefei', last_name: 'Dong')
@@ -25,7 +26,7 @@ puts "Users seed successed!"
 
 puts "Seed Restaurants..."
 Restaurant.create!(name: 'Buger de Ville', address: '5282 St Laurent Blvd, Montreal, Quebec H2T 1S5', rating: 4.3, cuisine: 'Burger', price_level: '$' * rand(3), website: 'Soon...', hours: '7-11', photo: 'restaurants_burger.jpg')
-Restaurant.create!(name: 'In Gamba', address: '71 St Viateur St. E, Montreal, Quebec H2T 1A7', rating: 4.6, cuisine: 'Cafe', price_level: '$$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_coffe.jpg')
+Restaurant.create!(name: 'In Gamba', address: '1234 Saint-Urbain Street, Montreal, Canada', rating: 4.6, cuisine: 'Cafe', price_level: '$$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_coffe.jpg')
 Restaurant.create!(name: 'Chez Claudette', address: '351 Laurier Ave E, Montreal, Quebec H2T 1G7', rating: 4.4, cuisine: 'poutine', price_level: '$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_fries.jpg')
 Restaurant.create!(name: 'Mile End Grill', address: '100 Rue Saint-Viateur O, Montréal, QC H2T 2L1', rating: 4.3, cuisine: 'Portuguese', price_level: '$$', website: 'http://www.mileendgrill.com/', hours: '7-11', photo: 'res4.jpg')
 Restaurant.create!(name: 'Restaurant Salonica', address: '5261 Saint Denis St, Montreal, Quebec H2J 2L8', rating: 3.2, cuisine: 'Pizza', price_level: '$', website: 'http://www.restaurantsalonica.com/', hours: '7-11', photo: 'res5.jpg')

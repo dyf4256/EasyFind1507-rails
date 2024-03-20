@@ -25,6 +25,9 @@
           <%= render 'recommendations/details/movie', recommendation: @recommendation %>
         <% else %>
       <% end %>
+      <h2>Address</h2>
+      <p><%= @recommendation.activity.address %></p>
+      <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
       <% if !@recommendation.accepted?%>
         <div data-activity-target='details_buttons' class='d-flex justify-content-center'>
         <%= render 'buttons', recommendation: @recommendation, session: @recommendation.session %>
