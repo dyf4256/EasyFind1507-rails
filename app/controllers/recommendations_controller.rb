@@ -8,9 +8,10 @@ class RecommendationsController < ApplicationController
     when 'accepted'
       @recommendations = current_user.accepted_recommendations
     when 'bookmarked'
-      @recommendations = current_user.bookmarked_recommendations.uniq { |a| [a.activity_type, a.activity_id] }
+      @recommendations = current_user.bookmarked_recommendations.only_unique
     when 'favorited'
-      @recommendations = current_user.favorited_recommendations
+      @recommendations = current_user.bookmarked_recommendations
+      # @recommendations = current_user.favorited_recommendations
     else
       raise ActionController::RoutingError.new('Not Found')
     end

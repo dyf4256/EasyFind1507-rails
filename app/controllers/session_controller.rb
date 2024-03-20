@@ -6,7 +6,7 @@ class SessionController < ApplicationController
       @session = current_user.active_session_for(params[:type])
     else
       @last_completed_session = current_user.last_completed_session_for(params[:type])
-      if params[:import_from_previous_session] != 'true' && @last_completed_session&.bookmarked_recommendations&.any?
+      if params[:import_from_previous_session].nil? && @last_completed_session&.bookmarked_recommendations&.any?
         redirect_to past_session_bookmarks_path(@last_completed_session)
         return
       else
