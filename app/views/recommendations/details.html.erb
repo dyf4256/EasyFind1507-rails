@@ -1,7 +1,7 @@
 <div id='details-page-header'>
   <div class="mb-1 mt-2">
     <div class="d-flex align-items-center header-box">
-      <%= link_to recommendation_path(@recommendation) do %>
+      <%= link_to (params[:from] == 'bookmarks' ? session_bookmarks_path(@recommendation.session) : recommendation_path(@recommendation)) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
   <h3 class='my-1 header-text'><%= @recommendation.activity.class %></h3>

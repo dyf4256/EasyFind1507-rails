@@ -35,20 +35,6 @@ class RecommendationsController < ApplicationController
     }]
   end
 
-  # def details
-  #   activity = @recommendation.activity
-  #   geocoded_activity = Geocoder.search(activity.address).first
-  #   if geocoded_activity
-  #     @markers = [{
-  #       lat: geocoded_activity.latitude,
-  #       lng: geocoded_activity.longitude,
-  #       info_window: render_to_string(partial: "info_window", locals: { recommendation: @recommendation }),
-  #     }]
-  #   else
-  #     @markers = []
-  #   end
-  # end
-
   def create
     prepare_recommendation(Session.find(params[:session_id]))
     if @recommendation.activity.nil?
@@ -67,7 +53,11 @@ class RecommendationsController < ApplicationController
         @recommendation.session.end!
         redirect_to details_path(@recommendation)
       else
-        create
+        if params[:from] == 'bookmarks'
+          redirect_to session_bookmarks_path(@recommendation.session)
+        else
+          create
+        end
       end
     else
       render root_path, status: :unprocessable_entity

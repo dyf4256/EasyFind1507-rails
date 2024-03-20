@@ -1,8 +1,0 @@
-<h4>Current Bookmarks!</h4>
-<ul>
-  <% @session.bookmarked_recommendations.each do |recommendation| %>
-    <li>
-      <%= recommendation.activity.name %>
-    </li>
-  <% end %>
-</ul>
