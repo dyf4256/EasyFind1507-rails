@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   post 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
   get 'profile/:type', to: 'recommendations#index', as: :profile
   get 'nomore', to: 'pages#nomore', as: :nomore
-
 end

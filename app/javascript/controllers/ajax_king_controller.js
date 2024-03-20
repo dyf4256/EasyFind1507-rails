@@ -5,12 +5,18 @@ export default class extends Controller {
 
   connect() {
     console.log("AjaxKing controller connected");
+    this.meGustaTargets.forEach(target => {
+      console.log(target.dataset.favorited); // Log the initial favorited state
+    });
   }
 
   switchLike(event) {
-    event.preventDefault() // Prevent the link from triggering a page reload
+    event.preventDefault(); // Prevent the link from triggering a page reload
 
-    fetch(event.currentTarget.href, {
+    const target = event.currentTarget;
+    const heartIcon = target.querySelector("[data-ajax-king-target='meGusta']"); // Assuming the icon is a direct child
+
+    fetch(target.href, {
       method: 'POST',
       headers: {
         'X-CSRF-Token': document.querySelector("[name='csrf-token']").getAttribute("content"),
@@ -21,23 +27,28 @@ export default class extends Controller {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error('Network response was not ok');
       }
-      return response.json()
+      return response.json();
     })
     .then(data => {
       if (data.favorited !== undefined) {
-        this.revealContent(data.favorited)
+        this.revealContent(data.favorited, heartIcon);
       }
     })
-    .catch(error => console.error("Error:", error))
+    .catch(error => console.error("Error:", error));
   }
 
-  revealContent(favorited) {
+
+  revealContent(favorited, target) {
+    target.dataset.favorited = favorited.toString();
+    console.log("Before toggling:", target.classList.contains("text-danger"));
     if (favorited) {
-      this.meGustaTarget.classList.add("text-danger")
+      target.classList.add("text-danger");
     } else {
-      this.meGustaTarget.classList.remove("text-danger")
+      target.classList.remove("text-danger");
     }
+    console.log("After toggling:", target.classList.contains("text-danger"));
   }
+
 }

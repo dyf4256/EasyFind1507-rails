@@ -82,14 +82,18 @@ class RecommendationsController < ApplicationController
     @activity = activity_class.find_by(id: params[:id])
 
     if @activity
-      favorited = @activity.favorited_by?(current_user)
-      @activity.favorited_by?(current_user) ? current_user.unfavorite(@activity) : current_user.favorite(@activity)
-      # Respond with JSON indicating the new favorited state
-      render json: { favorited: favorited }
+      if @activity.favorited_by?(current_user)
+        current_user.unfavorite(@activity)
+        favorited = false
+      else
+        current_user.favorite(@activity)
+        favorited = true
+      end
+      render json: { favorited: @activity.favorited_by?(current_user) }
     else
-      # Respond with an error in JSON format
       render json: { error: 'Activity not found.' }, status: :not_found
     end
+
   end
 
   private
