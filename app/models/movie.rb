@@ -1,5 +1,8 @@
 class Movie < ApplicationRecord
   include Activities
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+
+  alias_attribute :name, :title
+  alias_attribute :photo, :poster
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 end

@@ -2,13 +2,28 @@ class SessionController < ApplicationController
   include PrepareRecommendation
 
   def create
-    if exist_active_session?(params[:type])
-      @session = current_user.sessions.where(activity_type: params[:type]).where(active: true).last
+    if current_user.active_session_for?(params[:type])
+      @session = current_user.active_session_for(params[:type])
     else
-      @session = Session.new
-      @session.user = current_user
-      @session.activity_type = params[:type]
-      render session_index_path, status: :unprocessable_entity unless @session.save
+      @last_completed_session = current_user.last_completed_session_for(params[:type])
+      if params[:import_from_previous_session].nil? && @last_completed_session&.bookmarked_recommendations&.any?
+        redirect_to past_session_bookmarks_path(@last_completed_session)
+        return
+      else
+        @session = Session.new
+        @session.user = current_user
+        @session.activity_type = params[:type]
+        raise "Something went wrong" unless @session.save
+
+        if params[:import_from_previous_session] == 'true'
+          @last_completed_session.bookmarked_recommendations.each do |recommendation|
+            @session.recommendations.create!(
+              activity: recommendation.activity,
+              status: 'bookmarked'
+            )
+          end
+        end
+      end
     end
 
     @recommendation = prepare_recommendation(@session)
@@ -21,9 +36,13 @@ class SessionController < ApplicationController
     end
   end
 
-  private
-
-  def exist_active_session?(activity_type)
-    !current_user.sessions.where(activity_type: activity_type).where(active: true).empty?
+  def past_bookmarks
+    @previous_session = Session.find(params[:previous_session_id])
   end
+
+
+  def bookmarks
+    @session = Session.find(params[:id])
+  end
+
 end
