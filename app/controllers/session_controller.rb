@@ -37,7 +37,12 @@ class SessionController < ApplicationController
   end
 
   def past_bookmarks
-    @previous_session = Session.find(params[:id])
+    @previous_session = Session.find(params[:previous_session_id])
+  end
+
+
+  def bookmarks
+    @session = Session.find(params[:id])
   end
 
 end
