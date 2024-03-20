@@ -57,8 +57,9 @@ class RecommendationsController < ApplicationController
 
   def create
     prepare_recommendation(Session.find(params[:session_id]))
-
-    if @recommendation.save
+    if @recommendation.activity.nil?
+      redirect_to nomore_path
+    elsif @recommendation.save
       redirect_to recommendation_path(@recommendation)
     else
       render root_path, status: :unprocessable_entity
