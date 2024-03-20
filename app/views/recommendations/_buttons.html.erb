@@ -7,7 +7,20 @@
     <i class="fa-solid fa-bars icon-adjust"></i>
   <% end %>
 
+
+
   <%= button_to recommendation_path(@recommendation), method: :patch, params: { type: @recommendation.activity.class, status: 'accepted', session_id: session.id }, id: "accept", class: 'btn' do %>
     <i class="fa-solid fa-check icon-adjust"></i>
   <% end %>
+</div>
+
+
+<!-- Default dropup button -->
+<div class="btn-group dropup">
+  <button type="button" class="btn btn-secondary dropdown-toggle" id="more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropup
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
 </div>

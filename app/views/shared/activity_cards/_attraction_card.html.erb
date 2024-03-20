@@ -1,0 +1,19 @@
+<% attraction = recommendation %>
+<div class='selected-card'>
+  <%= link_to details_path(attraction) do %>
+    <div class="card-photo">
+        <%= image_tag "#{attraction.activity.img}", class:'img-thumbnail'%>
+      </div>
+
+    <div class="styling-purpose">
+      <%= render 'shared/activity_cards/like_button', recommendation: attraction , type: type %>
+      <div class="styling-purpose">
+        <div class="card-info">
+            <%= image_tag "coaster_grey.png", alt: "Fareswheel", class: "icon"%>
+            <%= attraction.activity.name %>
+
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>

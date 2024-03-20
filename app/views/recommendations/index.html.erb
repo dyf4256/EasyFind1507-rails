@@ -1,56 +1,61 @@
-<div data-controller='profile'>
-  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
-    <%= link_to 'Favourited', '#', class: 'btn btn-outline-secondary col-4', data: {action:'click->profile#clear'}%>
-    <%= link_to 'Selected', recommendations_path(status: 'accepted'), class: 'btn btn-success col-4', data: {profile_target: 'selected'}%>
-    <%= link_to 'Bookmarked', recommendations_path(status: 'bookmarked'), class: 'btn btn-outline-secondary col-4'%>
+<div data-controller=''>
+  <% selected_button_class = 'btn-warning disabled full-opacity' %>
+  <% non_selected_button_class = 'btn-outline-warning' %>
+
+  <div class="profile-id">
+    <%= image_tag "yuefei.jpg", class: "avatar-profile", alt: "User Photo" %>
+    <h1><%= current_user.first_name %></h1>
   </div>
 
-  <%# <select class='history-filter ms-3'>
-    <option value="all">All</option>
-    <option value="restaurants">Restaurants</option>
-    <option value="movies">Movies</option>
-    <option value="attractions">Attractions</option>
-    <option value="events">Events</option>
-  </select> %>
+  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
+    <%= link_to 'Favourited', profile_path(:favorited), class: "btn sections col-4 #{@type == 'favorited'? selected_button_class : non_selected_button_class}"%>
+
+    <%= link_to 'Selected', profile_path(:accepted), class: "btn sections col-4 #{@type == 'accepted'? selected_button_class : non_selected_button_class}"%>
+
+    <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn sections col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
+  </div>
+
 
   <div class="d-flex justify-content-around">
     <label>
       <%= radio_button_tag 'categories', 'all', true, class: "radio" %>
-      <i class="fa-solid fa-house px-4"></i>
+      <%= image_tag "check.png", alt: "Firework" %>
     </label>
 
     <label>
       <%= radio_button_tag 'categories', 'restaurants', class: "radio" %>
-      <i class="fa-solid fa-utensils px-4"></i>
+      <%= image_tag "knife_grey.png", alt: "Firework" %>
     </label>
 
     <label >
       <%= radio_button_tag 'categories', 'events', class: "radio" %>
-      <i class="fa-solid fa-calendar-days px-4"></i>
+      <%= image_tag "event_grey.png", alt: "Firework" %>
     </label>
 
     <label >
       <%= radio_button_tag 'categories', 'attractions', class: "radio" %>
-      <i class="fa-solid fa-map-pin px-4"></i>
+      <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
+
     </label>
 
     <label >
       <%= radio_button_tag 'categories', 'movies', class: "radio" %>
-      <i class="fa-solid fa-film px-4"></i>
+      <%= image_tag "movie_grey.png", alt: "Firework" %>
     </label>
   </div>
 
   <!-- -->
   <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>
-    <% if @recommendations.length > 0 %>
-      <%= render 'recommendations/profile/restaurants', restaurants: @restaurants %>
-      <%= render 'recommendations/profile/movies', movies: @movies %>
-      <%= render 'recommendations/profile/attractions', attractions: @attractions %>
-      <%= render 'recommendations/profile/events', events: @events %>
-      <div class='mt-1'></div>
+    <% if @recommendations.empty? %>
+      <h3>No <%= @type %> activities.</h3>
+      <%= link_to 'Get Started!', categories_path, class:'btn btn-primary mx-1 my-2' %>
     <% else %>
-      <h3>No recommendation <%= params[:status] %>. Go to find some?</h3>
-      <%= link_to 'Find it!', categories_path, class:'btn btn-primary mx-1 my-2' %>
+      <div class="history-by-category">
+        <% @recommendations.each do |recommendation| %>
+          <% activity_type = recommendation.activity_type.downcase %>
+          <%= render "shared/activity_cards/#{activity_type}_card", recommendation: recommendation, type: @type %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
