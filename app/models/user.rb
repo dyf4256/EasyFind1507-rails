@@ -7,6 +7,7 @@ class User < ApplicationRecord
   acts_as_favoritor
 
   has_many :sessions
+  has_many :active_sessions, -> { active }, class_name: "Session"
   has_many :recommendations, through: :sessions
   has_many :accepted_recommendations, through: :sessions, source: :accepted_recommendation
   has_many :bookmarked_recommendations, through: :sessions, source: :bookmarked_recommendations
@@ -29,5 +30,21 @@ class User < ApplicationRecord
 
   def favorited_recommendations
     all_favorites.includes(:favoritable)
+  end
+
+  def active_session_for?(type)
+    fetch_active_session(type.capitalize).any?
+  end
+
+  def active_session_for(type)
+    fetch_active_session(type.capitalize).order(updated_at: :desc).first
+  end
+
+  private
+
+  def fetch_active_session(type)
+    raise ArgumentError, "Type #{type} not supported" unless Activities.supported?(type)
+
+    sessions.active.by_type(type)
   end
 end
