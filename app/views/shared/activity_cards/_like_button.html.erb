@@ -1,5 +1,7 @@
-<% unless type == 'bookmarked'  %>
-  <%= link_to favorite_path(recommendation.activity, type: recommendation.activity.class, from: type) do %>
-    <i class="fa-solid fa-heart <%= 'text-danger' if recommendation.activity.favorited_by?(current_user) %>"></i>
-  <% end %>
+<% unless type == 'bookmarked' %>
+  <div data-controller="ajax-king">
+    <%= link_to favorite_path(recommendation.activity, type: recommendation.activity.class.name.downcase, from: type), method: :post, data: { action: "click->ajax-king#switchLike", ajax_king_target: "meGusta" } do %>
+      <i class="fa-solid fa-heart <%= 'text-danger' if recommendation.activity.favorited_by?(current_user) %>" data-ajax-king-target="meGusta"></i>
+    <% end %>
+  </div>
 <% end %>
