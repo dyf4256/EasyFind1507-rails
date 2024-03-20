@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :categories, only: %i[index]
   resources :recommendations, only: %i[index show new create update]
-  resources :session, only: %i[create]
+  resources :session, only: %i[create] do
+    member do
+      get 'end'
+    end
+  end
   get 'recommendations/:id/details', to: 'recommendations#details', as: :details
   post 'activities/:id/favorite', to: 'recommendations#favorite', as: :favorite
   get 'profile/:type', to: 'recommendations#index', as: :profile
