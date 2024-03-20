@@ -3,6 +3,12 @@ require "active_support/concern"
 module Activities
   extend ActiveSupport::Concern
 
+  SUPPORTED = ['Restaurant', 'Event', 'Attraction', 'Movie']
+
+  def self.supported?(type)
+    SUPPORTED.include?(type.capitalize)
+  end
+
   included do
     acts_as_favoritable
     has_many :recommendations, as: :activity

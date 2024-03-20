@@ -3,10 +3,10 @@ require "active_support/concern"
 module PrepareRecommendation
   extend ActiveSupport::Concern
   def prepare_recommendation(session)
-    if session.recommendations.empty? || session.recommendations.where(status: 'pending').empty?
-      new_recommendations(session)
+    if session.pending_recommendation?
+      @recommendation = session.pending_recommendation
     else
-      @recommendation = session.recommendations.last
+      new_recommendations(session)
     end
     @recommendation
   end
