@@ -1,0 +1,19 @@
+<% event = recommendation %>
+<div class='selected-card'>
+  <%= link_to details_path(event) do %>
+    <div class="card-photo">
+          <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
+        </div>
+    <div class="styling-purpose">
+      <%= render 'shared/activity_cards/like_button', recommendation: event , type: type %>
+      <div class="styling-purpose">
+        <div class="card-info">
+            <%= image_tag "event_grey.png", alt: "Firework", class: "icon" %>
+            <%= event.activity.name %>
+
+          </div>
+        <%= event.activity.created_at.to_date %>
+      </div>
+    </div>
+  <% end %>
+</div>

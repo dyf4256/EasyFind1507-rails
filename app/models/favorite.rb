@@ -6,6 +6,10 @@ class Favorite < ApplicationRecord
   belongs_to :favoritable, polymorphic: true
   belongs_to :favoritor, polymorphic: true
 
+  alias_attribute :activity_type, :favoritable_type
+  alias_attribute :activity_id, :favoritable_id
+  alias activity favoritable
+
   def block!
     update!(blocked: true)
   end
