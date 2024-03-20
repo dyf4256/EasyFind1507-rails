@@ -2,20 +2,44 @@ require "active_support/concern"
 
 module PrepareRecommendation
   extend ActiveSupport::Concern
-
   def prepare_recommendation(session)
-    @recommendation = Recommendation.new
-    @recommendation.session = session
-    case session.activity_type
-    when 'Attraction'
-      @recommendation.activity = Attraction.order("RANDOM()").first
-    when 'Event'
-      @recommendation.activity = Event.order("RANDOM()").first
-    when 'Restaurant'
-      @recommendation.activity = Restaurant.order("RANDOM()").first
-    when 'Movie'
-      @recommendation.activity = Movie.order("RANDOM()").first
+    if session.recommendations.empty? || session.recommendations.where(status: 'pending').empty?
+      new_recommendations(session)
+    else
+      @recommendation = session.recommendations.last
     end
     @recommendation
+  end
+
+  private
+
+  def get_exclude_ids(session)
+    ids = []
+    unless session.recommendations.empty?
+      session.recommendations.each do |recommendation|
+        ids << recommendation.activity.id
+      end
+    end
+    return ids
+  end
+
+  def new_recommendations(session)
+    @recommendation = Recommendation.new
+    @recommendation.session = session
+    exclude_ids = get_exclude_ids(session)
+    case session.activity_type
+    when 'Attraction'
+      @activities = Attraction.where.not(id: exclude_ids)
+      @recommendation.activity = @activities.order("RANDOM()").first
+    when 'Event'
+      @activities = Event.where.not(id: exclude_ids)
+      @recommendation.activity = @activities.order("RANDOM()").first
+    when 'Restaurant'
+      @activities = Restaurant.where.not(id: exclude_ids)
+      @recommendation.activity = @activities.order("RANDOM()").first
+    when 'Movie'
+      @activities = Movie.where.not(id: exclude_ids)
+      @recommendation.activity = @activities.order("RANDOM()").first
+    end
   end
 end
