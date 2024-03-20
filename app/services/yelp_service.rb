@@ -1,4 +1,3 @@
-# app/services/yelp_service.rb
 require 'net/http'
 require 'json'
 
@@ -12,8 +11,18 @@ class YelpService
   end
 
   def save_businesses_to_json(term:, total:, location:)
+    file_path = Rails.root.join('db', "#{term.gsub(' ', '_')}_data.json")
+
+    # Check if file exists and has enough data
+    if File.exist?(file_path)
+      file_data = JSON.parse(File.read(file_path))
+      if file_data.size >= total
+        puts "File for #{term} already exists with sufficient data."
+        return
+      end
+    end
+
     businesses = fetch_businesses(term: term, total: total, location: location)
-    file_path = Rails.root.join('db', "#{term}_data.json")
     File.write(file_path, businesses.to_json)
   end
 
@@ -23,16 +32,15 @@ class YelpService
     businesses = []
     offset = 0
 
-    while businesses.size < total
+    while businesses.size < total && offset < total
       url = "#{YELP_API_ENDPOINT}?term=#{term}&location=#{location}&limit=#{PER_PAGE}&offset=#{offset}"
       response = api_request(url)
       break unless response && response["businesses"]
 
-      # Break the loop if the number of businesses fetched is less than the per-page limit
-      break if response["businesses"].size < PER_PAGE
-
       businesses.concat(response["businesses"])
       offset += PER_PAGE
+
+      break if response["businesses"].size < PER_PAGE
     end
 
     businesses.first(total)
