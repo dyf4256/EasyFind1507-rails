@@ -64,7 +64,7 @@ a {
   opacity: 1;
 }
 
-.radio {
+.checkbox {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -98,8 +98,8 @@ label {
   margin-bottom: 5px;
   margin-top: 5px;
   padding: 0px;
-
-  background-color: #FFE8AB;
+  border: none;
+  // background-color: #FFE8AB;
 
 
 
