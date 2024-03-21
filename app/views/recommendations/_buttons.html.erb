@@ -10,7 +10,7 @@
         <%= button_to recommendation_path(@recommendation), method: :patch, params: { status: 'bookmarked', session_id: @recommendation.session.id }, class: 'btn text-white fs-1 fw-bolder bookmark' do%>
             <i class="fa-solid fa-bookmark"></i>
         <% end %>
-        <%= button_to session_bookmarks_path(@recommendation.session), method: :get, class: 'btn text-white fs-1 fw-bolder bookmark' do%>
+        <%= button_to session_bookmarks_path(@recommendation.session), method: :get, class: 'btn text-white fs-1 fw-bolder bookmark', params: { from: 'bookmarks' } do%>
             <i class="fa-solid fa-bookmark text-success"></i>
         <% end %>
       </div>

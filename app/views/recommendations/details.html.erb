@@ -2,11 +2,11 @@
   <div class="mb-1 mt-2">
     <div class="d-flex align-items-center header-box">
     <% if (params[:from] == 'bookmarks') %>
-      <%= link_to session_bookmarks_path(@recommendation.session) do %>
+      <%= link_to session_bookmarks_path(@recommendation.session, from: params[:from]) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
 
-    <% elsif (params[:from] == 'profile') %>
+    <% elsif (params[:type].present?) %>
       <%= link_to profile_path(params[:type]) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>

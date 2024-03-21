@@ -1,6 +1,6 @@
  <% movie = recommendation %>
 <div class='selected-card'>
-  <%= link_to details_path(movie, from: 'profile', type: type) do %>
+  <%= link_to details_path(movie, from: params[:from], type: type) do %>
     <div class="card-photo">
             <%= image_tag "#{movie.activity.poster}", class:'img-thumbnail'%>
           </div>
