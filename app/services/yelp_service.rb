@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 
 class YelpService
-  YELP_API_ENDPOINT = "https://api.yelp.com/v3/businesses/search".freeze
+  YELP_API_ENDPOINT = "https://api.yelp.com/v3/businesses".freeze
   API_KEY = ENV['YELP_API_KEY'].freeze
   PER_PAGE = 50
 
@@ -13,16 +13,19 @@ class YelpService
   def save_businesses_to_json(term:, total:, location:)
     file_path = Rails.root.join('db', "#{term.gsub(' ', '_')}_data.json")
 
-    # Check if file exists and has enough data
     if File.exist?(file_path)
       file_data = JSON.parse(File.read(file_path))
-      if file_data.size >= total
-        puts "File for #{term} already exists with sufficient data."
-        return
-      end
+      return if file_data.size >= total
+
+      puts "Updating file for #{term}..."
     end
 
     businesses = fetch_businesses(term: term, total: total, location: location)
+    businesses.each do |business|
+      details = fetch_business_details(business["id"])
+      business["hours"] = details["hours"] if details && details["hours"]
+    end
+
     File.write(file_path, businesses.to_json)
   end
 
@@ -33,17 +36,22 @@ class YelpService
     offset = 0
 
     while businesses.size < total && offset < total
-      url = "#{YELP_API_ENDPOINT}?term=#{term}&location=#{location}&limit=#{PER_PAGE}&offset=#{offset}"
+      url = "#{YELP_API_ENDPOINT}/search?term=#{term}&location=#{location}&limit=#{PER_PAGE}&offset=#{offset}"
       response = api_request(url)
       break unless response && response["businesses"]
 
       businesses.concat(response["businesses"])
       offset += PER_PAGE
-
       break if response["businesses"].size < PER_PAGE
     end
 
     businesses.first(total)
+  end
+
+  def fetch_business_details(id)
+    url = "#{YELP_API_ENDPOINT}/#{id}"
+    response = api_request(url)
+    response if response
   end
 
   def api_request(url)

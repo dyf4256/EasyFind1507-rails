@@ -138,7 +138,7 @@ def import_businesses_from_json(term)
           r.cuisine = item['categories'].map { |cat| cat['title'] }.join(', ')
           r.price_level = item['price']
           r.website = item['url']
-          r.hours = 'Check website for hours' # Placeholder, adjust as needed
+          r.hours = item['hours'].to_json
           r.photo = item['image_url']
           r.latitude = item['coordinates']['latitude']
           r.longitude = item['coordinates']['longitude']
@@ -150,6 +150,7 @@ def import_businesses_from_json(term)
           a.website = item['url']
           a.latitude = item['coordinates']['latitude']
           a.longitude = item['coordinates']['longitude']
+          r.hours = item['hours'].to_json
         end
       end
     end
