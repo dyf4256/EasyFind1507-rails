@@ -14,6 +14,19 @@ class RecommendationsController < ApplicationController
     else
       raise ActionController::RoutingError.new('Not Found')
     end
+
+    if params[:query].present?
+      activity_types = []
+      params[:query].each_key do |key|
+        activity_types << key.capitalize
+      end
+      @recommendations = @recommendations.where(activity_type: activity_types)
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'recommendations/history', locals: { recommendations: @recommendations }, formats: [:html] }
+    end
   end
 
   def new
@@ -84,6 +97,10 @@ class RecommendationsController < ApplicationController
       render json: { error: 'Activity not found.' }, status: :not_found
     end
 
+  end
+
+  def filter
+    raise
   end
 
   private

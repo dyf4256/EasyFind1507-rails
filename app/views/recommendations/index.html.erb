@@ -15,51 +15,40 @@
     <%= link_to 'Bookmarked', profile_path(:bookmarked), class: "btn sections col-4 #{@type == 'bookmarked'? selected_button_class : non_selected_button_class}"%>
   </div>
 
-
-  <div class="d-flex justify-content-around">
-    <label>
-      <%= radio_button_tag 'categories', 'all', true, class: "radio" %>
-      <%= image_tag "check.png", alt: "Firework" %>
-      <p>All</p>
-    </label>
-
-    <label>
-      <%= radio_button_tag 'categories', 'restaurants', class: "radio" %>
-      <%= image_tag "knife_grey.png", alt: "Firework" %>
-      <p>Restaurants</p>
-    </label>
-
-    <label >
-      <%= radio_button_tag 'categories', 'events', class: "radio" %>
-      <%= image_tag "event_grey.png", alt: "Firework" %>
-      <p>Events</p>
-    </label>
-
-    <label >
-      <%= radio_button_tag 'categories', 'attractions', class: "radio" %>
-      <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
-      <p>Attractions</p>
-    </label>
-
-    <label >
-      <%= radio_button_tag 'categories', 'movies', class: "radio" %>
-      <%= image_tag "movie_grey.png", alt: "Firework" %>
-      <p>Movies</p>
-    </label>
-  </div>
-
-  <!-- -->
-  <div class='selected-history-container mt-2 border-top' data-profile-target='history_all'>
-    <% if @recommendations.empty? %>
-      <h3>No <%= @type %> activities.</h3>
-      <%= link_to 'Get Started!', categories_path, class:'btn btn-primary mx-1 my-2' %>
-    <% else %>
-      <div class="history-by-category">
-        <% @recommendations.each do |recommendation| %>
-          <% activity_type = recommendation.activity_type.downcase %>
-          <%= render "shared/activity_cards/#{activity_type}_card", recommendation: recommendation, type: @type %>
+  <div data-controller='filter' data-filter-page-value='profile'  data-filter-input-type-value='chechboxes'>
+    <%= form_with url: profile_path(params[:type]), method: :get, class: 'd-flex justify-content-center', html: { data: { filter_target:'form' } } do %>
+      <div>
+        <%= check_box_tag('query[restaurant]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= label_tag('query[restaurant]') do %>
+          <%= image_tag "knife_grey.png", alt: "Firework" %>
+          <p>Restaurants</p>
         <% end %>
       </div>
+      <div>
+        <%= check_box_tag('query[event]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= label_tag('query[event]') do %>
+          <%= image_tag "event_grey.png", alt: "Firework" %>
+          <p>Events</p>
+        <% end %>
+      </div>
+      <div>
+        <%= check_box_tag('query[attraction]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= label_tag('query[attraction]') do %>
+          <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
+          <p>Attractions</p>
+        <% end %>
+      </div>
+      <div>
+        <%= check_box_tag('query[movie]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= label_tag('query[movie]') do %>
+          <%= image_tag "movie_grey.png", alt: "Firework" %>
+          <p>Movies</p>
+        <% end %>
+      </div>
+      <%= submit_tag 'Search', name: '', class: 'btn btn-primary btn-sm d-none' %>
     <% end %>
+
+    <!-- -->
+    <%= render 'history', recommendations: @recommendations %>
   </div>
 </div>

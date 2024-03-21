@@ -1,0 +1,13 @@
+<div class='selected-history-container mt-2 border-top' data-filter-target='mainContainer'>
+  <% if recommendations.empty? %>
+    <h3>No <%= @type %> activities.</h3>
+    <%= link_to 'Get Started!', categories_path, class:'btn btn-primary mx-1 my-2' %>
+  <% else %>
+    <div class="history-by-category">
+      <% recommendations.each do |recommendation| %>
+        <% activity_type = recommendation.activity_type.downcase %>
+        <%= render "shared/activity_cards/#{activity_type}_card", recommendation: recommendation, type: @type %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
