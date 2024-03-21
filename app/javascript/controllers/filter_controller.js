@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   fire(event){
-    event.currentTarget.labels[0].classList.toggle('bg-danger')
+    event.currentTarget.labels[0].classList.toggle('checked')
     const seletedElements = this.formTarget.querySelectorAll('input[type="checkbox"]:checked');
     let query = '?';
     seletedElements.forEach((element)=> {
