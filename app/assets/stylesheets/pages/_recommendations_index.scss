@@ -1,11 +1,13 @@
 .selected-history-container {
   overflow: scroll;
   height: 600px;
+  padding: 11px;
 }
 
 .history-by-category {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .selected-card {
@@ -39,6 +41,7 @@
   border-right: 4px solid#FFD76B;
   color: #FFD76B;
   padding: 12px;
+  height: 62px;
   }
 
   img {
@@ -73,18 +76,32 @@ a {
 
 label {
   text-align: center;
+  width: 76px;
+  opacity: 0.6;
 
   img {
     height: 37px;
     cursor: pointer;
-    border-bottom: 1px solid white;
+    opacity: 0.4;
+    padding-top: 7px;
   }
 
   p {
     font-size: small;
   }
+
 }
 
+.checked {
+  background-color: #FFD76B;
+  border-radius: 15px;
+  opacity: 1;
+  color: black;
+
+  img {
+    opacity: 1;
+  }
+}
 
 
 
@@ -115,4 +132,10 @@ label {
     max-height: 51px;
     min-height: 61px
   }
+}
+
+
+.fa-heart {
+  color: grey;
+
 }
