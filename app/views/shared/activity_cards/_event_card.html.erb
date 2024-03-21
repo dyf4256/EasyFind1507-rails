@@ -2,18 +2,22 @@
 <div class='selected-card'>
   <%= link_to details_path(event, from: params[:from], type: type) do %>
     <div class="card-photo">
-          <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
-        </div>
-    <div class="styling-purpose">
-      <%= render 'shared/activity_cards/like_button', recommendation: event , type: type %>
-      <div class="styling-purpose">
-        <div class="card-info">
-            <%= image_tag "event_grey.png", alt: "Firework", class: "icon" %>
-            <%= event.activity.name %>
+      <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
+    </div>
 
-          </div>
-        <%= event.activity.created_at.to_date %>
+
+
+
+   <div class="card-info">
+    <div class="card-info-a">
+      <%= image_tag "event_grey.png", alt: "Fareswheel", class: "icon"%>
+      <div class="info-text">
+        <%= event.activity.name %>
       </div>
     </div>
+      <%= render 'shared/activity_cards/like_button', recommendation: event , type: type %>
+    </div>
+
+
   <% end %>
 </div>
