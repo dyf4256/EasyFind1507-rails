@@ -1,5 +1,7 @@
-# Initial users datas
-puts "Destroy datas"
+require 'open-uri'
+require 'json'
+
+puts "Destroying data..."
 Recommendation.destroy_all
 Session.destroy_all
 Attraction.destroy_all
@@ -8,78 +10,127 @@ Restaurant.destroy_all
 Movie.destroy_all
 User.destroy_all
 
-puts "Seed Users..."
+puts "Seeding Users..."
 User.create!(email: 'yuefei@hackers.com', password: 'password', first_name: 'Yuefei', last_name: 'Dong')
 User.create!(email: 'declan@hackers.com', password: 'password', first_name: 'Declan', last_name: 'Schindler')
 User.create!(email: 'laurent@hackers.com', password: 'password', first_name: 'Laurent', last_name: 'Lefebvre')
-puts "Users seed successed!"
+puts "Users seeded successfully!"
 
-# puts "Seed Restaurants..."
-# Restaurant.create!(name: 'Buger de Ville', address: '5282 St Laurent Blvd, Montreal, Quebec H2T 1S5', rating: 4.3, cuisine: 'Burger', price_level: '$' * rand(3), website: 'Soon...', hours: '7-11', photo: 'restaurants_burger.jpg')
-# Restaurant.create!(name: 'In Gamba', address: '1234 Saint-Urbain Street, Montreal, Canada', rating: 4.6, cuisine: 'Cafe', price_level: '$$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_coffe.jpg')
-# Restaurant.create!(name: 'Chez Claudette', address: '351 Laurier Ave E, Montreal, Quebec H2T 1G7', rating: 4.4, cuisine: 'poutine', price_level: '$$', website: 'Soon...', hours: '7-11', photo: 'restaurants_fries.jpg')
-# Restaurant.create!(name: 'Mile End Grill', address: '100 Rue Saint-Viateur O, Montréal, QC H2T 2L1', rating: 4.3, cuisine: 'Portuguese', price_level: '$$', website: 'http://www.mileendgrill.com/', hours: '7-11', photo: 'res4.jpg')
-# Restaurant.create!(name: 'Restaurant Salonica', address: '5261 Saint Denis St, Montreal, Quebec H2J 2L8', rating: 3.2, cuisine: 'Pizza', price_level: '$', website: 'http://www.restaurantsalonica.com/', hours: '7-11', photo: 'res5.jpg')
-# Restaurant.create!(name: 'Restaurant Mont-Royal Hot Dog', address: '1001 Mont-Royal Ave E, Montreal, Quebec H2J 1X7', rating: 3.8, cuisine: 'Fast food', price_level: '$', website: 'http://mont-royalhotdog.com/', hours: '7-11', photo: 'res6.jpg')
-# Restaurant.create!(name: 'Le Bay Cà Phê', address: '5263 St Laurent Blvd, Montreal, Quebec H2T 1S4', rating: 4.5, cuisine: 'Vietnamese', price_level: '$$', website: 'https://www.lebaycaphe.com/', hours: '7-11', photo: 'res7.jpg')
-# Restaurant.create!(name: 'Drogheria Fine', address: '68 Av. Fairmount O, Montréal, QC H2T 2M2', rating: 4.5, cuisine: 'Italian', price_level: '$$', website: 'http://www.lasalsadellanonna.com/', hours: '7-11', photo: 'res8.jpg')
-# Restaurant.create!(name: 'Restaurant Boustan', address: '5151 Park Ave, Montreal, Quebec H2V 4G3', rating: 4.4, cuisine: 'Lebanese', price_level: '$', website: 'https://boustan.ca/', hours: '7-11', photo: 'res9.jpg')
-# Restaurant.create!(name: 'Falafel Yoni', address: '54 Rue Saint-Viateur O, Montréal, QC H2T 2K8', rating: 4.7, cuisine: 'Falafel', price_level: '$', website: 'https://www.falafelyoni.com/', hours: '7-11', photo: 'res10.jpg')
-# puts "Restaurants seed successed!"
+# Import businesses
+# def import_businesses_from_json(term)
+#   puts "Importing #{term} from JSON..."
+#   file_path = Rails.root.join('db', "#{term.gsub(' ', '_')}_data.json")
+#   if File.exist?(file_path)
+#     data = JSON.parse(File.read(file_path))
+#     data.each do |item|
+#       # Handle your restaurant and attraction seeding here
+#     end
+#     puts "#{term.capitalize} imported successfully."
+#   else
+#     puts "No JSON file found for #{term}."
+#   end
+# end
 
-# puts "Seed Attractions..."
-# Attraction.create!(name: 'Vieux-Port de Montréal', address: '333 Rue de la Commune O, Montréal, QC H2Y 2E2', img: 'vieux_port.jpeg', website: 'http://www.vieuxportdemontreal.com/')
-# Attraction.create!(name: 'Grand Staircase of Mount Royal', address: 'Le Serpentin, Montreal, Quebec H3H 1A2', img: 'grand_stairs.jpeg', website: 'Soon...')
-# Attraction.create!(name: 'Notre-Dame Basilica of Montreal', address: '110 Notre-Dame St W, Montreal, Quebec H2Y 1T1', img: 'notre_dame.jpeg', website: 'https://www.basiliquenotredame.ca/')
-# puts "Attractions seed successed!"
+# ['restaurants', 'attractions'].each do |term|
+#   import_businesses_from_json(term)
+# end
 
-puts "Seed events..."
-Event.create!(name: 'Taylor Swift Dance Party', address: 'Muzique Nightclub, 3781 Boulevard Saint-Laurent Montréal, QC H2W 1X8', date: '2024-03-16'.to_date, description: "Montreal Swifties Unite!! SWIFTIES SOCIALS is back with the Biggest Taylor Swift Dance Party in MTL! Come party with 500+ Swifties who share your love for Taylor's music. Sing along, dance like nobody's watching, and create memories that will last a lifetime.", website: 'https://www.eventbrite.ca/e/taylor-swift-dance-party-swifties-socials-montreal-march-16-tickets-826346463517?aff=ebdssbdestsearch', img: 'taylor.jpeg')
-Event.create!(name: 'MONTREAL CAREER FAIR', address: 'Montreal Convention Centre, 1001 Place Jean-Paul-Riopelle Montréal, QC H2Z 1H5', date: '2024-03-20'.to_date, description: "Welcome to Jobs Canada Centre.Come and meet with recruiters in person, make a positive impression, and demonstrate your skills and qualifications. It doesn't matter what industry or background you have; whether you've recently graduated, are a skilled professional, or are looking for a fresh start, join Jobs Canada across the country. Expand your professional network, gain insights into the current job market, and bring your resume to interact with employers, industry professionals, and other attendees. Follow us for latest updates. We are here to help you!", website: 'https://www.eventbrite.ca/e/montreal-career-fair-march-20th2024-tickets-706882463477?aff=ebdssbcitybrowse', img: 'job.jpeg')
-Event.create!(name: 'Montreal Networking Event For Professionals', address: 'Lounge h3, 340 Rue De la Gauchetière Ouest #2e étage Montréal, QC H2Z 0C3', date: '2024-03-15'.to_date, description: "SUM OF FIVE Professional Networking Events stand as the pinnacle of stylish gatherings for both young professionals. Our main goal revolves around empowering our attendees by facilitating meaningful professional connections. We have an unwavering commitment that lies in fostering genuine relationships among peers, cultivating an environment where professionals can seamlessly connect and engage in a purposeful manner. We aspire to aid participants in their journey of expanding their businesses and advancing their careers by providing a platform to engage with individuals who share similar aspirations.", website: 'https://www.eventbrite.ca/e/montreal-networking-event-for-professionals-lounge-h3-tickets-843030616267?aff=ebdssbdestsearch', img: 'job2.jpeg')
-puts "Events seed successed!"
-
-puts "Seed Movie"
-Movie.create!(title: 'Godzilla x Kong: The New Empire', address: '1234 Montreal', screen_time: '2024-03-29'.to_date, poster: 'gk.jpg', description: 'Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.', rating: 'PG-13', genre: 'Action, Science Fiction, Adventure')
-Movie.create!(title: 'Dogman', address: '4563 Montreal', screen_time: '2024-03-22'.to_date, poster: 'dogman.jpeg', description: 'A boy, bruised by life, finds his salvation through the love of his dogs.', rating: 'R', genre: 'Action, Drama, Crime')
-Movie.create!(title: 'Ghostbusters: Frozen Empire', address: '678 Montreal', screen_time: '2024-03-22'.to_date, poster: 'ghost_fe.jpeg', description: "The Spengler family returns to where it all started – the iconic New York City firehouse – to team up with the original Ghostbusters, who've developed a top-secret research lab to take busting ghosts to the next level. But when the discovery of an ancient artifact unleashes an evil force, Ghostbusters new and old must join forces to protect their home and save the world from a second Ice Age.", rating: 'PG-13', genre: 'Fantasy, Adventure, Comedy')
-puts "Movie seed successed!"
-
-# Define a general method for importing businesses from JSON
-def import_businesses_from_json
-  # Restaurants
-  puts "Importing restaurants from JSON..."
-  restaurant_data = JSON.parse(File.read(Rails.root.join('db', 'restaurants_data.json')))
-  restaurant_data.each do |item|
-    Restaurant.find_or_create_by(name: item['name']) do |restaurant|
-      restaurant.address = item['location']['display_address'].join(', ')
-      restaurant.rating = item['rating']
-      restaurant.cuisine = item['categories'].map { |cat| cat['title'] }.join(', ')
-      restaurant.price_level = item['price']
-      restaurant.website = item['url']
-      restaurant.photo = item['image_url']
-      restaurant.latitude = item['coordinates']['latitude']
-      restaurant.longitude = item['coordinates']['longitude']
+def import_businesses_from_json(term)
+  file_path = Rails.root.join('db', "#{term.gsub(' ', '_')}_data.json")
+  if File.exist?(file_path)
+    data = JSON.parse(File.read(file_path))
+    data.each do |item|
+      case term
+      when 'restaurants'
+        Restaurant.find_or_create_by(name: item['name']) do |r|
+          r.address = item['location']['address1']
+          r.rating = item['rating'].to_f
+          r.cuisine = item['categories'].map { |cat| cat['title'] }.join(', ')
+          r.price_level = item['price']
+          r.website = item['url']
+          r.hours = 'Check website for hours' # Placeholder, adjust as needed
+          r.photo = item['image_url']
+          r.latitude = item['coordinates']['latitude']
+          r.longitude = item['coordinates']['longitude']
+        end
+      when 'attractions'
+        Attraction.find_or_create_by(name: item['name']) do |a|
+          a.address = item['location']['address1']
+          a.img = item['image_url']
+          a.website = item['url']
+          a.latitude = item['coordinates']['latitude']
+          a.longitude = item['coordinates']['longitude']
+        end
+      end
     end
+    puts "#{term.capitalize} imported successfully."
+  else
+    puts "No JSON file found for #{term}."
   end
-  puts "Restaurants imported."
-
-  # Attractions
-  puts "Importing attractions from JSON..."
-  attraction_data = JSON.parse(File.read(Rails.root.join('db', 'attractions_data.json')))
-  attraction_data.each do |item|
-    Attraction.find_or_create_by(name: item['name']) do |attraction|
-      attraction.address = item['location']['display_address'].join(', ')
-      attraction.img = item['image_url']
-      attraction.website = item['url']
-      attraction.latitude = item['coordinates']['latitude']
-      attraction.longitude = item['coordinates']['longitude']
-    end
-  end
-  puts "Attractions imported."
 end
 
-# Execute the import method
-import_businesses_from_json
+# Seed businesses
+['restaurants', 'attractions'].each do |term|
+  import_businesses_from_json(term)
+end
 
-puts "Database seed accomplished!"
+# Seed Events
+puts "Seeding Events..."
+Event.create!(
+  name: 'Taylor Swift Dance Party',
+  address: 'Muzique Nightclub, 3781 Boulevard Saint-Laurent Montréal, QC H2W 1X8',
+  date: Date.parse('2024-03-16'),
+  description: "Montreal Swifties Unite!! SWIFTIES SOCIALS is back with the Biggest Taylor Swift Dance Party in MTL! Come party with 500+ Swifties who share your love for Taylor's music. Sing along, dance like nobody's watching, and create memories that will last a lifetime.",
+  website: 'https://www.eventbrite.ca/e/taylor-swift-dance-party-swifties-socials-montreal-march-16-tickets-826346463517?aff=ebdssbdestsearch',
+  img: 'taylor.jpeg'
+)
+Event.create!(
+  name: 'MONTREAL CAREER FAIR',
+  address: 'Montreal Convention Centre, 1001 Place Jean-Paul-Riopelle Montréal, QC H2Z 1H5',
+  date: Date.parse('2024-03-20'),
+  description: "Welcome to Jobs Canada Centre. Come and meet with recruiters in person, make a positive impression, and demonstrate your skills and qualifications. It doesn't matter what industry or background you have; whether you've recently graduated, are a skilled professional, or are looking for a fresh start, join Jobs Canada across the country. Expand your professional network, gain insights into the current job market, and bring your resume to interact with employers, industry professionals, and other attendees. Follow us for latest updates. We are here to help you!",
+  website: 'https://www.eventbrite.ca/e/montreal-career-fair-march-20th2024-tickets-706882463477?aff=ebdssbcitybrowse',
+  img: 'job.jpeg'
+)
+Event.create!(
+  name: 'Montreal Networking Event For Professionals',
+  address: 'Lounge h3, 340 Rue De la Gauchetière Ouest #2e étage Montréal, QC H2Z 0C3',
+  date: Date.parse('2024-03-15'),
+  description: "SUM OF FIVE Professional Networking Events stand as the pinnacle of stylish gatherings for both young professionals. Our main goal revolves around empowering our attendees by facilitating meaningful professional connections. We have an unwavering commitment that lies in fostering genuine relationships among peers, cultivating an environment where professionals can seamlessly connect and engage in a purposeful manner. We aspire to aid participants in their journey of expanding their businesses and advancing their careers by providing a platform to engage with individuals who share similar aspirations.",
+  website: 'https://www.eventbrite.ca/e/montreal-networking-event-for-professionals-lounge-h3-tickets-843030616267?aff=ebdssbdestsearch',
+  img: 'job2.jpeg'
+)
+puts "Events seeded successfully."
+
+# Load movie theaters data for address assignment to movies
+theaters_file_path = Rails.root.join('db', 'movie_theaters_data.json')
+theaters = JSON.parse(File.read(theaters_file_path)) if File.exist?(theaters_file_path)
+theaters ||= []
+
+# Seeding movies from TMDB and assigning random theater addresses
+puts "Seeding Movies from TMDB..."
+movies_file_path = Rails.root.join('db', 'movies_now_playing.json')
+if File.exist?(movies_file_path)
+  movies = JSON.parse(File.read(movies_file_path))
+  movies.each do |movie|
+    if theaters.any?
+      random_theater = theaters.sample # Pick a random theater
+      Movie.find_or_create_by(title: movie['title']) do |m|
+        m.description = movie['overview']
+        m.poster = "https://image.tmdb.org/t/p/original#{movie['poster_path']}"
+        m.rating = movie['vote_average'].to_s
+        m.genre = movie['genre_names']
+        m.address = random_theater['location']['address1']
+        m.latitude = random_theater['coordinates']['latitude']
+        m.longitude = random_theater['coordinates']['longitude']
+        # Assign a random screen time, if necessary
+        m.screen_time = Date.today + rand(-15..15).days
+      end
+    else
+      puts "No movie theater data available for address assignment."
+    end
+  end
+  puts 'Movies seeded successfully.'
+end
+
+puts "Database seeding completed!"

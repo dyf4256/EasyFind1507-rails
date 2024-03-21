@@ -1,9 +1,4 @@
-
 <% if recommendation.activity.photo.present? %>
-  <%= image_tag recommendation.activity.photo, height: 30, width: 30, alt: "Logo" %>
-  <%# <%= image_tag "montreal.jpg", height: 30, width: 30, alt: "Logo" %>
+  <%= image_tag recommendation.activity.photo, height: 60, width: 60, alt: "Logo", class: "rounded-yellow-border" %>
+  <%# <%= image_tag "montreal.jpg", height: 30, width: 30, alt: "Logo", class: "rounded-yellow-border" %>
 <% end %>
-<%# <%= image_tag "logo.png", height: 30, width: 30, alt: "Logo" %>
-<div class="badge rounded-pill bg-primary fs-6 mt-1">
-  <%= recommendation.activity.name %>
-</div>
