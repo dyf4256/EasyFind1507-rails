@@ -1,12 +1,13 @@
-<% activity_type = @session.bookmarked_recommendations.first.activity_type.downcase %>
-<h4>Current <span><strong><%= activity_type.capitalize %></span></strong> Bookmarks!</h4>
+
+<h4>Current <strong></strong><%= params[:type].capitalize %> Bookmarks!</h4>
 
 <%= link_to 'Back to recommendations', recommendation_path(@session.pending_recommendation) %>
 <div>
   <div class='selected-history-container mt-2 border-top'>
     <% if @session.bookmarked_recommendations.empty? %>
-      <h3>No <%= @type %> activities.</h3>
+      <h3>No <%= params[:type].capitalize %> Activities.</h3>
     <% else %>
+    <% activity_type = @session.bookmarked_recommendations.first.activity_type.downcase %>
       <div class="history-by-category">
         <% @session.bookmarked_recommendations.each do |recommendation| %>
             <%= render "shared/activity_cards/#{activity_type}_card", recommendation: recommendation, type: @type%>
