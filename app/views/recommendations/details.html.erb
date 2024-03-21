@@ -2,11 +2,11 @@
   <div class="mb-1 mt-2">
     <div class="d-flex align-items-center header-box">
     <% if (params[:from] == 'bookmarks') %>
-      <%= link_to session_bookmarks_path(@recommendation.session) do %>
+      <%= link_to session_bookmarks_path(@recommendation.session, from: params[:from]) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
 
-    <% elsif (params[:from] == 'profile') %>
+    <% elsif (params[:type].present?) %>
       <%= link_to profile_path(params[:type]) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
@@ -16,17 +16,7 @@
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
     <% end %>
-
-
-
-
-
-
-      <%# <%= link_to (params[:from] == 'bookmarks' ? session_bookmarks_path(@recommendation.session) : recommendation_path(@recommendation)) do %>
-        <%# <%= image_tag "back.png", alt: "Back" %>
-      <%# <% end %>
-      <%# <%= raise %>
-  <h3 class='my-1 header-text'><%= @recommendation.activity.class %></h3>
+    <h3 class='my-1 header-text'><%= @recommendation.activity.class %></h3>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
 
 
 <div class='selected-card'>
-  <%= link_to details_path(restaurant, from: 'profile', type: type) do %>
+  <%= link_to details_path(restaurant, from: params[:from], type: type) do %>
     <div class="card-photo">
       <%= image_tag "#{restaurant.activity.photo}", class:'img-thumbnail'%>
     </div>

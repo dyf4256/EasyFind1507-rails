@@ -1,6 +1,6 @@
 <% event = recommendation %>
 <div class='selected-card'>
-  <%= link_to details_path(event, from: 'profile', type: type) do %>
+  <%= link_to details_path(event, from: params[:from], type: type) do %>
     <div class="card-photo">
       <%= image_tag "#{event.activity.img}", class:'img-thumbnail'%>
     </div>
