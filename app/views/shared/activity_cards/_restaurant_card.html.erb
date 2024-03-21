@@ -1,7 +1,7 @@
 <% restaurant = recommendation %>
 <div class='selected-card'>
   <div class="card-photo">
-    <%= link_to details_path(restaurant, from: 'profile') do %>
+    <%= link_to details_path(restaurant, from: 'profile', type: type) do %>
       <%= image_tag "#{restaurant.activity.photo}", class:'img-thumbnail'%>
     <% end %>
   </div>

@@ -7,7 +7,7 @@
       <% end %>
 
     <% elsif (params[:from] == 'profile') %>
-      <%= link_to profile_path(:accepted) do %>
+      <%= link_to profile_path(params[:type]) do %>
         <%= image_tag "back.png", alt: "Back" %>
       <% end %>
 
