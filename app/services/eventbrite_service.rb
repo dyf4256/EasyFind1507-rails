@@ -67,13 +67,6 @@ class EventbriteService
   end
 end
 
-curl -i \
-  -H "Authorization: Bearer GQU3B35ODZGK2UQTT2DI" \
-  "https://www.eventbriteapi.com/v3/events/search/?q=Montreal&expand=venue"
-
-
-
-
 # require 'net/http'
 # require 'uri'
 # require 'json'
