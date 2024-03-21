@@ -10,9 +10,9 @@
 
    <div class="card-info">
     <div class="card-info-a">
-      <%= image_tag "event_grey.png", alt: "Fareswheel", class: "icon"%>
+      <%= image_tag "event_black.png", alt: "Fareswheel", class: "icon"%>
       <div class="info-text">
-        <%= event.activity.name %>
+        <%= event.activity.name.truncate(15) %>
       </div>
     </div>
       <%= render 'shared/activity_cards/like_button', recommendation: event , type: type %>
