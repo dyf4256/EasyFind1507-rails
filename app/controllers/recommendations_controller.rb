@@ -51,7 +51,7 @@ class RecommendationsController < ApplicationController
     if @recommendation.save
       if @recommendation.accepted?
         @recommendation.session.end!
-        redirect_to details_path(@recommendation)
+        redirect_to end_session_path(@recommendation.session)
       else
         if params[:from] == 'bookmarks'
           redirect_to session_bookmarks_path(@recommendation.session)

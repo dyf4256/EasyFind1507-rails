@@ -1,0 +1,64 @@
+<div class='show-custom-container'>
+  <div id='details-page-header'>
+    <div class="mb-1 mt-2">
+      <div class="d-flex align-items-center header-box justify-content-space-between" >
+        <%= link_to categories_path do %>
+          <%= image_tag "back.png", alt: "Back" %>
+        <% end %>
+        <h3 class='my-1 header-text'><%= @session.accepted_recommendation.activity.name %></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container mb-4' data-controller='activity'>
+  <div class='<%= "bottom-spacing-for-scrollable" if @session.active? %>' data-controller='activity'>
+
+    <h2 class="mt-2 " id="end-text" data-controller="accepted"></h2>
+
+    <%= image_tag @session.accepted_recommendation.activity.photo, alt: "Activity Photo", class: "end-photo mb-4 d-flex flex-column justify-content-center align-items-center w-70" %>
+
+    <div class="end-website mb-3">
+      <% case @session.accepted_recommendation.activity.class.to_s %>
+            <% when 'Restaurant' %>
+              <h2 class="web-text">Maybe check out their website?</h2>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+
+            <% when 'Event' %>
+              <h2 class="web-text">Maybe check out their website?</h2>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+
+            <% when 'Attraction' %>
+              <h2 class="web-text">Maybe check out their website?</h2>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+      <% end %>
+    </div>
+
+
+    <div>
+      <% case @session.accepted_recommendation.activity.class.to_s %>
+              <% when 'Restaurant' %>
+                <h2 class="sub-header-text">Hours Open
+                  <ul>
+                    <li class="">
+                      <%= @session.accepted_recommendation.activity.hours %>
+                    </li>
+                  </ul>
+                </h2>
+
+              <% when 'Event' %>
+                <h2 class="my-3 sub-header-text" style="margin-right: 40px;"> Event Day <br>
+                <p style="font-size: large;">
+                  <%= @session.accepted_recommendation.activity.date %></h2>
+                </p>
+      <% end %>
+    </div>
+
+    <div>
+      <h2 class="sub-header-text">Address</h2>
+      <p class="end-text"><%= @session.accepted_recommendation.activity.address %></p>
+      <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
+    </div>
+
+  </div>
+</div>

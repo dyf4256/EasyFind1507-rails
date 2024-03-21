@@ -45,4 +45,17 @@ class SessionController < ApplicationController
     @session = Session.find(params[:id])
   end
 
+  def end
+    @session = Session.find(params[:id])
+    @activity = @session.accepted_recommendation.activity
+
+    @markers = [{
+      lat: @activity.latitude,
+      lng: @activity.longitude,
+      info_window_html: render_to_string(partial: "recommendations/details/info_window", locals: { recommendation: @session.accepted_recommendation }),
+      marker_html: render_to_string(partial: "recommendations/details/marker", locals: { recommendation: @session.accepted_recommendation })
+    }]
+  end
+
+
 end
