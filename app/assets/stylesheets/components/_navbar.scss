@@ -10,7 +10,7 @@
 }
 /* Extend the background color into the safe area */
 body {
-  padding-top: calc(env(safe-area-inset-top) + 70px); /* Adjust the value based on your navbar's height */
+  padding-top: calc(env(safe-area-inset-top) + 67.5px); /* Adjust the value based on your navbar's height */
   background-color: #FFD76B;
 }
 // body {
@@ -21,7 +21,7 @@ body {
 // }
 .rectangle {
   position: fixed;
-  top: calc(env(safe-area-inset-top) - 70px); /* Adjust as needed */
+  // top: calc(env(safe-area-inset-top) - 70px); /* Adjust as needed */
   // left: 100px; /* Adjust as needed */
   width: 200000px; /* Your rectangle's width */
   height: 100000px; /* Your rectangle's height */
