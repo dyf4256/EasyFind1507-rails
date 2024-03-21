@@ -7,8 +7,11 @@
 
   </div>
 
-  <h2 class="my-3"><%= recommendation.activity.address %></h2>
+  <%# <h2 class="my-3"><%= recommendation.activity.address</h2> %>
 
-  <p>Website: <%= recommendation.activity.website %></p>
+  <%# <p>Website: <%= recommendation.activity.website %>
+  <%# <% when 'Attraction' %>
+  <h2 class="web-text">Website</h2>
+  <%= link_to recommendation.activity.name, recommendation.activity.website, class: "end-link", target: "_blank"  %>
 
 </div>

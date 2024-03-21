@@ -22,15 +22,15 @@
       <% case @session.accepted_recommendation.activity.class.to_s %>
             <% when 'Restaurant' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link", target: "_blank"  %>
 
             <% when 'Event' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link", target: "_blank"  %>
 
             <% when 'Attraction' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link", target: "_blank"  %>
       <% end %>
     </div>
 
