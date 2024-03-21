@@ -1,0 +1,22 @@
+.bookmarks-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bookmarks-card {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.link-to-card {
+  flex-grow: 1;
+
+  a {
+    color: black;
+  }
+
+  img {
+    height: 150px;
+  }
+}
