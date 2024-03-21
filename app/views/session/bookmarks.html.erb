@@ -1,5 +1,5 @@
 
-<h4>Current <strong></strong><%= params[:type].capitalize %> Bookmarks!</h4>
+<h4>Current Bookmarks!</h4>
 
 <%= link_to 'Back to recommendations', recommendation_path(@session.pending_recommendation) %>
 <div>
@@ -10,9 +10,15 @@
     <% activity_type = @session.bookmarked_recommendations.first.activity_type.downcase %>
       <div class="history-by-category">
         <% @session.bookmarked_recommendations.each do |recommendation| %>
-            <%= render "shared/activity_cards/#{activity_type}_card", recommendation: recommendation, type: @type%>
-            <%= button_to 'delete', recommendation_path(recommendation), params:{ status: 'rejected', from: 'bookmarks' }, method: :patch, data: { turbo_confirm: 'Are you sure?' }
-            %>
+        <div>
+          <div class="">
+            <%= image_tag "#{recommendation.activity.photo}", class:'img-thumbnail'%>
+            <div class="">
+              <%= recommendation.activity.name.truncate(16) %>
+            </div>
+          </div>
+          <%= button_to 'delete', recommendation_path(recommendation), params:{ status: 'rejected', from: 'bookmarks' }, method: :patch, data: { turbo_confirm: 'Are you sure?' } %>
+        </div>
         <% end %>
       </div>
     <% end %>
