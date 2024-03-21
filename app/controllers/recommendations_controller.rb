@@ -99,6 +99,10 @@ class RecommendationsController < ApplicationController
 
   end
 
+  def filter
+    raise
+  end
+
   private
 
   def set_recommendation
