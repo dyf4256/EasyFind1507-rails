@@ -1,20 +1,32 @@
 .web-text {
-  padding-left: 12px;
+  // padding-left: 12px;
   font-size: x-large;
 }
 
 .end-link {
   color: black;
   margin-left: 16px;
-  font-size: x-large;
+  font-size: large;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .sub-header-text {
-  padding-left: 12px;
+  // padding-left: 12px;
   margin-top: 12px;
 }
 
 .end-text {
-  padding-left: 12px;
+  padding-right: 110px;
+}
+
+.end-photo {
+  border-radius: 15px;
+  max-height: 200px;
+  width: -webkit-fill-available;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-top: 15px;
+  margin-left: 51px;
+  margin-right: 51px;
 }

@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     const end_text = document.getElementById("end-text")
 
-    const dialogChoice = ["How about you give this a try?", "Why not try?", "Look at this cool one!", "You feeling this?", "Like the look of this?"]
+    const dialogChoice = ["Happy you liked this!", "I'll see you there!", "Knew you'd like this!", "You picked right!", "You got amazing taste!"]
     const random = Math.floor(Math.random() * dialogChoice.length);
 
     if (end_text.innerHTML === dialogChoice[random]) {
