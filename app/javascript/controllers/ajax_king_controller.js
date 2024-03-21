@@ -4,10 +4,7 @@ export default class extends Controller {
   static targets = ["meGusta"]
 
   connect() {
-    console.log("AjaxKing controller connected");
-    this.meGustaTargets.forEach(target => {
-      console.log(target.dataset.favorited); // Log the initial favorited state
-    });
+
   }
 
   switchLike(event) {
@@ -42,13 +39,11 @@ export default class extends Controller {
 
   revealContent(favorited, target) {
     target.dataset.favorited = favorited.toString();
-    console.log("Before toggling:", target.classList.contains("text-danger"));
     if (favorited) {
       target.classList.add("text-danger");
     } else {
       target.classList.remove("text-danger");
     }
-    console.log("After toggling:", target.classList.contains("text-danger"));
   }
 
 }
