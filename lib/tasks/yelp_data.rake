@@ -9,5 +9,4 @@ namespace :yelp_data do
   end
 end
 
-
 #run this in terminal to parse yelp api: bundle exec rake yelp_data:fetch_and_save
