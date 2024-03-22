@@ -27,6 +27,6 @@
     <p style="font-size: large;">
       <%= recommendation.activity.date %></h2>
     </p>
-  <p><%= recommendation.activity.description %></p>
+  <p><%= recommendation.activity.description.gsub(/Sourced from predicthq.com/, '') %></p>
 
 </div>
