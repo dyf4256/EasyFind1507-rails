@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require 'dotenv/load' # Ensure environment variables are loaded
 
 class PredictHqService
   PREDICT_HQ_ENDPOINT = "https://api.predicthq.com/v1/events/".freeze
