@@ -1,4 +1,9 @@
-<% if recommendation.activity.photo.present? %>
-  <%= image_tag recommendation.activity.photo, height: 60, width: 60, alt: "Logo", class: "rounded-yellow-border" %>
-  <%# <%= image_tag "montreal.jpg", height: 30, width: 30, alt: "Logo", class: "rounded-yellow-border" %>
-<% end %>
+<%# <% if recommendation.activity.photo.present? %>
+  <%# <%= image_tag recommendation.activity.photo, height: 60, width: 60, alt: "Logo", class: "rounded-yellow-border" %>
+<%# <% end %>
+
+<div class="pin">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="pin-icon">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 4.17 7 13 7 13s7-8.83 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#fff56b"/>
+  </svg>
+</div>
