@@ -27,6 +27,7 @@
       -webkit-text-fill-color: transparent;
       text-shadow: 2px 2px 4px rgba(239, 165, 6, 0.15);
       transform: translateY(-2px);
+      pointer-events: none;
     }
   }
 }
