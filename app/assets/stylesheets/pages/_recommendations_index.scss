@@ -13,6 +13,7 @@
 .selected-card {
   box-shadow: 2px 2px 5px rgb(200, 200, 200);
   height: 100%;
+  max-width: 180px;
   // display: flex;
   // flex-direction: column;
 
@@ -20,9 +21,8 @@
   border: 4px solid #FFD76B;
 
   .card-info {
-    color: black;
     display: flex;
-    justify-content: space-between;
+    color: black;
   }
 
   .card-photo {
@@ -38,10 +38,9 @@
   }
 
   .icon {
-  border-right: 4px solid#FFD76B;
-  color: #FFD76B;
   padding: 12px;
-  height: 62px;
+  height: 50px;
+  width: 60px;
   }
 
   img {
@@ -125,8 +124,11 @@ label {
 
 .card-info-a {
   display: flex;
+  max-width: 150px;
 
   .info-text {
+    border-left: 4px solid#FFD76B;
+    color: #FFD76B;
     padding: 4px;
     color: black;
     max-height: 51px;
@@ -138,4 +140,18 @@ label {
 .fa-heart {
   color: grey;
 
+}
+
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.fill img {
+  padding: 12px;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: contain
 }
