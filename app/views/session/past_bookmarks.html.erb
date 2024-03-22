@@ -1,12 +1,27 @@
-<h4>Last time you were looking for <%= @previous_session.activity_type %>s, you were intersted by these: </h4>
-<ul>
-  <% @previous_session.bookmarked_recommendations.each do |recommendation| %>
-  <li>
-    <%= recommendation.activity.name %>
-  </li>
-  <% end %>
-</ul>
-<h4>Shall we keep them?</h4>
+<% activity_type = @previous_session.activity_type.downcase %>
+<h5 class="text-center my-2">You saved these <strong><%= activity_type.capitalize %>s</strong> last time. </h5>
 
-<%= button_to 'Yes, keep them!', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'true'), class:'btn btn-success' %>
-<%= button_to 'No, start from scratch', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'false'), class:'btn btn-danger mt-2' %>
+<div>
+  <div class='selected-history-container mt-2 border-top'>
+    <div class='bookmarks-cards-container'>
+      <% @previous_session.bookmarked_recommendations.each do |recommendation| %>
+        <div class='bookmarks-card'>
+          <div class='link-to-card flex-grow-1'>
+            <%= link_to details_path(recommendation, from: params[:from], type: params[:type]) do %>
+            <%= image_tag "#{recommendation.activity.photo}", class:'img-thumbnail'%>
+            <div class="info-text">
+              <%= recommendation.activity.name.truncate(16) %>
+            </div>
+            <%= render 'shared/activity_cards/like_button', recommendation: recommendation , type: params[:type] %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<h4 class='text-center mt-2 pt-2 border-top fw-bold'>Shall we keep them?</h4>
+<div class='d-flex justify-content-around'>
+  <%= button_to 'No, start from scratch', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'false'), class:'btn btn-danger text-white' %>
+  <%= button_to 'Yes, keep them!', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'true'), class:'btn btn-success' %>
+</div>
