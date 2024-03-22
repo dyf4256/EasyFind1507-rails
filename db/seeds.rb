@@ -12,7 +12,7 @@ User.destroy_all
 
 puts "Seeding Users..."
 User.create!(email: 'yuefei@hackers.com', password: 'hackers!', first_name: 'Yuefei', last_name: 'Dong')
-User.create!(email: 'declan@hackers.com', password: 'hackers!', first_name: 'Declan', last_name: 'Schindler')
+User.create!(email: 'declan@hackers.com', password: 'hackers!', first_name: 'Declan', last_name: 'Schindler', latitude: 45.52617935, longitude: -73.59500702326218)
 User.create!(email: 'laurent@hackers.com', password: 'hackers!', first_name: 'Laurent', last_name: 'Lefebvre')
 puts "Users seeded successfully!"
 
