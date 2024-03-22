@@ -87,6 +87,26 @@
   },
   {
     "adult": false,
+    "backdrop_path": "/87IVlclAfWL6mdicU1DDuxdwXwe.jpg",
+    "genre_ids": [
+      878,
+      12
+    ],
+    "id": 693134,
+    "original_language": "en",
+    "original_title": "Dune: Part Two",
+    "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
+    "popularity": 987.509,
+    "poster_path": "/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+    "release_date": "2024-02-27",
+    "title": "Dune: Part Two",
+    "video": false,
+    "vote_average": 8.391,
+    "vote_count": 1893,
+    "genre_names": "Science Fiction, Adventure"
+  },
+  {
+    "adult": false,
     "backdrop_path": "/zAepSrO99owYwQqi0QG2AS0dHXw.jpg",
     "genre_ids": [
       28,
@@ -125,26 +145,6 @@
     "vote_average": 7.0,
     "vote_count": 363,
     "genre_names": "Action, Thriller, War"
-  },
-  {
-    "adult": false,
-    "backdrop_path": "/87IVlclAfWL6mdicU1DDuxdwXwe.jpg",
-    "genre_ids": [
-      878,
-      12
-    ],
-    "id": 693134,
-    "original_language": "en",
-    "original_title": "Dune: Part Two",
-    "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
-    "popularity": 987.509,
-    "poster_path": "/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
-    "release_date": "2024-02-27",
-    "title": "Dune: Part Two",
-    "video": false,
-    "vote_average": 8.391,
-    "vote_count": 1893,
-    "genre_names": "Science Fiction, Adventure"
   },
   {
     "adult": false,
