@@ -59,7 +59,15 @@
     </div>
 
     <div>
-      <h2 class="sub-header-text">Address</h2>
+      <% if @session.accepted_recommendation.activity.class.to_s == 'Movie' %>
+        <h2>Playtime</h2>
+        <h4><%= ['1h56m','1h34m','1h47m','1h44m'].sample %></h4>
+      <% end %>
+    </div>
+
+    <div>
+      <h2 class="sub-header-text"><%= @session.accepted_recommendation.activity.class.to_s == 'Movie' ? 'Thearter address' : 'Address' %>
+      </h2>
       <p class="end-text"><%= @session.accepted_recommendation.activity.address %></p>
       <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
     </div>
