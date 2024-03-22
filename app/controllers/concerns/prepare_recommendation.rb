@@ -37,7 +37,7 @@ module PrepareRecommendation
     when 'Movie'
       @activities = Movie.where.not(id: exclude_ids)
     end
-    distance_radius = Session::DISTANCE_FILTERS[session.distance_filter]
+    distance_radius = Session::DISTANCE_FILTERS_VALUES[session.distance_filter]
 
     @activities = @activities.near(current_user.to_coordinates, distance_radius) unless distance_radius.nil?
 

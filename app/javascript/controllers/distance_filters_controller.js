@@ -6,7 +6,6 @@ export default class extends Controller {
   }
 
   update(event) {
-    event.preventDefault();
     const url = this.element.action;
     const options = {
       method: "PATCH",

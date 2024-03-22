@@ -4,21 +4,27 @@
       <i class="fa-solid fa-x icon-adjust"></i>
     <% end %>
 
-  <div class="btn-group dropup">
-    <%= image_tag "burger_button.png", class: " mx-3 dropdown-toggle", id: "navbarDropup", data: { bs_toggle: "dropdown", bs_offset: "-60,14" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <div class="btn-group dropup dropup-center">
+    <%= image_tag "burger_button.png", class: " mx-3 dropdown-toggle", id: "navbarDropup", data: { bs_toggle: "dropdown", bs_offset: "-87, 14", bs_auto_close: "outside" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <div class="dropdown-menu" aria-labelledby="navbarDropup" style="dropdown-min-width: 6rem !important;">
-      <div class="popUpMenu" style="text-align: center;">
-        <%= button_to recommendation_path(@recommendation), method: :patch, params: { status: 'bookmarked', session_id: @recommendation.session.id }, class: 'btn text-white fs-1 fw-bolder bookmark' do%>
-            <i class="fa-solid fa-bookmark"></i>
-        <% end %>
-        <%= button_to session_bookmarks_path(@recommendation.session), method: :get, class: 'btn text-white fs-1 fw-bolder bookmark checkBookmark', params: { from: 'bookmarks', type: @recommendation.activity_type } do%>
-            <%= image_tag "mag_bookmark2.png", style: "position: relative; top: -2px; right: -9px;" %>
-        <% end %>
+      <div class="popUpMenu d-flex flex-column" style="text-align: center;">
+        <div id="distance-filters">
+          <%= render 'recommendations/distance_filters', session: @recommendation.session %>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div id="bookmarks">
+          <p>Keep for later?</p>
+          <div class="d-flex justify-content-around">
+            <%= button_to recommendation_path(@recommendation), method: :patch, params: { status: 'bookmarked', session_id: @recommendation.session.id }, class: 'btn text-white fs-1 fw-bolder bookmark' do%>
+                <i class="fa-solid fa-bookmark"></i>
+            <% end %>
+            <%= button_to session_bookmarks_path(@recommendation.session), method: :get, class: 'btn text-white fs-1 fw-bolder bookmark checkBookmark', params: { from: 'bookmarks', type: @recommendation.activity_type } do%>
+                <%= image_tag "mag_bookmark2.png", style: "position: relative; top: -2px; right: -9px;" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-
-
-
 
     <%= button_to recommendation_path(@recommendation), method: :patch, params: { type: @recommendation.activity.class, status: 'accepted', session_id: session.id }, id: "accept", class: 'btn' do %>
       <i class="fa-solid fa-check icon-adjust"></i>
