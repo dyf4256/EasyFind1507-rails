@@ -198,4 +198,14 @@ if File.exist?(movies_file_path)
   puts 'Movies seeded successfully.'
 end
 
+puts 'Seed bookmarks'
+
+Session.create!(user: User.second, activity_type: 'Movie')
+
+Recommendation.create!(session: Session.first, activity: Movie.first, status: 3)
+Recommendation.create!(session: Session.first, activity: Movie.fourth, status: 3)
+Session.first.end!
+
+puts 'Bookmarks seed successfully.'
+
 puts "Database seeding completed!"
