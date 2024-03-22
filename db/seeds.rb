@@ -136,7 +136,7 @@ def import_businesses_from_json(term)
           r.address = item['location']['address1']
           r.rating = item['rating'].to_f
           r.cuisine = item['categories'].map { |cat| cat['title'] }.join(', ')
-          r.price_level = item['price']
+          r.price_level = ["$", "$$", "$$$"].sample
           r.website = item['url']
           r.hours = item['hours'].to_json
           r.photo = item['image_url']
