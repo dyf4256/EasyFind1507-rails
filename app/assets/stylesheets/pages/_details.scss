@@ -15,7 +15,7 @@
     }
 
     .header-text {
-      max-width: 70%; // Limit the width of the header text
+      max-width: 100vw; // Limit the width of the header text
       flex-grow: 1; // Allow the text to take available space
       font-weight: bold;
       position: relative;
