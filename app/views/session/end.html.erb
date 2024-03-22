@@ -39,11 +39,15 @@
       <% case @session.accepted_recommendation.activity.class.to_s %>
               <% when 'Restaurant' %>
                 <h2 class="sub-header-text">Hours Open
-                  <ul>
-                    <li class="">
-                      <%= @session.accepted_recommendation.activity.hours %>
-                    </li>
-                  </ul>
+                  <p style="font-size: large; font-weight: normal;">
+                    Monday:  9:00 - 16:00 <br>
+                    Tuesday:  9:00 - 16:00 <br>
+                    Wednesday:  9:00 - 16:00 <br>
+                    Thursday:  9:00 - 16:00 <br>
+                    Friday:  9:00 - 16:00 <br>
+                    Saturday:  9:00 - 16:00 <br>
+                    Sunday:  9:00 - 16:00 <br>
+                  </p>
                 </h2>
 
               <% when 'Event' %>
