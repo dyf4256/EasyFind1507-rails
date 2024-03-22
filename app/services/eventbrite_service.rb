@@ -67,8 +67,6 @@ class EventbriteService
   end
 end
 
-
-
 # require 'net/http'
 # require 'uri'
 # require 'json'
