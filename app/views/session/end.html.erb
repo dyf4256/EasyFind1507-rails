@@ -69,7 +69,7 @@
     </div>
 
     <div>
-      <h2 class="sub-header-text"><%= @session.accepted_recommendation.activity.class.to_s == 'Movie' ? 'Thearter address' : 'Address' %>
+      <h2 class="sub-header-text"><%= @session.accepted_recommendation.activity.class.to_s == 'Movie' ? 'Theater address' : 'Address' %>
       </h2>
       <p class="end-text"><%= @session.accepted_recommendation.activity.address %></p>
       <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
