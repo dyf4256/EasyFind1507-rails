@@ -26,7 +26,7 @@
 
             <% when 'Event' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link", target: "_blank"  %>
+              <%= link_to "#{@session.accepted_recommendation.activity.name.split(' ')[0..1].join(' ').gsub(/\W+\s?/,' ')}", '#', class:'text-dark text-decoration-underline fst-italic' %>
 
             <% when 'Attraction' %>
               <h2 class="web-text">Maybe check out their website?</h2>
