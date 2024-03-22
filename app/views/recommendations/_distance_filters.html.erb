@@ -1,5 +1,5 @@
 <p>Distance</p>
-<%= simple_form_for session, html: { data: { controller: 'distance-filters' }, class: 'distance-filters d-flex' } do |f| %>
+<%= simple_form_for session, url: activity_sessions_path(session), html: { data: { controller: 'distance-filters' }, class: 'distance-filters d-flex' } do |f| %>
   <%= f.collection_radio_buttons :distance_filter, Session.distance_filters.to_a.reverse, :first, :first, item_wrapper_tag: :div do |b| %>
     <%= b.radio_button data: { action: 'change->distance-filters#update' }, class: 'd-none' %>
     <%= b.label do %>
