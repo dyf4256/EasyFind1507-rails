@@ -43,4 +43,25 @@ module PrepareRecommendation
 
     @recommendation.activity = @activities.order("RANDOM()").first
   end
+
+  # randomly generate recommendtaion
+  # def new_recommendations(session)
+  #   @recommendation = Recommendation.new
+  #   @recommendation.session = session
+  #   exclude_ids = get_exclude_ids(session)
+  #   case session.activity_type
+  #   when 'Attraction'
+  #     @activities = Attraction.where.not(id: exclude_ids)
+  #     @recommendation.activity = @activities.order("RANDOM()").first
+  #   when 'Event'
+  #     @activities = Event.where.not(id: exclude_ids)
+  #     @recommendation.activity = @activities.order("RANDOM()").first
+  #   when 'Restaurant'
+  #     @activities = Restaurant.where.not(id: exclude_ids)
+  #     @recommendation.activity = @activities.order("RANDOM()").first
+  #   when 'Movie'
+  #     @activities = Movie.where.not(id: exclude_ids)
+  #     @recommendation.activity = @activities.order("RANDOM()").first
+  #   end
+  # end
 end

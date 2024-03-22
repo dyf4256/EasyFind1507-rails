@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_213801) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.text "hours"
   end
 
   create_table "events", force: :cascade do |t|
@@ -99,7 +100,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_213801) do
     t.string "cuisine"
     t.string "price_level"
     t.string "website"
-    t.string "hours"
+    t.text "hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"

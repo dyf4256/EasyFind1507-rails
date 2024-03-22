@@ -1,11 +1,37 @@
-<h4>Current Bookmarks!</h4>
-<ul>
-  <% @session.bookmarked_recommendations.each do |recommendation| %>
-    <li>
-      <%= link_to recommendation.activity.name, details_path(recommendation, from: 'bookmarks') %>
-      <%= button_to 'delete', recommendation_path(recommendation), params:{ status: 'rejected', from: 'bookmarks' }, method: :patch, data: { turbo_confirm: 'Are you sure?' }
-      %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to 'Back to recommendations', recommendation_path(@session.pending_recommendation) %>
+<div id='details-page-header'>
+  <div class="mb-1 mt-2">
+    <div class="d-flex align-items-center justify-content-space-between " >
+      <%= link_to recommendation_path(@session.pending_recommendation) do %>
+        <%= image_tag "back.png", alt: "Back" %>
+      <% end %>
+    <h3 class='my-1 fw-bold' style="margin-left: 37px;">Current Bookmarks!</h3>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class='selected-history-container'>
+    <% if @session.bookmarked_recommendations.empty? %>
+      <h3>No <%= params[:type]&.capitalize %> Activities.</h3>
+    <% else %>
+    <% activity_type = @session.bookmarked_recommendations.first.activity_type.downcase %>
+      <div class='bookmarks-cards-container'>
+        <% @session.bookmarked_recommendations.each do |recommendation| %>
+          <div class='bookmarks-card'>
+            <div class='link-to-card flex-grow-1'>
+              <%= link_to details_path(recommendation, from: params[:from], type: params[:type]) do %>
+              <%= image_tag "#{recommendation.activity.photo}", class:'img-thumbnail'%>
+              <div class="info-text">
+                <%= recommendation.activity.name.truncate(16) %>
+              </div>
+              <%= render 'shared/activity_cards/like_button', recommendation: recommendation , type: params[:type] %>
+              <% end %>
+            </div>
+            <div class='delete-card'>
+              <%= button_to 'Remove', recommendation_path(recommendation), params:{ status: 'rejected', from: 'bookmarks' }, method: :patch, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>

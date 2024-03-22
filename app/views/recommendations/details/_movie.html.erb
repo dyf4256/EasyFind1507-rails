@@ -3,27 +3,26 @@
   <h1 class="title mt-2"><%= recommendation.activity.title %></h1>
 
    <%= image_tag @recommendation.activity.poster, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
-  <h2 style="font-size: x-large;">Release Date:
-       <p style="font-size: large;">
-          <%= recommendation.activity.screen_time %>
-       </p>
+  <h2 style="font-size: x-large;" class="mb-0">Release Date:
   </h2>
-
+  <p >
+    <%= recommendation.activity.screen_time %>
+  </p>
+  <h2>Description:</h2>
   <p><%= recommendation.activity.description %></p>
 
-  <div class="d-flex pt-4 img-food">
-    <h2 class="">Genre
-      <ul>
-        <li class="mx-2">
-          <%= recommendation.activity.genre %>
-        </li>
-      </ul>
-    </h2>
-    <h2 class="" style="margin-right: 40px;" >Rating: <br>
-      <p style="font-size: large;">
-        <%= recommendation.activity.rating %>
+  <div class="d-flex pt-4 img-food justify-content-between">
+    <div class='me-2'>
+      <h2 class="">Genre</h2>
+      <p><%= recommendation.activity.genre %></p>
+    </div>
+    <div>
+      <h2 class="" style="margin-right: 40px;" >Rating:</h2>
+      <p class="fs-4 bold">
+        <%= ['G','PG-13','PG'].sample %>
       </p>
-    </h2>
+    </div>
+
   </div>
 
 

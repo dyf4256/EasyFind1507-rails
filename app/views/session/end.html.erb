@@ -22,15 +22,15 @@
       <% case @session.accepted_recommendation.activity.class.to_s %>
             <% when 'Restaurant' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link", target: "_blank"  %>
 
             <% when 'Event' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+              <%= link_to "#{@session.accepted_recommendation.activity.name.split(' ')[0..1].join(' ').gsub(/\W+\s?/,' ')}", '#', class:'text-dark text-decoration-underline fst-italic' %>
 
             <% when 'Attraction' %>
               <h2 class="web-text">Maybe check out their website?</h2>
-              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link"  %>
+              <%= link_to @session.accepted_recommendation.activity.name, @session.accepted_recommendation.activity.website, class: "end-link", target: "_blank"  %>
       <% end %>
     </div>
 
@@ -39,11 +39,15 @@
       <% case @session.accepted_recommendation.activity.class.to_s %>
               <% when 'Restaurant' %>
                 <h2 class="sub-header-text">Hours Open
-                  <ul>
-                    <li class="">
-                      <%= @session.accepted_recommendation.activity.hours %>
-                    </li>
-                  </ul>
+                  <p style="font-size: large; font-weight: normal;">
+                    Monday:  9:00 - 16:00 <br>
+                    Tuesday:  9:00 - 16:00 <br>
+                    Wednesday:  9:00 - 16:00 <br>
+                    Thursday:  9:00 - 16:00 <br>
+                    Friday:  9:00 - 16:00 <br>
+                    Saturday:  9:00 - 16:00 <br>
+                    Sunday:  9:00 - 16:00 <br>
+                  </p>
                 </h2>
 
               <% when 'Event' %>
@@ -55,7 +59,15 @@
     </div>
 
     <div>
-      <h2 class="sub-header-text">Address</h2>
+      <% if @session.accepted_recommendation.activity.class.to_s == 'Movie' %>
+        <h2>Playtime</h2>
+        <h4><%= ['1h56m','1h34m','1h47m','1h44m'].sample %></h4>
+      <% end %>
+    </div>
+
+    <div>
+      <h2 class="sub-header-text"><%= @session.accepted_recommendation.activity.class.to_s == 'Movie' ? 'Thearter address' : 'Address' %>
+      </h2>
       <p class="end-text"><%= @session.accepted_recommendation.activity.address %></p>
       <%= render 'recommendations/details/map', recommendation: @recommendation, markers: @markers %>
     </div>

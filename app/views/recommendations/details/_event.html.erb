@@ -7,12 +7,12 @@
 
   </div>
 
-<p>Website: <%= recommendation.activity.website %></p>
+<h2>Website:</h2> <%= link_to "#{@recommendation.activity.name.split(' ')[0..1].join(' ').gsub(/\W+\s?/,' ')}", '#', class:'text-dark text-decoration-underline fst-italic' %>
 
-<h2 class="my-3" style="margin-right: 40px;"> Event Day <br>
+<h2 class="mt-2" style="margin-right: 40px;"> Event Day </h2>
     <p style="font-size: large;">
-      <%= recommendation.activity.date %></h2>
+      <%= recommendation.activity.date %>
     </p>
-  <p><%= recommendation.activity.description %></p>
+  <p><%= recommendation.activity.description.gsub(/Sourced from predicthq.com/, '') %></p>
 
 </div>

@@ -14,8 +14,6 @@
 
   <h2>Price Level: <%= recommendation.activity.price_level %></h2>
 
-  <%# <p>Rating: <%= recommendation.activity.rating %>
-
   <div class="capsule-container mb-5 mt-3">
     <div class='review-stars'>
       <% full_stars = recommendation.activity.rating.floor %>
@@ -37,23 +35,13 @@
   </div>
 
   <h2>Hours Open
-    <ul>
-      <li class="">
-        <%= recommendation.activity.hours %>
-      </li>
-    </ul>
+    <p style="font-size: large; font-weight: normal;">
+    Monday:  9:00 - 16:00 <br>
+    Tuesday:  9:00 - 16:00 <br>
+    Wednesday:  9:00 - 16:00 <br>
+    Thursday:  9:00 - 16:00 <br>
+    Friday:  9:00 - 16:00 <br>
+    Saturday:  9:00 - 16:00 <br>
+    Sunday:  9:00 - 16:00 <br>
+    </p>
   </h2>
-
-  <div class="btn-group">
-    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Action
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </div>
-</div>

@@ -1,26 +1,28 @@
 .selected-history-container {
   overflow: scroll;
-  height: 600px;
+  max-height: 600px;
+  padding: 11px;
 }
 
 .history-by-category {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .selected-card {
   box-shadow: 2px 2px 5px rgb(200, 200, 200);
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 
-  justify-content: space-between;
+  // justify-content: space-between;
   border: 4px solid #FFD76B;
 
   .card-info {
     color: black;
     display: flex;
-
+    justify-content: space-between;
   }
 
   .card-photo {
@@ -30,18 +32,19 @@
 
   .img-thumbnail{
     background-color: #FFD76B;
-    border-radius: 50px;
-
+    border-radius: 15px;
+    height: 109px !important;
+    width: 164px;
   }
 
   .icon {
   border-right: 4px solid#FFD76B;
   color: #FFD76B;
   padding: 12px;
+  height: 62px;
   }
 
   img {
-    height: 130px !important;
     object-fit: cover;
   }
 }
@@ -64,32 +67,41 @@ a {
   opacity: 1;
 }
 
-.radio {
+.checkbox {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
-
-  &:checked + img {
-    background-color: #FFD76B;
-    border-radius: 50px;
-  }
 }
 
 label {
   text-align: center;
+  width: 76px;
+  opacity: 0.6;
 
   img {
     height: 37px;
     cursor: pointer;
-    border-bottom: 1px solid white;
+    opacity: 0.4;
+    padding-top: 7px;
   }
 
   p {
     font-size: small;
   }
+
 }
 
+.checked {
+  background-color: #FFD76B;
+  border-radius: 15px;
+  opacity: 1;
+  color: black;
+
+  img {
+    opacity: 1;
+  }
+}
 
 
 
@@ -98,9 +110,32 @@ label {
   margin-bottom: 5px;
   margin-top: 5px;
   padding: 0px;
+  border: none;
+  // background-color: #FFE8AB;
+}
 
+.section-selected {
+  color: black;
   background-color: #FFE8AB;
+}
+
+.section-not-selected {
+  opacity: 0.5;
+}
+
+.card-info-a {
+  display: flex;
+
+  .info-text {
+    padding: 4px;
+    color: black;
+    max-height: 51px;
+    min-height: 61px
+  }
+}
 
 
+.fa-heart {
+  color: grey;
 
 }

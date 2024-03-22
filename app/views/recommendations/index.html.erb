@@ -1,13 +1,14 @@
 <div data-controller=''>
-  <% selected_button_class = 'btn-warning disabled full-opacity' %>
-  <% non_selected_button_class = 'btn-outline-warning' %>
+  <% selected_button_class = 'btn-warning section-selected full-opacity' %>
+  <% non_selected_button_class = 'btn-outline-warning section-not-selected' %>
+
 
   <div class="profile-id">
-    <%= image_tag "yuefei.jpg", class: "avatar-profile", alt: "User Photo" %>
+    <%= image_tag "Big_Fat_Red_Cat.jpg", class: "avatar-profile", alt: "User Photo" %>
     <h1><%= current_user.first_name %></h1>
   </div>
 
-  <div class='profile-buttons d-flex flex-row justify-content-around mt-3 mb-1'>
+  <div class='profile-buttons d-flex flex-row justify-content-around mb-1'>
     <%= link_to 'Favourited', profile_path(:favorited), class: "btn sections col-4 #{@type == 'favorited'? selected_button_class : non_selected_button_class}"%>
 
     <%= link_to 'Selected', profile_path(:accepted), class: "btn sections col-4 #{@type == 'accepted'? selected_button_class : non_selected_button_class}"%>
@@ -16,32 +17,33 @@
   </div>
 
   <div data-controller='filter' data-filter-page-value='profile'  data-filter-input-type-value='chechboxes'>
-    <%= form_with url: profile_path(params[:type]), method: :get, class: 'd-flex justify-content-center', html: { data: { filter_target:'form' } } do %>
+    <%= form_with url: profile_path(params[:type]), method: :get, class: 'd-flex justify-content-around', html: { data: { filter_target:'form' } } do %>
       <div>
-        <%= check_box_tag('query[restaurant]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= check_box_tag('query[restaurant]', data: { action: 'change -> filter#fire' }, class: "d-none checkbox" ) %>
         <%= label_tag('query[restaurant]') do %>
-          <%= image_tag "knife_grey.png", alt: "Firework" %>
+          <%= image_tag "knife_black.png", alt: "Firework" %>
           <p>Restaurants</p>
         <% end %>
       </div>
       <div>
-        <%= check_box_tag('query[event]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= check_box_tag('query[event]', data: { action: 'change -> filter#fire' }, class: "d-none checkbox" ) %>
         <%= label_tag('query[event]') do %>
-          <%= image_tag "event_grey.png", alt: "Firework" %>
+
+          <%= image_tag "event_black.png", alt: "Firework" %>
           <p>Events</p>
         <% end %>
       </div>
       <div>
-        <%= check_box_tag('query[attraction]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= check_box_tag('query[attraction]', data: { action: 'change -> filter#fire' }, class: "d-none checkbox" ) %>
         <%= label_tag('query[attraction]') do %>
-          <%= image_tag "coaster_grey.png", alt: "Fareswheel" %>
+          <%= image_tag "coaster_black.png", alt: "Fareswheel" %>
           <p>Attractions</p>
         <% end %>
       </div>
       <div>
-        <%= check_box_tag('query[movie]', data: { action: 'change -> filter#fire' }, class: "d-none" ) %>
+        <%= check_box_tag('query[movie]', data: { action: 'change -> filter#fire' }, class: "d-none checkbox" ) %>
         <%= label_tag('query[movie]') do %>
-          <%= image_tag "movie_grey.png", alt: "Firework" %>
+          <%= image_tag "movie_black.png", alt: "Firework" %>
           <p>Movies</p>
         <% end %>
       </div>

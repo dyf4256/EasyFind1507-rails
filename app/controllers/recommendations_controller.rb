@@ -1,6 +1,6 @@
 class RecommendationsController < ApplicationController
   include PrepareRecommendation
-  before_action :set_recommendation, only: %i[show details update]
+  before_action :set_recommendation, only: %i[show update]
 
   def index
     @type = params[:type]
@@ -38,6 +38,11 @@ class RecommendationsController < ApplicationController
   end
 
   def details
+    if params[:type] == 'favorited'
+      @recommendation = Favorite.find(params[:id]).activity.recommendations.last
+    else
+      @recommendation = Recommendation.find(params[:id])
+    end
     activity = @recommendation.activity
 
     @markers = [{

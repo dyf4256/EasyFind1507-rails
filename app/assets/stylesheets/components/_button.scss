@@ -89,7 +89,7 @@
 }
 
 .profile-buttons {
-  border-bottom: 3px solid #FFD76B;
+  border-bottom: 5px solid #FFD76B;
 }
 
 .bookmark {
@@ -98,4 +98,14 @@
   padding: 7px;
   width: 57px;
   align-self: center;
+}
+
+.popUpMenu {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.checkBookmark {
+  margin-left: 20px;
 }
