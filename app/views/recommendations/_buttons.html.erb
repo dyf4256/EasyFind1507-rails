@@ -1,7 +1,8 @@
-<div class="hover-button">
-  <%= button_to recommendation_path(recommendation), method: :patch, params: { type: recommendation.activity.class, status: 'rejected', session_id: session.id, from: params[:from] }, id: "reject", class: 'btn' do %>
-    <i class="fa-solid fa-x icon-adjust"></i>
-  <% end %>
+<% unless recommendation.session.completed? %>
+  <div class="hover-button">
+    <%= button_to recommendation_path(recommendation), method: :patch, params: { type: recommendation.activity.class, status: 'rejected', session_id: session.id, from: params[:from] }, id: "reject", class: 'btn' do %>
+      <i class="fa-solid fa-x icon-adjust"></i>
+    <% end %>
 
   <div class="btn-group dropup">
     <%= image_tag "burger_button.png", class: " mx-3 dropdown-toggle", id: "navbarDropup", data: { bs_toggle: "dropdown", bs_offset: "-60,14" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -15,12 +16,12 @@
         <% end %>
       </div>
     </div>
+
+
+
+
+    <%= button_to recommendation_path(@recommendation), method: :patch, params: { type: @recommendation.activity.class, status: 'accepted', session_id: session.id }, id: "accept", class: 'btn' do %>
+      <i class="fa-solid fa-check icon-adjust"></i>
+    <% end %>
   </div>
-
-
-
-
-  <%= button_to recommendation_path(@recommendation), method: :patch, params: { type: @recommendation.activity.class, status: 'accepted', session_id: session.id }, id: "accept", class: 'btn' do %>
-    <i class="fa-solid fa-check icon-adjust"></i>
-  <% end %>
-</div>
+<% end %>
