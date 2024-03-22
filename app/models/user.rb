@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  geocoded_by :address
+
   acts_as_favoritor
 
   has_many :sessions

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :categories, only: %i[index]
   resources :recommendations, only: %i[index show new create update]
-  resources :session, only: %i[create] do
+  resources :session, only: %i[create update] do
     member do
       get 'end'
     end
@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   get 'nomore', to: 'pages#nomore', as: :nomore
   get 'sessions/:previous_session_id/past_bookmarks', to: 'session#past_bookmarks', as: :past_session_bookmarks
   get 'sessions/:id/bookmarks', to: 'session#bookmarks', as: :session_bookmarks
-
 end

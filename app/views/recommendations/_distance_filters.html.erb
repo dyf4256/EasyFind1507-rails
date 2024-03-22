@@ -1,0 +1,23 @@
+<p>Distance</p>
+<%= simple_form_for session, html: { data: { controller: 'distance-filters' }, class: 'distance-filters d-flex' } do |f| %>
+  <%= f.collection_radio_buttons :distance_filter, Session.distance_filters.to_a.reverse, :first, :first, item_wrapper_tag: :div do |b| %>
+    <%= b.radio_button data: { action: 'change->distance-filters#update' }, class: 'd-none' %>
+    <%= b.label do %>
+      <% case b.text %>
+      <% when 'walk' %>
+        <i class="fa-solid fa-person-walking"></i>
+        <p><%= b.text %></p>
+      <% when 'bike' %>
+        <i class="fa-solid fa-person-biking"></i>
+        <p><%= b.text %></p>
+      <% when 'car' %>
+        <i class="fa-solid fa-car"></i>
+        <p><%= b.text %></p>
+      <% when 'everywhere' %>
+        <i class="fa-solid fa-globe"></i>
+        <p>all</p>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= f.submit class: 'd-none'%>
+<% end %>
