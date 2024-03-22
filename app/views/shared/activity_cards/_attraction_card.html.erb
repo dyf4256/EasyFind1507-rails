@@ -8,7 +8,9 @@
 
    <div class="card-info">
     <div class="card-info-a">
-      <%= image_tag "coaster_black.png", alt: "Fareswheel", class: "icon"%>
+      <div class='fill'>
+        <%= image_tag "coaster_black.png", alt: "Fareswheel"%>
+      </div>
       <div class="info-text">
 
         <%= attraction.activity.name.truncate(16) %>
