@@ -1,0 +1,22 @@
+// .pin {
+//   position: relative;
+//   display: inline-block;
+// }
+
+// .pin::after {
+//   content: "";
+//   position: absolute;
+//   top: 100%;
+//   left: 50%;
+//   width: 0;
+//   height: 0;
+//   border: 8px solid transparent;
+//   border-top-color: #333;
+//   transform: translateX(-50%);
+// }
+
+.pin-icon {
+  width: 44px;
+  height: 44px;
+  fill: #333; /* Change the color as needed */
+}
