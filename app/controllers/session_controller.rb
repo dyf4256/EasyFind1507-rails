@@ -33,7 +33,7 @@ class SessionController < ApplicationController
     elsif @recommendation.save
       redirect_to recommendation_path(@recommendation)
     else
-      render session_index_path, status: :unprocessable_entity
+      render start_activity_session, status: :unprocessable_entity
     end
   end
 
