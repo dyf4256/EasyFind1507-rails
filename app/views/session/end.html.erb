@@ -61,7 +61,10 @@
     <div>
       <% if @session.accepted_recommendation.activity.class.to_s == 'Movie' %>
         <h2>Playtime</h2>
-        <h4><%= ['1h56m','1h34m','1h47m','1h44m'].sample %></h4>
+        <h5><%= ['10:30 - 12:30','10:15 - 12:15','9:45 - 11:45','10:00 - 12:00'].sample %>
+          <br>
+            <span><%= ['15:45 - 17:45','18:30 - 20:30','19:00 - 21:00','19:30 - 21:30'].sample %></span>
+        </h5>
       <% end %>
     </div>
 
