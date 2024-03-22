@@ -150,7 +150,7 @@ def import_businesses_from_json(term)
           a.website = item['url']
           a.latitude = item['coordinates']['latitude']
           a.longitude = item['coordinates']['longitude']
-          r.hours = item['hours'].to_json
+          a.hours = item['hours'].to_json
         end
       end
     end

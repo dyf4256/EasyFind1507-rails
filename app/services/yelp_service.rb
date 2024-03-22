@@ -6,7 +6,7 @@ class YelpService
   API_KEY = ENV['YELP_API_KEY'].freeze
   PER_PAGE = 50
 
-  def self.save_businesses_to_json(term:, total: 1000, location: 'Montreal')
+  def self.save_businesses_to_json(term:, total: 100, location: 'Montreal')
     new.save_businesses_to_json(term: term, total: total, location: location)
   end
 
@@ -21,9 +21,12 @@ class YelpService
     end
 
     businesses = fetch_businesses(term: term, total: total, location: location)
-    businesses.each do |business|
-      details = fetch_business_details(business["id"])
-      business["hours"] = details["hours"] if details && details["hours"]
+
+    unless term == 'movie theaters'
+      businesses.each do |business|
+        details = fetch_business_details(business["id"])
+        business["hours"] = details["hours"] if details && details["hours"]
+      end
     end
 
     File.write(file_path, businesses.to_json)
