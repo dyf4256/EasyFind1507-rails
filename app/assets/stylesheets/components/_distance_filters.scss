@@ -1,0 +1,6 @@
+.distance-filters {
+
+  input[type="radio"]:checked + label {
+    color: green;
+  }
+}

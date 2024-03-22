@@ -1,0 +1,9 @@
+<%= simple_form_for session, html: { data: { controller: 'distance-filters' }, class: 'distance-filters' } do |f| %>
+  <%= f.collection_radio_buttons :distance_filter, Session::DISTANCE_FILTERS.to_a, :first, :first do |b| %>
+    <%= b.radio_button data: { action: 'change->distance-filters#update' }, class: 'd-none' %>
+    <%= b.label do %>
+      <%= b.text %>
+    <% end %>
+  <% end %>
+  <%= f.submit class: 'd-none'%>
+<% end %>

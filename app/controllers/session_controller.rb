@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   include PrepareRecommendation
+  before_action :set_session, except: %i[create past_bookmarks]
 
   def create
     if current_user.active_session_for?(params[:type])
@@ -40,6 +41,18 @@ class SessionController < ApplicationController
     @previous_session = Session.find(params[:previous_session_id])
   end
 
+  def update
+    @recommendation = @session.pending_recommendation
+    respond_to do |format|
+      if @session.update(session_params)
+        format.html { redirect_to recommendation_path(@recommendation) }
+        format.json { head :no_content }
+      else
+        format.html { render 'recommendations/show', status: :unprocessable_entity }
+        format.json { render json: { error: 'Invalid setting' }, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def bookmarks
     @session = Session.find(params[:id])
@@ -57,5 +70,13 @@ class SessionController < ApplicationController
     }]
   end
 
+  private
 
+  def set_session
+    @session = Session.find(params[:id])
+  end
+
+  def session_params
+    params.require(:session).permit(:distance_filter)
+  end
 end

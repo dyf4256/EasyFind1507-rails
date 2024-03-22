@@ -30,16 +30,17 @@ module PrepareRecommendation
     case session.activity_type
     when 'Attraction'
       @activities = Attraction.where.not(id: exclude_ids)
-      @recommendation.activity = @activities.order("RANDOM()").first
     when 'Event'
       @activities = Event.where.not(id: exclude_ids)
-      @recommendation.activity = @activities.order("RANDOM()").first
     when 'Restaurant'
       @activities = Restaurant.where.not(id: exclude_ids)
-      @recommendation.activity = @activities.order("RANDOM()").first
     when 'Movie'
       @activities = Movie.where.not(id: exclude_ids)
-      @recommendation.activity = @activities.order("RANDOM()").first
     end
+    distance_radius = Session::DISTANCE_FILTERS[session.distance_filter]
+
+    @activities = @activities.near(current_user.to_coordinates, distance_radius) unless distance_radius.nil?
+
+    @recommendation.activity = @activities.order("RANDOM()").first
   end
 end
