@@ -1,13 +1,16 @@
-
-<div class="d-flex align-items-center justify-content-space-between" >
-  <%= link_to recommendation_path(@session.pending_recommendation) do %>
-    <%= image_tag "back.png", alt: "Back" %>
-  <% end %>
-<h3 class='my-1 header-text'>Current Bookmarks!</h3>
+<div id='details-page-header'>
+  <div class="mb-1 mt-2">
+    <div class="d-flex align-items-center justify-content-space-between " >
+      <%= link_to recommendation_path(@session.pending_recommendation) do %>
+        <%= image_tag "back.png", alt: "Back" %>
+      <% end %>
+    <h3 class='my-1 fw-bold' style="margin-left: 37px;">Current Bookmarks!</h3>
+    </div>
+  </div>
 </div>
 
 <div>
-  <div class='selected-history-container mt-2 border-top'>
+  <div class='selected-history-container'>
     <% if @session.bookmarked_recommendations.empty? %>
       <h3>No <%= params[:type].capitalize %> Activities.</h3>
     <% else %>
@@ -25,7 +28,7 @@
               <% end %>
             </div>
             <div class='delete-card'>
-              <%= button_to 'Delete', recommendation_path(recommendation), params:{ status: 'rejected', from: 'bookmarks' }, method: :patch, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+              <%= button_to 'Remove', recommendation_path(recommendation), params:{ status: 'rejected', from: 'bookmarks' }, method: :patch, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
             </div>
           </div>
         <% end %>
