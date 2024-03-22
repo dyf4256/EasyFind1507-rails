@@ -82,7 +82,7 @@ if File.exist?(file_path)
       event.date = Date.parse(event_data['start']) rescue nil # Handle date parsing gracefully
       event.description = event_data['description']
       # event.website = event_data['website'] || 'Website not provided' # Add a default value if website is not provided
-      # event.img = event_data['img'] || 'Default image URL' # Add a default image URL if not provided
+      event.img = event_data['img'] || 'montreal.jpg' # Add a default image URL if not provided
       event.latitude = event_data['location'][1]
       event.longitude = event_data['location'][0]
       # Add or adjust any additional fields as per your schema
