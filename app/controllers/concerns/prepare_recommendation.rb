@@ -43,7 +43,7 @@ module PrepareRecommendation
       @activities = @activities.near(current_user.to_coordinates, distance_radius)
     end
 
-    @recommendation.activity = @activities.order("RANDOM()").first
+    @recommendation.activity = @activities.first
   end
 
   # randomly generate recommendtaion
