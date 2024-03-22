@@ -13,9 +13,11 @@
 
     <% if @recommendation.activity.img.present? %>
       <%= image_tag @recommendation.activity.img, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
-    <% else %>
-      <%= image_tag "thai.png", alt: "Default Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
     <% end %>
+    <%# <% images = ['event1.jpeg', 'event2.jpeg', 'event3.jpeg', 'event4.jpeg', 'event5.avif', 'event6.avif'] %>
+    <%# <% random_image = images.sample %>
+    <%# <%= image_tag random_image, alt: "Activity Photo", class: "activity-photo mb-4 d-flex flex-column justify-content-center align-items-center w-100" %>
+
 
     <div style="position: absolute; bottom: 18px; right: 14px;">
       <%= link_to 'More info', details_path(@recommendation), class: 'beautyorange', style: 'border-radius: 20px;' %>

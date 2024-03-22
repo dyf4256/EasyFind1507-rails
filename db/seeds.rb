@@ -76,13 +76,15 @@ if File.exist?(file_path)
   events_data.each do |event_data|
     # Create or update events in your database
     # Let Rails auto-increment the ID
+    image_filenames = ['event1.jpeg', 'event2.jpeg', 'event3.jpeg', 'event4.jpeg', 'event5.avif', 'event6.avif']
     Event.create! do |event|
       event.name = event_data['title']
       event.address = event_data.dig('entities', 0, 'formatted_address') || 'Address not provided'
       event.date = Date.parse(event_data['start']) rescue nil # Handle date parsing gracefully
       event.description = event_data['description']
       # event.website = event_data['website'] || 'Website not provided' # Add a default value if website is not provided
-      event.img = event_data['img'] || 'montreal.jpg' # Add a default image URL if not provided
+      # event.img = event_data['img'] || 'montreal.jpg' # Add a default image URL if not provided
+      event.img = image_filenames.sample
       event.latitude = event_data['location'][1]
       event.longitude = event_data['location'][0]
       # Add or adjust any additional fields as per your schema
