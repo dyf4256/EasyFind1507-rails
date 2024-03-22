@@ -19,7 +19,6 @@ export default class extends Controller {
           // TODO: Implement a better error handling that just a browser alert.
           alert("Something went wrong");
         }
-        console.log(response.status);
       })
   }
 }
