@@ -5,9 +5,13 @@
   </div>
 
   <div class="carousel-image-container under-margin-more">
-    <%= image_tag "plane_white.png", class: "carousel-image", alt: "Plane" %>
-    <%= image_tag "globe.png", class: "carousel-image", alt: "Globe" %>
-    <!-- Add more images as needed using the Rails image_tag helper -->
+    <%# <%= image_tag "plane_white.png", class: "carousel-image", alt: "Plane" %>
+    <%# <%= image_tag "globe.png", class: "carousel-image", alt: "Globe" %>
+    <i class="fa-solid fa-utensils carousel-image" style="font-size: 48px; color: white;" ></i>
+    <%= image_tag "coaster_black.png", class: "carousel-image", alt: "Ferris wheel", style: "filter: invert(100%);" %>
+    <%= image_tag "event_black.png", class: "carousel-image", alt: "Firework", style: "filter: invert(100%);" %>
+    <%= image_tag "movie_black.png", class: "carousel-image", alt: "Movie", style: "filter: invert(100%);" %>
+
   </div>
 
   <a href="/categories" class="button-yellow text-center under-margin">Discover</a>
