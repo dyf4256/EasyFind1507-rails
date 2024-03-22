@@ -1,14 +1,32 @@
 #details-page-header {
   border-bottom: 1px solid black;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 
-  img {
-    padding-left: 20px;
+  .header-box {
+    display: flex; // Use Flexbox
+    justify-content: space-between; // Distribute space between items
+    align-items: center; // Center items vertically
+    text-align: center; // Ensure text is centered if it wraps
+
+    img {
+      margin-right: auto; // Push everything else to the right
+      padding-left: 20px; // Keep your padding for the image
+    }
+
+    .header-text {
+      max-width: 70%; // Limit the width of the header text
+      flex-grow: 1; // Allow the text to take available space
+      font-weight: bold;
+      position: relative;
+      left: -30px; // Adjust accordingly to center the text, considering the back icon's width
+      font-size: 24px;
+      background: linear-gradient(45deg, #FFD700, rgb(239, 165, 6));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(239, 165, 6, 0.15);
+      transform: translateY(-2px);
+    }
   }
-}
-
-.header-text {
-  margin-left: 16%;
-  font-weight: bold;
 }
