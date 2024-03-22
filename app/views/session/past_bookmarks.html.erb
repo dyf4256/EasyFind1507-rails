@@ -22,6 +22,6 @@
 
 <h4 class='text-center mt-2 pt-2 border-top fw-bold'>Shall we keep them?</h4>
 <div class='d-flex justify-content-around'>
-  <%= button_to 'Yes, keep them!', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'true'), class:'btn btn-success' %>
   <%= button_to 'No, start from scratch', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'false'), class:'btn btn-danger text-white' %>
+  <%= button_to 'Yes, keep them!', session_index_path(type: @previous_session.activity_type, import_from_previous_session: 'true'), class:'btn btn-success' %>
 </div>
