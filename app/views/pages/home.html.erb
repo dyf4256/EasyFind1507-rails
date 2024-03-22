@@ -1,4 +1,4 @@
-<div class="carousel-container d-flex flex-column justify-content-center align-items-center w-100 banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("montreal.jpg")%>)">
+<div class="disable-scroll carousel-container d-flex flex-column justify-content-center align-items-center w-100 banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("montreal.jpg")%>)">
   <div class="text-center">
     <h1 class="under-margin bold-text size-32 text-white">Welcome to EasyFind</h1>
     <h3 class="under-margin-more bold-text mx-5 text-white">Discover anything in Montreal whenever</h3>
@@ -11,4 +11,8 @@
   </div>
 
   <a href="/categories" class="button-yellow text-center under-margin">Discover</a>
+
+  <% if controller_name == 'pages' && action_name == 'home' %>
+    <%= javascript_include_tag 'disable_scrolling' %>
+  <% end %>
 </div>
