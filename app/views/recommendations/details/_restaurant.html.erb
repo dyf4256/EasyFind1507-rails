@@ -21,15 +21,15 @@
       <% empty_stars = 5 - full_stars - half_star %>
 
       <% full_stars.times do %>
-        <%= image_tag "star_full.png", alt: "Full Star", class: "star" %>
+        <%= image_tag "star_fullG.png", alt: "Full Star", class: "star" %>
       <% end %>
 
       <% if half_star > 0 %>
-        <%= image_tag "star_half.png", alt: "Half Star", class: "star" %>
+        <%= image_tag "half_starG.png", alt: "Half Star", class: "star" %>
       <% end %>
 
       <% empty_stars.times do %>
-        <%= image_tag "star_empty.png", alt: "Empty Star", class: "star" %>
+        <%= image_tag "empty_star.png", alt: "Empty Star", class: "star" %>
       <% end %>
     </div>
   </div>
