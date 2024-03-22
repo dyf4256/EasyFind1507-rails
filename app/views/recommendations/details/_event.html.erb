@@ -16,6 +16,6 @@
     <p style="font-size: large;">
       <%= recommendation.activity.date %>
     </p>
-  <p><%= recommendation.activity.description.gsub(/Sourced from predicthq.com - /, '') %></p>
+  <p><%= recommendation.activity.description.gsub(/Sourced from predicthq.com - /, '').gsub(/Sourced from predicthq.com/, '') %></p>
 
 </div>
